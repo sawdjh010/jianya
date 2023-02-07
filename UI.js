@@ -1382,7 +1382,7 @@ ui.start.click(function () {
     }
     threads.start(function () {
         //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
-        let url = 'https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
+        let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
         if (vip == 1)
         {execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
         toast('目前处于开放试用阶段') 

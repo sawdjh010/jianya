@@ -1185,7 +1185,7 @@ Initialize();
 
 // 版本更新检查
 var apkurl = "https://gh.fakev.cn/sec-an/Better-Auto-XXQG/releases/download/v2.2.0/v2.2.0.apk";
-var latest_version = "2.2.0";
+var latest_version = "2.3.0";
 if (GLOBAL_CONFIG.get("NO_UPDATE", 0) && (app.versionName != latest_version)) {
     ui.update.visibility = 0;
     ui.update.setText("点击更新至最新版v" + latest_version);
@@ -1290,7 +1290,7 @@ ui.emitter.on("options_item_selected", (e, item) => {
             app.startActivity("console");
             break;
         case "关于":
-            alert("关于", "学习减压四合一PRO v" + latest_version + "\n  新Q群：758116397");
+            alert("关于", "学习减压4+1Pro_v" + latest_version + "\n  新Q群：758116397");
             break;
             case "最新版下载(密码:ex28)":
                 app.openUrl("https://wwsc.lanzouo.com/imSwd0mvp0ze");

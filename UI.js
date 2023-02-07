@@ -28,7 +28,7 @@ const PJYSDK = (function(){
         this._retry_count = 9;
         this._switch_count = 0;
         
-        this._app_key = "******";
+        this._app_key = app_key;
         this._app_secret = app_secret;
         
         this._card = null;

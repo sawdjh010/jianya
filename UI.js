@@ -10,6 +10,7 @@ console.clear();
 ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
 ui.副标题 = "让各位从疫情走出来专心于工作";
+ui.启动赞助公告 = "1.先至VIP卡密栏点击‘登录\试用’,再点击‘开始学习’;\n2.试用期5天,连续群主赞助（支持）;\n3.感谢的支持,修改调试让技术人员每天头发光光一点点欣慰！"
 ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.新增网络验证系统\n3.不同情况选择设置和对应脚本运行\n4.此模板仅供内部测试交流！\n5.试用期过后，请赞助获取卡密（Q群3：758116397，加群获得最新apk和资料）。\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等";
 const PJYSDK = (function(){
     function PJYSDK(app_key, app_secret){
@@ -208,7 +209,7 @@ const PJYSDK = (function(){
     PJYSDK.prototype.Request = function(method, path, params) {
         this.Ping();
         // 构建公共参数
-        params["app_key"] = this._app_key;
+        //params["app_key"] = this._app_key;
 
         method = method.toUpperCase();
         let max_retries = this._retry_count;
@@ -693,6 +694,17 @@ ui.layout(
                                 </horizontal>
                             </card>
                         </vertical>
+                        <vertical>
+                           <horizontal>
+                             <vertical>
+                                {/* 脚本公告配置区域 */}
+                             <vertical>
+                                <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
+                                <text padding='10dp' text='{{ui.启动赞助公告}}'></text>
+                             </vertical>
+                           </vertical>
+                         </horizontal>
+                       </vertical>
                         <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" />
                         <button h="60" layout_gravity="center" id="update" textSize="18sp" />
                         <button id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>

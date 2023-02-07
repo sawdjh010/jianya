@@ -638,10 +638,10 @@ const PJYSDK = (function(){
 /* 将PJYSDK.js文件中的代码复制粘贴到上面 */
 
 // AppKey 和 AppSecret 在泡椒云开发者后台获取
-let pjysdk = new PJYSDK("cefjuc3dqusush5gl3o0", "IsNatuRFc4QUi6YdL18mAQ36Pl0PNOhu");
+let pjysdk = new PJYSDK("cfh8he3dqusul232gs60", "vPlS2036kID2IkVDqzFPGiojS6p7WeTD");
 pjysdk.debug = true;
 
-var vip = 1;//VIP权限自由开关
+var vip = 0;//VIP权限自由开关
 var color = "#FF4FB3FF";
 
 ui.statusBarColor("#FF4FB3FF")
@@ -1234,7 +1234,7 @@ ui.denglu.on('click', () => {
 });
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
-    if(pjysdk.GetTimeRemaining() > 100 )vip = 1;
+    if(pjysdk.GetTimeRemaining() > 100 ) vip = 1;
     toast('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
 })
 ui.pjyLoginFun = function () {
@@ -1385,7 +1385,7 @@ ui.start.click(function () {
         let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
         if (vip == 1)
         {execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
-        toast('目前处于开放试用阶段') 
+        toast('试用期5天后需要你的赞助') 
         }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }

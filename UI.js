@@ -1279,7 +1279,7 @@ ui.pjyLoginFun = function () {
 ui.emitter.on("create_options_menu", menu => {
     menu.add("日志");
     menu.add("关于");
-    menu.add("Github");
+    menu.add("最新版下载(密码:ex28)");
     menu.add("V2.33.0下载");
 });
 
@@ -1290,12 +1290,12 @@ ui.emitter.on("options_item_selected", (e, item) => {
             app.startActivity("console");
             break;
         case "关于":
-            alert("关于", "学习测试四合一PRO v" + latest_version + "\n  新Q群：758116397");
+            alert("关于", "学习减压四合一PRO v" + latest_version + "\n  新Q群：758116397");
             break;
-        case "Github":
-            app.openUrl("https://gitee.com/djh010/xxqg-zhuancang/blob/master/v2.2.pro.apk");
-            break;
-        case "V2.33.0下载":
+            case "最新版下载(密码:ex28)":
+                app.openUrl("https://wwsc.lanzouo.com/imSwd0mvp0ze");
+                break;
+        case "QGV2.33.0下载":
             app.openUrl("https://android-apps.pp.cn/fs08/2021/12/28/3/110_f37c420b0944cb7b9f60a2ad9b5518d2.apk?yingid=web_space&packageid=500730793&md5=664bb7bdcae57be189fc86100f4371c4&minSDK=21&size=191654161&shortMd5=1fee0bd160d08108a9d9e5f4773ce741&crc32=3879122865&did=ad484a175e19d0928044435e24bf03cb");
             break;
     }

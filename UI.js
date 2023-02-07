@@ -10,7 +10,7 @@ console.clear();
 ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
 ui.副标题 = "让各位从疫情走出来专心于工作";
-ui.启动赞助公告 = "1.先至VIP卡密栏点击‘登录\试用’,再点击‘开始学习’;\n2.试用期5天,连续群主赞助（支持）;\n3.感谢的支持,修改调试让技术人员每天头发光光一点点欣慰！"
+ui.启动赞助公告 = "1.每次启动先至'VIP卡密栏'点击'登录/试用'--'脚本配置'(保存配置)--再点击'开始学习'按钮;\n2.试用期5天,联系群主赞助（支持）;\n3.感谢您的支持！！！\n为'技术人员'每次发量减少的修改、调试……，一点点欣慰！"
 ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.新增网络验证系统\n3.不同情况选择设置和对应脚本运行\n4.此模板仅供内部测试交流！\n5.试用期过后，请赞助获取卡密（Q群3：758116397，加群获得最新apk和资料）。\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等";
 const PJYSDK = (function(){
     function PJYSDK(app_key, app_secret){
@@ -1150,7 +1150,7 @@ ui.layout(
                               <input id='bh_kami' w='*'></input>
                            </horizontal>
                            <horizontal>
-                               <button id='denglu' text='登陆\试用' layout_weight='1'></button>
+                               <button id='denglu' text='登录/试用' layout_weight='1'></button>
                                <button id='获取剩余时长' text='获取剩余时长\试用' layout_weight='1'></button>
                            </horizontal>
                            <horizontal>

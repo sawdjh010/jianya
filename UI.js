@@ -28,7 +28,7 @@ const PJYSDK = (function(){
         this._retry_count = 9;
         this._switch_count = 0;
         
-        this._app_key = app_key;
+        this._app_key = "******";
         this._app_secret = app_secret;
         
         this._card = null;
@@ -209,7 +209,7 @@ const PJYSDK = (function(){
     PJYSDK.prototype.Request = function(method, path, params) {
         this.Ping();
         // 构建公共参数
-        //params["app_key"] = this._app_key;
+        params["app_key"] = this._app_key;
 
         method = method.toUpperCase();
         let max_retries = this._retry_count;

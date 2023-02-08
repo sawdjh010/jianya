@@ -3142,17 +3142,26 @@ function xxqg(userinfo) {
   }
 
   if (!zhanghao) return !0;
+  back();
+  sleep(1000);
+  back();
+  sleep(1000);
   text("我的").findOne().click();
-  log("等待设置按钮");
-  b = id("my_setting").findOne();
+  fInfo("等待设置按钮");
+  b = id("my_setting").findOne(4000);
+  if(b == null) click(995,155);
   sleep(1E3);
-  log("点击设置按钮");
+  fInfo("点击设置按钮");
   real_click(b);
-  log("等待退出登录");
-  b = id("setting_sign_out").findOne();
+  fInfo("等待退出登录");
+  b = id("uidic_forms_item_text").findOne(4000);
+  if(b != null) b.click();
+  else{
+  b = id("setting_sign_out").findOne(4000);
   sleep(1E3);
-  log("点击退出登录");
   real_click(b);
+   }
+   fInfo("点击退出登录");
   text("确认").findOne().click();
   return !0
 }

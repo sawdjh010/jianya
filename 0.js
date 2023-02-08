@@ -3145,11 +3145,11 @@ function xxqg(userinfo) {
     }
   }
   if (zhanghao && (vip ==null || vip.length != 11)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
-  if (!zhanghao || vip.length != 11) return !0;
+  if (!zhanghao || (zhanghao && vip.length != 11)) return !0;
   back();
-  sleep(1500);
+  sleep(2000);
   back();
- // sleep(1000);
+  sleep(1000);
   text("我的").findOne().click();
   fInfo("等待设置按钮");
   b = id("my_setting").findOne(4000);

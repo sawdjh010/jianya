@@ -19,7 +19,7 @@ const PJYSDK = (function(){
 
         this.event = events.emitter();
 
-        this.debug = false;
+        this.debug = true;
         this._lib_version = "v1.13";
         this._protocol = "http";
         this._hosts = ["api3.paojiaoyun.com", "api2.paojiaoyun.com", "api.paojiaoyun.com"];

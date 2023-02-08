@@ -3149,10 +3149,10 @@ function xxqg(userinfo) {
   text("我的").findOne().click();
   fInfo("等待设置按钮");
   b = id("my_setting").findOne(4000);
-  if(b == null) click(995,155);
-  sleep(1E3);
   fInfo("点击设置按钮");
-  real_click(b);
+  if(b == null) click(995,155);
+  else  real_click(b);
+  sleep(1E3);
   fInfo("等待退出登录");
   b = id("uidic_forms_item_text").findOne(4000);
   if(b != null) b.click();

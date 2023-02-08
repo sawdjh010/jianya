@@ -655,6 +655,7 @@ ui.layout(
                 <tabs id="tabs" bg="#ff4fb3ff"/>
             </appbar>
             <viewpager id="viewpager">
+            <ScrollView>
                 <frame>
                     <vertical>
                         <vertical gravity="center" layout_weight="1">
@@ -710,6 +711,7 @@ ui.layout(
                         <button id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
                     </vertical>
                 </frame>
+                </ScrollView>
                 <ScrollView>
                     <frame>
                         <vertical id="ttxs_pro" gravity="center">

@@ -1143,7 +1143,7 @@ ui.layout(
                   <frame>
                      <vertical>
                                <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
-                      <vertical padding='5dp'>
+                      <vertical padding='4dp'>
                             <horizontal gravity="center_vertical" padding="0 0">
                                <vertical  padding="0 0" h="auto" w="0" layout_weight="1">
                                <text text='到期时间：'></text>

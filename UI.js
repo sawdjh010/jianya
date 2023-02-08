@@ -707,8 +707,10 @@ ui.layout(
                            </vertical>
                          </horizontal>
                        </vertical>
-                        <button id="denglu_1" text="VIP登录--" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
-                        <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" />
+                       <horizontal>
+                           <button id="denglu_1" text="VIP登录" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                           <button h="50" layout_gravity="center" id="log" textSize="17sp" text="查看日志" ></button>
+                        </horizontal>
                         <button h="60" layout_gravity="center" id="update" textSize="18sp" />
                         <button id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
                     </vertical>

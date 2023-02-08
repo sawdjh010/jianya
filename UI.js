@@ -1241,7 +1241,7 @@ ui.denglu.click(function() {
 });
 //创建按键的点击事件
 ui.denglu.on('click', () => {
-   // ui.storage.put("bh_kami", ui.bh_kami.text());
+    ui.storage.put("bh_kami", ui.bh_kami.text());
     threads.start(ui.pjyLoginFun);
 });
 ui.获取剩余时长.click(function(){
@@ -1405,6 +1405,10 @@ ui.start.click(function () {
     });
 });
 
+// // 保存卡密设置
+// ui.cun_bh_kami.click(function () {
+//     TTXS_PRO_CONFIG.put("cun_bh", ui.bh_kami.getText() + "");
+// });
 // 保存学习测试四合一pro脚本设置
 ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText() + "");

@@ -3230,7 +3230,7 @@ var jifen_map = {
   jifen_flag = "old";
 // 分割账号
 var noverify_thread = noverify();
-if (zhanghao) {
+if (zhanghao && vip.length == 11) {
   var zhanghao_list = [];
   for (let zh of zhanghao.split("\n")) {
     let userinfo = zh.split(/:|：/);

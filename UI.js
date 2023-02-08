@@ -702,15 +702,15 @@ ui.layout(
                              <vertical>
                                 <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                                 <text padding='10dp' text='{{ui.启动赞助公告}}'></text>
+                                <text w="auto" textColor="#999999" textSize="12sp" text="已获得卡密，切已保存卡密的，（脚本配置好）直接点击此处‘VIP登录’，再点‘开始学习’" ></text>
                              </vertical>
                            </vertical>
                          </horizontal>
                        </vertical>
-                        <text w="auto" textColor="#999999" textSize="12sp" text="已获得卡密，切已保存卡密的，（脚本配置好）直接点击此处‘VIP登录’，再点‘开始学习’" />
-                        <button id="denglu_1" text="VIP登录--1" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
-                        <button h="50" layout_gravity="center" id="log" textSize="18sp" text="查看日志" layout_weight='1'></button>
-                        <button h="60" layout_gravity="center" id="update" textSize="18sp" /> 
-                        <button id="start" text="开 始 学 习--2" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
+                        <button id="denglu_1" text="VIP登录--" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                        <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" />
+                        <button h="60" layout_gravity="center" id="update" textSize="18sp" />
+                        <button id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
                     </vertical>
                 </frame>
                 </ScrollView>

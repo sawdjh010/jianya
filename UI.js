@@ -1610,8 +1610,8 @@ ui.study_baiduregister.click(function () {
 
 // 读取脚本设置
 function Initialize() {
+    ui.bh_kami.setText(CUN_BH_KAMI_CONFIG.get("bh_kami", ""));//读取卡密
     ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
-
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog", "1800"));
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode", false));

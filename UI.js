@@ -1421,14 +1421,33 @@ ui.update.click(function () {
 
 // 下载并运行所选脚本
 ui.start.click(function () {
+    toast('耐心等待脚本加载……');
+    threads.start(function(){
+        pjysdk.SetCard(ui.bh_kami.getText().toString());
+        let login_ret = pjysdk.CardLogin();
+        if (login_ret.code == 0) {
+            // 登录成功，后面写你的业务代码
+            // console.show();
+            console.log('欢迎你使用本脚本');
+            toast('欢迎你使用本脚本');
+             vip = 2;
+        
+        } else {
+            // 登录失败提示
+            toast(login_ret.message);
+        }
+    });
+    sleep(1000);
     threads.shutDownAll();
     if (thread != null && thread.isAlive()) {
         alert("注意", "脚本正在运行，请结束之前进程");
         return;
     }
+    toast('耐心等待脚本加载……');
     threads.start(function () {
         //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
         let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
+       
         if (vip == 1|| vip == 2)
         {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
        if(vip == 1) toast('试用期5天后需要你的赞助') 

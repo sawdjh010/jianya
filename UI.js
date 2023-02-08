@@ -1151,7 +1151,7 @@ ui.layout(
                            </horizontal>
                            <horizontal>
                                <button id='denglu' text='登录/试用' layout_weight='1'></button>
-                               <button id='获取剩余时长' text='获取剩余时长\试用' layout_weight='1'></button>
+                               <button id='获取剩余时长' text='剩余时长' layout_weight='1'></button>
                            </horizontal>
                            <horizontal>
                              <vertical>
@@ -1241,7 +1241,7 @@ ui.denglu.click(function() {
 });
 //创建按键的点击事件
 ui.denglu.on('click', () => {
-    ui.storage.put("bh_kami", ui.bh_kami.text());
+   // ui.storage.put("bh_kami", ui.bh_kami.text());
     threads.start(ui.pjyLoginFun);
 });
 ui.获取剩余时长.click(function(){

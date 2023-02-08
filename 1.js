@@ -2640,8 +2640,8 @@ function xxqg(userinfo) {
   }
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
 
-  if (zhanghao && (vip ==null || vip.length != 11)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
-  if (!zhanghao || (zhanghao && vip.length != 11)) return !0;
+  if (zhanghao && (vip ==null || vip.length != 12)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
+  if (!zhanghao || (zhanghao && vip.length != 12)) return !0;
   text("我的").findOne().click();
   log("等待设置按钮");
   b = id("my_setting").findOne();
@@ -2711,7 +2711,7 @@ var jifen_map = {
   jifen_flag = "old";
 // 分割账号
 var noverify_thread = noverify();
-if (zhanghao && vip.length == 11) {
+if (zhanghao && vip.length == 12) {
   var zhanghao_list = [];
   for (let zh of zhanghao.split("\n")) {
     let userinfo = zh.split(/:|：/);

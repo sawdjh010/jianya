@@ -1427,14 +1427,7 @@ ui.start.click(function () {
      kami = BH_KAMI_CONFIG.get("bh_kami", "");
    toast("kami:" + kami)
      if (kami.length ==12){
-        threads.start(function(){ ui.pjyLoginFun = function () {
-            //登陆线程
-            ui.run(() => {
-                ui.endTime.setText("登陆中...");
-               // ui.Remaining_time.setText("登陆中...");
-            });
-           // let kami = ui.bh_kami.text();
-            if (kami != "" && kami != null) {
+       
                 console.info("读取到了卡密:%s", kami);
                 //开始判断卡密是否过期
                 pjysdk.SetCard(kami);
@@ -1452,11 +1445,7 @@ ui.start.click(function () {
                     ui.endTime.setText(pjyUser.message);
         
                 }
-            });
-        }
-       });
-        }
-   
+          
     threads.shutDownAll();
     if (thread != null && thread.isAlive()) {
         alert("注意", "脚本正在运行，请结束之前进程");

@@ -33,7 +33,7 @@ var pushplus = TTXS_PRO_CONFIG.get("pushplus", "");
 var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
-var vip = BH_KAMI_CONFIG.get("bh_kami", "");
+//var vip = BH_KAMI_CONFIG.get("bh_kami", "");
 var isPrivateModes = getVersion("cn.xuexi.android").match(/[0-9][0-9]*/g).join('');
 var isPrivateMode_1 = isPrivateModes-2380;
 
@@ -2994,6 +2994,7 @@ function xxqg(userinfo) {
     login(username, pwd);
   }
   /********获取用户姓名并读取本地数据*********/
+  fInfo("vip:" + vip)
   text("我的").findOne().click();
   fInfo("检测界面……?新?旧 " + "\n   耐心等待……")
   // name = id("my_display_name").findOne().text();

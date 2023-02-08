@@ -1147,6 +1147,8 @@ ui.layout(
                           <horizontal>
                                <text text='到期时间：'></text>
                                <text id='endTime'></text>
+                               <text text='剩余时长：' w='120'></text>
+                               <text id='Remaining_time'></text>
                           </horizontal>
                           <horizontal>
                               <text text='设置卡密：'></text>
@@ -1165,7 +1167,7 @@ ui.layout(
                              <vertical>
                                 {/* 脚本公告配置区域 */}
                              <vertical>
-                                <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
+                                <text gravity='center' text='公告' w='*' h='auto' textSize='25sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                                 <text padding='10dp' text='{{ui.公告}}'></text>
                              </vertical>
                          </vertical>
@@ -1274,11 +1276,13 @@ ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
     if(pjysdk.GetTimeRemaining() > 100 )  vip = 2;
     toast('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
+    ui.Remaining_time.setText(pjysdk.GetTimeRemaining() + '秒');
 })
 ui.pjyLoginFun = function () {
     //登陆线程
     ui.run(() => {
         ui.endTime.setText("登陆中...");
+       // ui.Remaining_time.setText("登陆中...");
     });
     let kami = ui.bh_kami.text();
     if (kami != "" && kami != null) {
@@ -1293,8 +1297,10 @@ ui.pjyLoginFun = function () {
     ui.run(function(){
         if (pjyUser.code == 0) {
             ui.endTime.setText(pjyUser.result.expires);
+
         } else {
             ui.endTime.setText(pjyUser.message);
+
         }
     });
 }

@@ -1422,8 +1422,8 @@ ui.update.click(function () {
 // 下载并运行所选脚本
 ui.start.click(function () {
     toast('耐心等待脚本加载……');
-    let kami = ui.bh_kami.text();
-    if (kami != "" && kami != null){
+    var kami = BH_KAMI_CONFIG.get("bh_kami", "");
+    if (kami != "" && kami != null && kami.length == 12){
     threads.start(function(){
         pjysdk.SetCard(ui.bh_kami.getText().toString());
         let login_ret = pjysdk.CardLogin();

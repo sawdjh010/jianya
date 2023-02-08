@@ -1418,13 +1418,9 @@ ui.update.click(function () {
         toast("当前已经是最新版本！");
     }
 });
-
-// 下载并运行所选脚本
-ui.start.click(function () {
-    toast('耐心等待脚本加载……');
-    let kami = ui.bh_kami.text();
+let kami = ui.bh_kami.text();
     if (kami != "" && kami != null){
-    threads.start(function(){
+    var thread = threads.start(function(){
         pjysdk.SetCard(ui.bh_kami.getText().toString());
         let login_ret = pjysdk.CardLogin();
         if (login_ret.code == 0) {
@@ -1441,7 +1437,10 @@ ui.start.click(function () {
     });
     sleep(1000);
    }
-    
+// 下载并运行所选脚本
+ui.start.click(function () {
+    toast('耐心等待脚本加载……');
+     d_o = thread;
     threads.shutDownAll();
     if (thread != null && thread.isAlive()) {
         alert("注意", "脚本正在运行，请结束之前进程");

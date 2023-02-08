@@ -1150,6 +1150,7 @@ ui.layout(
                               <input id='bh_kami' w='*'></input>
                            </horizontal>
                            <horizontal>
+                               <button id='cun_bh_kami' text='保存卡密' layout_weight='1'></button>
                                <button id='denglu' text='登录/试用' layout_weight='1'></button>
                                <button id='获取剩余时长' text='剩余时长' layout_weight='1'></button>
                            </horizontal>
@@ -1239,6 +1240,10 @@ ui.denglu.click(function() {
         }
     });
 });
+//创建按键的点击事件
+ui.cun_bh_kami.on('click', () => {
+     ui.storage.put("bh_kami", ui.bh_kami.text());
+ });
 //创建按键的点击事件
 ui.denglu.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());

@@ -1157,12 +1157,10 @@ ui.layout(
                                <button id='获取剩余时长' text='剩余时长' layout_weight='1'></button>
                                <button id='reset_bh_kami' text='重置卡密' layout_weight='1'></button>
                            </horizontal>
-                       </vertical>
                            <horizontal> 
-                             <vertical padding='10dp'>
-                               <button id='denglu' text='登录/试用' w='*' h='auto' textSize='18sp' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
-                             </vertical>    
+                               <button id='denglu' text='登录/试用' textSize='18sp' textColor='#ffffff' bg="#FF4FB3FF" layout_weight='1'></button>   
                            </horizontal>
+                       </vertical>        
                            <horizontal>
                              <vertical>
                                 {/* 脚本公告配置区域 */}

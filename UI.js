@@ -1422,27 +1422,27 @@ ui.update.click(function () {
 // 下载并运行所选脚本
 ui.start.click(function () {
     toast('耐心等待脚本加载 中……');
-    threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));});
-    var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
-     kami = BH_KAMI_CONFIG.get("bh_kami", "");
-   toast("kami:" + kami)
-     if (kami.length ==12){
+//     threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));});
+//     var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
+//      kami = BH_KAMI_CONFIG.get("bh_kami", "");
+//    toast("kami:" + kami)
+//      if (kami.length ==12){
        
-                console.info("读取到了卡密:%s", kami);
-                //开始判断卡密是否过期
-                pjysdk.SetCard(kami);
-                pjyUser = pjysdk.CardLogin();
+//                 console.info("读取到了卡密:%s", kami);
+//                 //开始判断卡密是否过期
+//                 pjysdk.SetCard(kami);
+//                 pjyUser = pjysdk.CardLogin();
                 
-            } else {
-                console.info("未读取到卡密，开始试用登陆");
-                pjyUser = pjysdk.TrialLogin();
-            }
-                if (pjyUser.code == 0) {
-                    ui.endTime.setText(pjyUser.result.expires);
-                    vip=2
-                } else {
-                    ui.endTime.setText(pjyUser.message);
-                }  
+//             } else {
+//                 console.info("未读取到卡密，开始试用登陆");
+//                 pjyUser = pjysdk.TrialLogin();
+//             }
+//                 if (pjyUser.code == 0) {
+//                     ui.endTime.setText(pjyUser.result.expires);
+//                     vip=2
+//                 } else {
+//                     ui.endTime.setText(pjyUser.message);
+//                 }  
                
     threads.shutDownAll();
     if (thread != null && thread.isAlive()) {

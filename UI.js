@@ -1667,6 +1667,7 @@ function Initialize() {
     ui.study_time1.setText(STUDY_CONFIG.get("time1", "61"));
     ui.study_time2.setText(STUDY_CONFIG.get("time2", "6"));
     ui.study_Token.setText(STUDY_CONFIG.get("Token", ""));
+    vip=vip;
 }
 
 // 检查百度API

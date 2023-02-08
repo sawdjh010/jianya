@@ -702,7 +702,7 @@ ui.layout(
                              <vertical>
                                 <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                                 <text padding='10dp' text='{{ui.启动赞助公告}}'></text>
-                                <text w="auto" textColor="#999999" textSize="12sp" text="已有卡密,且上方'vip卡密栏'处已保存卡密,(脚本配置后)先点击此处‘VIP登录’，再点‘开始学习’" ></text>
+                                <text w="auto" textColor="#999999" textSize="12sp" text="已有卡密,且上方'vip卡密栏'处已保存卡密,(脚本配置后)\n  先点击此处‘VIP登录’，再点‘开始学习’" ></text>
                              </vertical>
                            </vertical>
                          </horizontal>

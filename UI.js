@@ -1424,7 +1424,7 @@ ui.start.click(function () {
     toast('耐心等待脚本加载中……');
     var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
     var kami = BH_KAMI_CONFIG.get("bh_kami", "");
-   toast("kami")
+   toast(kami)
     if (kami != "" && kami != null && kami.length == 12){
     threads.start(function(){
         pjysdk.SetCard(ui.bh_kami.getText().toString());

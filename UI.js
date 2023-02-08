@@ -708,6 +708,7 @@ ui.layout(
                        </vertical>
                         <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" />
                         <button h="60" layout_gravity="center" id="update" textSize="18sp" />
+                        <button id="denglu_1" text="VIP登录" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
                         <button id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
                     </vertical>
                 </frame>
@@ -1250,6 +1251,23 @@ ui.denglu.click(function() {
         }
     });
 });
+ui.denglu_1.click(function() {
+    threads.start(function(){
+        pjysdk.SetCard(ui.bh_kami.getText().toString());
+        let login_ret = pjysdk.CardLogin();
+        if (login_ret.code == 0) {
+            // 登录成功，后面写你的业务代码
+            // console.show();
+            console.log('欢迎你使用本脚本');
+            toast('欢迎你使用本脚本');
+             vip = 2;
+        
+        } else {
+            // 登录失败提示
+            toast(login_ret.message);
+        }
+    });
+});
 //创建按键的点击事件--保存卡密
 ui.cun_bh_kami.on('click', () => {
     let kami = ui.bh_kami.text();
@@ -1271,6 +1289,10 @@ ui.cun_bh_kami.on('click', () => {
  });
 //创建按键的点击事件
 ui.denglu.on('click', () => {
+    // ui.storage.put("bh_kami", ui.bh_kami.text());
+     threads.start(ui.pjyLoginFun);
+ });
+ ui.denglu_1.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
      threads.start(ui.pjyLoginFun);
  });

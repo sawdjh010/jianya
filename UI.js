@@ -1428,7 +1428,7 @@ ui.start.click(function () {
    toast("kami:" + kami)
     if (kami != "" && kami != null && kami.length > 10){
     threads.start(function(){
-        pjysdk.SetCard(ui.bh_kami.getText().toString());
+        pjysdk.SetCard(kami.toString());
         let login_ret = pjysdk.CardLogin();
         if (login_ret.code == 0) {
             // 登录成功，后面写你的业务代码

@@ -1153,7 +1153,7 @@ ui.layout(
                                <text id='Remaining_time'></text>
                               </horizontal>
                              <horizontal>
-                              <text text='设置卡密：'></text>
+                              <text text='设置卡密：' textSize='12sp'></text>
                               <input id='bh_kami' w='*'></input>
                              </horizontal>
                              <horizontal>

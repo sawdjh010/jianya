@@ -1174,7 +1174,7 @@ ui.layout(
 ui.update.visibility = 8;
 
 http.__okhttp__.setTimeout(10000);
-
+var CUN_BH_KAMI_CONFIG = storages.create("CUN_BH_KAMI_CONFIG");
 
 var GLOBAL_CONFIG = storages.create("GLOBAL_CONFIG");
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
@@ -1243,7 +1243,7 @@ ui.denglu.click(function() {
 //创建按键的点击事件
 ui.cun_bh_kami.on('click', () => {
     let kami = ui.bh_kami.text();
-    if (kami != "" && kami != null) cun_bh_kami.put("cun_bh_kami", ui.bh_kami.getText() + "");
+    if (kami != "" && kami != null) CUN_BH_KAMI_CONFIG.put("cun_bh_kami", ui.bh_kami.getText() + "");
     //ui.storage.put("bh_kami", ui.bh_kami.text());
     else  toast('请正确输入卡密或联系群主');
  });

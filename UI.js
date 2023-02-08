@@ -1145,13 +1145,14 @@ ui.layout(
                                <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
                       <vertical padding='8dp'>
                             <horizontal  gravity="center_vertical" padding="5 5" >
-                               <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                               <vertical padding="5 5" h="auto" w="0" layout_weight="1">
                                <text text='到期时间：'></text>
                                <text id='endTime'></text>
                                </vertical> 
-                               <vertical padding="10 8" h="auto" w="0" layout_weight="1"></vertical>
+                               <vertical padding="5 5" h="auto" w="0" layout_weight="1">
                                <text text='剩余时长：'></text>
-                               <text id='Remaining_time'></text>
+                               <text id='Remaining_time'  w='120'></text>
+                               </vertical>
                           </horizontal>
                           <horizontal>
                               <text text='设置卡密：'></text>

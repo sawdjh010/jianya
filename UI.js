@@ -1421,18 +1421,18 @@ ui.update.click(function () {
 
 // 下载并运行所选脚本
 ui.start.click(function () {
-    toast('耐心等待脚本加载 ……');
-    threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));
+    toast('耐心等待脚本加载 中……');
+    threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));});
     var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
      kami = BH_KAMI_CONFIG.get("bh_kami", "");
    toast("kami:" + kami)
     if (kami != "" && kami != null && kami.length ==12){
             //登陆线程
-            ui.run(() => {
-                ui.endTime.setText("登陆中...");
-               // ui.Remaining_time.setText("登陆中...");
-            });
-            let kami = ui.bh_kami.text();
+            // ui.run(() => {
+            //     ui.endTime.setText("登陆中...");
+            //    // ui.Remaining_time.setText("登陆中...");
+            // });
+          //  let kami = ui.bh_kami.text();
             if (kami != "" && kami != null) {
                 console.info("读取到了卡密:%s", kami);
                 //开始判断卡密是否过期
@@ -1442,17 +1442,17 @@ ui.start.click(function () {
                 console.info("未读取到卡密，开始试用登陆");
                 pjyUser = pjysdk.TrialLogin();
             }
-            ui.run(function(){
-                if (pjyUser.code == 0) {
-                    ui.endTime.setText(pjyUser.result.expires);
+            // ui.run(function(){
+            //     if (pjyUser.code == 0) {
+            //         ui.endTime.setText(pjyUser.result.expires);
         
-                } else {
-                    ui.endTime.setText(pjyUser.message);
+            //     } else {
+            //         ui.endTime.setText(pjyUser.message);
         
-                }
-            });  
+            //     }
+            // });  
       }
-    });
+    
     threads.shutDownAll();
     if (thread != null && thread.isAlive()) {
         alert("注意", "脚本正在运行，请结束之前进程");

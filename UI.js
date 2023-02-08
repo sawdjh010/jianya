@@ -669,25 +669,25 @@ ui.layout(
                                     <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)需root、虚拟机等去截图权限版|天天向上Pro|天天向上|Study改" />
                                 </horizontal>
                             </card>
-                            <card w="*" h="50" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
+                            <card w="*" h="60" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="无障碍服务" textColor="#222222" textSize="16sp" maxLines="1" />
-                                        <text text="请确保开启" textColor="#999999" textSize="14sp" maxLines="1" />
+                                        <text text="请确保开启" textColor="#999999" textSize="12sp" maxLines="1" />
                                     </vertical>
                                     <checkbox id="autoService" marginLeft="4" marginRight="6" checked="{{auto.service != null}}" />
                                 </horizontal>
                             </card>
-                            <card w="*" h="50" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
+                            <card w="*" h="60" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="悬浮窗权限" textColor="#222222" textSize="16sp" maxLines="1" />
-                                        <text text="请确保开启" textColor="#999999" textSize="14sp" maxLines="1" />
+                                        <text text="请确保开启" textColor="#999999" textSize="12sp" maxLines="1" />
                                     </vertical>
                                     <checkbox id="consoleshow" marginLeft="4" marginRight="6" checked="{{floaty.checkPermission()}}" />
                                 </horizontal>
                             </card>
-                            <card w="*" h="50" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
+                            <card w="*" h="40" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="音量上键可以停止所有脚本运行" textColor="#222222" textSize="16sp" maxLines="1" />

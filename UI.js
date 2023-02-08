@@ -1421,7 +1421,7 @@ ui.update.click(function () {
 
 // 下载并运行所选脚本
 ui.start.click(function () {
-    toast('耐心等待脚本加载中……');
+    toast('耐心等待脚本加载 ……');
     threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));
     var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
      kami = BH_KAMI_CONFIG.get("bh_kami", "");

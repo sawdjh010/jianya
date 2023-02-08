@@ -1243,9 +1243,9 @@ ui.denglu.click(function() {
 //创建按键的点击事件
 ui.cun_bh_kami.on('click', () => {
     let kami = ui.bh_kami.text();
-    if (kami != "" && kami != null) BH_KAMI_CONFIG.put("bh_kami", ui.bh_kami.getText() + "");
+    if (kami != "" && kami != null) {BH_KAMI_CONFIG.put("bh_kami", ui.bh_kami.getText() + "");
+    toast('卡密保存成功');} else  toast('请正确输入卡密或联系群主');
     //ui.storage.put("bh_kami", ui.bh_kami.text());
-    else  toast('请正确输入卡密或联系群主');
  });
 //创建按键的点击事件
 ui.denglu.on('click', () => {

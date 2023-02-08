@@ -1153,13 +1153,13 @@ ui.layout(
                                <text id='Remaining_time'></text>
                               </horizontal>
                              <horizontal>
-                              <text text='设置卡密：' textSize='16sp'></text>
+                              <text text='设置卡密：' textSize='17sp'></text>
                               <input id='bh_kami' w='*'></input>
                              </horizontal>
                              <horizontal>
-                               <button id='cun_bh_kami' text='保存卡密' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
-                               <button id='获取剩余时长' text='剩余时长' layout_weight='1'></button>
-                               <button id='reset_bh_kami' text='重置卡密' layout_weight='1'></button>
+                               <button id='cun_bh_kami' text='保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                               <button id='获取剩余时长' text='剩余时长' textSize='17sp' layout_weight='1'></button>
+                               <button id='reset_bh_kami' text='重置卡密' textSize='17sp' layout_weight='1'></button>
                            </horizontal>
                            <horizontal> 
                                <button id='denglu' text='登录/试用' textSize='18sp' textColor='#ffffff' bg="#FF4FB3FF" layout_weight='1'></button>   

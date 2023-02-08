@@ -1174,7 +1174,7 @@ ui.layout(
 ui.update.visibility = 8;
 
 http.__okhttp__.setTimeout(10000);
-var CUN_BH_KAMI_CONFIG = storages.create("CUN_BH_KAMI_CONFIG");
+var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 
 var GLOBAL_CONFIG = storages.create("GLOBAL_CONFIG");
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
@@ -1243,7 +1243,7 @@ ui.denglu.click(function() {
 //创建按键的点击事件
 ui.cun_bh_kami.on('click', () => {
     let kami = ui.bh_kami.text();
-    if (kami != "" && kami != null) CUN_BH_KAMI_CONFIG.put("cun_bh_kami", ui.bh_kami.getText() + "");
+    if (kami != "" && kami != null) BH_KAMI_CONFIG.put("bh_kami", ui.bh_kami.getText() + "");
     //ui.storage.put("bh_kami", ui.bh_kami.text());
     else  toast('请正确输入卡密或联系群主');
  });
@@ -1610,7 +1610,7 @@ ui.study_baiduregister.click(function () {
 
 // 读取脚本设置
 function Initialize() {
-    ui.bh_kami.setText(CUN_BH_KAMI_CONFIG.get("bh_kami", ""));//读取卡密
+    ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));//读取卡密
     ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog", "1800"));
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));

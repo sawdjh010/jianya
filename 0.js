@@ -1598,8 +1598,9 @@ function do_dingyue() {
         for (let ii = 0; ii < asub_1; ii++) {
           while (total_click < 2 && asub_1 != 0) {
           while(total_click < 2){
+            sleep(random(500, 1000)); 
             let img = captureScreen();
-          sleep(random(800, 1500));
+          sleep(random(300, 500));
           try {
             var pot = findColorInRegion(img, "#E42417", 1000, 100,
             device.width - 1000, device.height - 200, 30);
@@ -1615,6 +1616,7 @@ function do_dingyue() {
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
             sleep(random(800, 1500)); 
             click(pot.x, pot.y+5);
+            fInfo("点击坐标 (" + pot.x + "," + (pot.y+5) + ")");
             fInfo("完成第 " + (total_click + 1) + " 订阅");
             total_click += 1;
              img.recycle();
@@ -1662,8 +1664,9 @@ function do_dingyue() {
               for (let ii = 0; ii < asub_1; ii++) {
                 while (total_click < 2 && asub_1 != 0) {
                   while(total_click < 2){
+                sleep(random(500, 1000)); 
                 let img = captureScreen();
-                sleep(random(800, 1500));
+                sleep(random(300, 500));
                 try {
                   var pot = findColorInRegion(img, "#E42417", 1000, 100,
                   device.width - 1000, device.height - 200, 30);
@@ -1679,7 +1682,8 @@ function do_dingyue() {
                   //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
                   sleep(random(800, 1500)); 
                   click(pot.x, pot.y+5);
-                  fInfo("完成第 " + (total_click + 1) + " 订阅");
+                  fInfo("点击坐标 (" + pot.x + "," + (pot.y+5) + ")");
+                  fInfo("完成第 " + (total_click + 1) + " 订阅"); 
                   total_click += 1;
                  // sleep(random(800, 1500));
                    img.recycle();

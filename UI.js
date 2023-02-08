@@ -1144,12 +1144,12 @@ ui.layout(
                      <vertical>
                                <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
                       <vertical padding='8dp'>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
-                               <vertical>
+                            <horizontal>
+                               <vertical  padding="2 1" h="auto" w="0" layout_weight="1">
                                <text text='到期时间：'></text>
                                <text id='endTime'></text>
                                </vertical> 
-                               <vertical>
+                               <vertical padding="2 1" h="auto" w="0" layout_weight="1">
                                <text text='剩余时长：'></text>
                                <text id='Remaining_time'></text>
                                </vertical>

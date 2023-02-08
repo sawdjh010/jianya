@@ -1147,6 +1147,8 @@ ui.layout(
                               <horizontal>
                                <text text='到期时间：'></text>
                                <text id='endTime'></text>
+                              </horizontal>
+                              <horizontal>
                                <text text='剩余时长：'></text>
                                <text id='Remaining_time'></text>
                               </horizontal>

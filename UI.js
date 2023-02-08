@@ -1150,8 +1150,8 @@ ui.layout(
                                <text id='endTime'></text>
                                </vertical> 
                                <vertical padding="10 8" h="auto" w="0" layout_weight="1"></vertical>
-                               <text text='      剩余时长：'></text>
-                               <text id='Remaining_time'  w='120'></text>
+                               <text text='剩余时长：'></text>
+                               <text id='Remaining_time'></text>
                           </horizontal>
                           <horizontal>
                               <text text='设置卡密：'></text>

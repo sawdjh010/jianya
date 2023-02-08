@@ -220,8 +220,9 @@ var engine_version = "V11.2";
 var newest_version = "V11.5";
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
-  let gengxin_rows = ["最新版本强国APP不支持多人对战，切勿更新！",
-    "强国APP版本v2.33.0以上不支持订阅，可以在豌豆荚中下载历史版本",
+  let gengxin_rows = ["最新版本强国APP需要虚拟机或者root【请确保手机已root或使用的虚拟机+相应插件】",
+        "四人/双人赛等才能使用!(并新增支持qg新版的订阅)",
+    "其它版本的脚本仅适用qg V2.33版，可以在豌豆荚中下载历史版本",
     "（点击取消不再提示）"
   ];
   let is_show = confirm(engine_version + "版更新内容", gengxin_rows.join("\n"));

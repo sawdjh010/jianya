@@ -707,8 +707,8 @@ ui.layout(
                          </horizontal>
                        </vertical>
                        <horizontal>
-                        <button id="denglu_1" text="VIP登录" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
-                        <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" />
+                        <button id="denglu_1" text="VIP登录" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                        <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" layout_weight='1'/>
                         </horizontal>
                         <button h="60" layout_gravity="center" id="update" textSize="18sp" />
                         

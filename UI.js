@@ -651,7 +651,7 @@ ui.layout(
     <drawer id="drawer">
         <vertical>
             <appbar>
-                <toolbar id="toolbar" bg="#ff4fb3ff" title="学习测试四合一PRO"/>
+                <toolbar id="toolbar" bg="#ff4fb3ff" title="学习减压四合一PRO"/>
                 <tabs id="tabs" bg="#ff4fb3ff"/>
             </appbar>
             <viewpager id="viewpager">
@@ -1406,7 +1406,7 @@ ui.start.click(function () {
         //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
         let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
         if (vip == 1|| vip == 2)
-        {execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
+        {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
        if(vip == 1) toast('试用期5天后需要你的赞助') 
        if(vip == 2) toast('感谢您的赞助与支持，欢迎正式登录使用') 
         }
@@ -1419,7 +1419,7 @@ ui.start.click(function () {
 // ui.cun_bh_kami.click(function () {
 //     TTXS_PRO_CONFIG.put("cun_bh", ui.bh_kami.getText() + "");
 // });
-// 保存学习测试四合一pro脚本设置
+// 保存学习减压四合一pro脚本设置
 ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText() + "");
     TTXS_PRO_CONFIG.put("slide_verify", ui.ttxs_pro_slide_verify.getText() + "");
@@ -1450,10 +1450,10 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("yinliang", ui.ttxs_pro_yinliang.getText() + "");
     TTXS_PRO_CONFIG.put("zhanghao", ui.ttxs_pro_zhanghao.getText() + "");
 
-    toastLog("学习测试四合一pro配置保存成功！");
+    toastLog("学习减压四合一pro配置保存成功！");
 });
 
-// 重置学习测试四合一pro脚本设置
+// 重置学习减压四合一pro脚本设置
 ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", "1800");
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog"));
@@ -1512,7 +1512,7 @@ ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("zhanghao", "");
     ui.ttxs_pro_zhanghao.setText(TTXS_PRO_CONFIG.get("zhanghao"));
 
-    toastLog("学习测试四合一pro配置恢复默认！");
+    toastLog("学习减压四合一pro配置恢复默认！");
 });
 
 // 保存study脚本设置

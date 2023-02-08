@@ -708,7 +708,7 @@ ui.layout(
                        </vertical>
                        <horizontal>
                         <button id="denglu_1" text="VIP登录" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
-                        <text text="已获得卡密，切已保存卡密的，（脚本配置好）直接点击此处‘VIP登录’，再点‘开始学习’" textColor="#999999" textSize="12sp" maxLines="1" />
+                        <text w="auto" textColor="#999999" textSize="12sp" text="已获得卡密，切已保存卡密的，（脚本配置好）直接点击此处‘VIP登录’，再点‘开始学习’" />
                         <button h="60" layout_gravity="center" id="log" textSize="18sp" text="查看日志" padding='1dp' layout_weight='1'/>
                         </horizontal>
                         <button h="60" layout_gravity="center" id="update" textSize="18sp" /> 

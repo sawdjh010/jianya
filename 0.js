@@ -3144,8 +3144,8 @@ function xxqg(userinfo) {
       fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
   }
-  if (zhanghao && (vip ==null || vip.length != 11)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
-  if (!zhanghao || (zhanghao && vip.length != 11)) return !0;
+  if (zhanghao && (vip ==null || vip.length != 12)) fInfo(vip.length+"多账号仅适用于VIP卡用户，请联系群主支持赞助");
+  if (!zhanghao || (zhanghao && vip.length != 12)) return !0;
   back();
   sleep(2000);
   back();
@@ -3230,7 +3230,7 @@ var jifen_map = {
   jifen_flag = "old";
 // 分割账号
 var noverify_thread = noverify();
-if (zhanghao && vip.length == 11) {
+if (zhanghao && vip.length == 12) {
   var zhanghao_list = [];
   for (let zh of zhanghao.split("\n")) {
     let userinfo = zh.split(/:|：/);

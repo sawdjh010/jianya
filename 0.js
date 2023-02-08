@@ -4,6 +4,8 @@ var myScores = {}; //分数
 device.wakeUpIfNeeded();
 
 // 读取自定义配置
+var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
+
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
 var watchdog = TTXS_PRO_CONFIG.get("watchdog", "1800");
 var slide_verify = TTXS_PRO_CONFIG.get("slide_verify", "300");
@@ -33,7 +35,7 @@ var pushplus = TTXS_PRO_CONFIG.get("pushplus", "");
 var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
-//var vip = BH_KAMI_CONFIG.get("bh_kami", "");
+var vip = BH_KAMI_CONFIG.get("bh_kami", "");
 var isPrivateModes = getVersion("cn.xuexi.android").match(/[0-9][0-9]*/g).join('');
 var isPrivateMode_1 = isPrivateModes-2380;
 
@@ -2994,7 +2996,7 @@ function xxqg(userinfo) {
     login(username, pwd);
   }
   /********获取用户姓名并读取本地数据*********/
-  fInfo("vip:" + vip)
+ // fInfo("vip:" + vip)
   text("我的").findOne().click();
   fInfo("检测界面……?新?旧 " + "\n   耐心等待……")
   // name = id("my_display_name").findOne().text();

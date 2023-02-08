@@ -3,6 +3,8 @@ var delay_time = 3000;
 device.wakeUpIfNeeded();
 
 // 读取自定义配置
+var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
+
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
 var watchdog = TTXS_PRO_CONFIG.get("watchdog", "1800");
 var slide_verify = TTXS_PRO_CONFIG.get("slide_verify", "300");

@@ -33,7 +33,7 @@ var pushplus = TTXS_PRO_CONFIG.get("pushplus", "");
 var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
-
+var vip = BH_KAMI_CONFIG.get("bh_kami", "");
 var isPrivateModes = getVersion("cn.xuexi.android").match(/[0-9][0-9]*/g).join('');
 var isPrivateMode_1 = isPrivateModes-2380;
 
@@ -3141,8 +3141,8 @@ function xxqg(userinfo) {
       fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
   }
-  if (zhanghao && vip !=2) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
-  if (!zhanghao || vip !=2) return !0;
+  if (zhanghao && (vip ==null || vip.length != 11)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
+  if (!zhanghao || vip.length != 11) return !0;
   back();
   sleep(1500);
   back();

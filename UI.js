@@ -19,7 +19,7 @@ const PJYSDK = (function(){
 
         this.event = events.emitter();
 
-        this.debug = true;
+        this.debug = false;
         this._lib_version = "v1.13";
         this._protocol = "http";
         this._hosts = ["api3.paojiaoyun.com", "api2.paojiaoyun.com", "api.paojiaoyun.com"];
@@ -1208,7 +1208,7 @@ pjysdk.event.on("heartbeat_failed", function(hret) {
     let login_ret = pjysdk.CardLogin();
     if (login_ret.code == 0) {
         log("重登成功");
-        var vip = 2;
+         vip = 2;
     } else {
         toastLog(login_ret.message);  // 重登失败
         sleep(200);
@@ -1234,7 +1234,7 @@ ui.denglu.click(function() {
             // console.show();
             console.log('欢迎你使用本脚本');
             toast('欢迎你使用本脚本');
-            var vip = 2;
+             vip = 2;
         
         } else {
             // 登录失败提示
@@ -1256,7 +1256,7 @@ ui.denglu.on('click', () => {
  });
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
-    if(pjysdk.GetTimeRemaining() > 100 ) vip = 2;
+    if(pjysdk.GetTimeRemaining() > 100 )  vip = 2;
     toast('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
 })
 ui.pjyLoginFun = function () {

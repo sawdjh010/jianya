@@ -1437,15 +1437,13 @@ ui.start.click(function () {
                 console.info("未读取到卡密，开始试用登陆");
                 pjyUser = pjysdk.TrialLogin();
             }
-            threads.start(function (){
                 if (pjyUser.code == 0) {
                     ui.endTime.setText(pjyUser.result.expires);
                     vip=2
                 } else {
                     ui.endTime.setText(pjyUser.message);
                 }  
-                });
-          
+               
     threads.shutDownAll();
     if (thread != null && thread.isAlive()) {
         alert("注意", "脚本正在运行，请结束之前进程");

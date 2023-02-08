@@ -931,6 +931,7 @@ ui.layout(
                                     <text w="auto" textColor="#999999" textSize="12sp" text="结束后会自动登录回账号1" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="新增多账号1对1微信推送，按格式配置即可" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="没有则根据上面配置的pushplus_token为主" />
+                                    <text w="auto" textColor="#999999" textSize="10sp" text="(开多账号，建议尽量关闭qg软件的所有权限，尽量减少上传手机信息)" />
                                     <input id="ttxs_pro_zhanghao" text="" textSize="13sp" />
                                 </vertical> 
                             </horizontal>

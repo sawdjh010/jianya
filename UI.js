@@ -1241,9 +1241,9 @@ ui.denglu.click(function() {
 });
 //创建按键的点击事件
 ui.denglu.on('click', () => {
-   // ui.storage.put("bh_kami", ui.bh_kami.text());
-    threads.start(ui.pjyLoginFun);
-});
+    // ui.storage.put("bh_kami", ui.bh_kami.text());
+     threads.start(ui.pjyLoginFun);
+ });
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
     if(pjysdk.GetTimeRemaining() > 100 ) vip = 2;

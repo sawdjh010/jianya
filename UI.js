@@ -1245,8 +1245,8 @@ ui.denglu.click(function() {
         if (login_ret.code == 0) {
             // 登录成功，后面写你的业务代码
             // console.show();
-            console.log('欢迎你使用本脚本');
-            toast('欢迎你使用本脚本');
+            console.log('欢迎你使用本脚本，请继续点击‘开始学习’');
+            toast('欢迎你使用本脚本，请继续点击‘开始学习’');
              vip = 2;
         
         } else {
@@ -1262,8 +1262,8 @@ ui.denglu_1.click(function() {
         if (login_ret.code == 0) {
             // 登录成功，后面写你的业务代码
             // console.show();
-            console.log('欢迎你使用本脚本');
-            toast('欢迎你使用本脚本');
+            console.log('欢迎你使用本脚本，请继续点击‘开始学习’');
+            toast('欢迎你使用本脚本，请继续点击‘开始学习’');
              vip = 2;
         
         } else {

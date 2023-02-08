@@ -1140,10 +1140,10 @@ ui.layout(
                         </vertical>
                     </frame>
                 </ScrollView>
-                    <frame>
-                        <vertical>
+                  <frame>
+                     <vertical>
                                <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
-                             <vertical padding='8dp'>
+                      <vertical padding='8dp'>
                           <horizontal>
                                <text text='到期时间：'></text>
                                <text id='endTime'></text>
@@ -1157,8 +1157,11 @@ ui.layout(
                                <button id='获取剩余时长' text='剩余时长' layout_weight='1'></button>
                                <button id='reset_bh_kami' text='重置卡密' layout_weight='1'></button>
                            </horizontal>
+                       </vertical>
                            <horizontal> 
+                             <vertical padding='8dp'>
                                <button id='denglu' text='登录/试用' h='40' textSize='18sp' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                             </vertical>    
                            </horizontal>
                            <horizontal>
                              <vertical>
@@ -1168,8 +1171,7 @@ ui.layout(
                                 <text padding='10dp' text='{{ui.公告}}'></text>
                              </vertical>
                          </vertical>
-                     </horizontal>
-                    </vertical>
+                        </horizontal>                
                </vertical>
               </frame>, "setTing"        
             </viewpager>

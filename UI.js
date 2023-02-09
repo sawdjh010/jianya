@@ -1245,8 +1245,8 @@ ui.denglu.click(function() {
         if (login_ret.code == 0) {
             // 登录成功，后面写你的业务代码
             // console.show();
-            console.log('欢迎你使用本脚本，请继续点击‘开始学习’');
-            toast('欢迎你使用本脚本，请继续点击‘开始学习’');
+            console.log('欢迎使用本脚本，继续点击‘开始学习’');
+            toast('欢迎使用本脚本，继续点击‘开始学习’');
              vip = 2;
         
         } else {
@@ -1262,8 +1262,8 @@ ui.denglu_1.click(function() {
         if (login_ret.code == 0) {
             // 登录成功，后面写你的业务代码
             // console.show();
-            console.log('欢迎你使用本脚本，请继续点击‘开始学习’');
-            toast('欢迎你使用本脚本，请继续点击‘开始学习’');
+            console.log('欢迎使用本脚本，继续点击‘开始学习’');
+            toast('欢迎使用本脚本，继续点击‘开始学习’');
              vip = 2;
         
         } else {
@@ -1490,7 +1490,7 @@ ui.start.click(function () {
         if (vip == 1|| vip == 2)
         {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
        if(vip == 1) toast('试用期5天后需要你的赞助') 
-       if(vip == 2) toast('感谢您的赞助与支持，欢迎正式登录使用') 
+       if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
         }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }

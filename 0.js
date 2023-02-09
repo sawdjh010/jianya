@@ -3208,6 +3208,7 @@ function main(userinfo) {
       let xxqg_end = new Date();
       let spent_time = ((xxqg_end - xxqg_begin) / 1000).toFixed();
       fInfo("本轮已正常结束，花费时间" + spent_time + "s");
+      if(!textContains("我的").exists()) back();
       return true
     }
   }

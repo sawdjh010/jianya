@@ -569,10 +569,11 @@ const PJYSDK = (function(){
         }, this._heartbeat_gap, this);
 
         this._heartbeat_task.setInterval((self) => {
-            if (self.GetTimeRemaining() == 0) {
+            if (self.GetTimeRemaining() == 0) {vip=0;
                 self.event.emit("heartbeat_failed", {"code": 10407, "message": "试用已到期！"});
-            }else{vip = 1; toast("可以继续试用，请点击开始学习")}
+            }else vip = 1; //toast("可以继续试用，请点击开始学习")}
         }, 1000, this);
+        if(vip==1) toast("可以继续试用，请点击开始学习");
     }
     PJYSDK.prototype.TrialLogout = function() {  // 试用退出登录，没有http请求，只是清理本地记录
         this.is_trial = false;

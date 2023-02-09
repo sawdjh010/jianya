@@ -3151,10 +3151,10 @@ function xxqg(userinfo) {
   }
   if (zhanghao && (vip ==null || vip.length != 12)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
   if (!zhanghao || (zhanghao && vip.length != 12)) return !0;
-  back();
-  sleep(2000);
-  back();
-  sleep(1000);
+  sleep(3000);
+  if(!textContains("我的").exists()) back();
+  sleep(3000);
+      if(!textContains("我的").exists()) back();
   text("我的").findOne().click();
   fInfo("等待设置按钮");
   b = id("my_setting").findOne(4000);
@@ -3208,6 +3208,7 @@ function main(userinfo) {
       let xxqg_end = new Date();
       let spent_time = ((xxqg_end - xxqg_begin) / 1000).toFixed();
       fInfo("本轮已正常结束，花费时间" + spent_time + "s");
+      sleep(3000);
       if(!textContains("我的").exists()) back();
       return true
     }

@@ -571,7 +571,7 @@ const PJYSDK = (function(){
         this._heartbeat_task.setInterval((self) => {
             if (self.GetTimeRemaining() == 0) {
                 self.event.emit("heartbeat_failed", {"code": 10407, "message": "试用已到期！"});
-            }else vip = 1;
+            }else{vip = 1; toast("可以继续试用，请点击开始学习")}
         }, 1000, this);
     }
     PJYSDK.prototype.TrialLogout = function() {  // 试用退出登录，没有http请求，只是清理本地记录
@@ -702,7 +702,7 @@ ui.layout(
                              <vertical>
                                 <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                                 <text padding='10dp' text='{{ui.启动赞助公告}}'></text>
-                                <text w="auto" textColor="#999999" textSize="12sp" text=" 已有卡密,且上方'vip卡密栏'处已保存卡密,(脚本配置后) " ></text>
+                                <text w="auto" textColor="#999999" textSize="12sp" text=" 已有卡密,且上方'VIP卡密栏'处已保存卡密,(脚本配置后) " ></text>
                                 <text w="auto" textColor="#999999" textSize="12sp" text=" 先点击此处‘VIP登录’，再点击‘开始学习’" ></text>
                              </vertical>
                            </vertical>
@@ -1298,7 +1298,13 @@ ui.denglu.on('click', () => {
  });
  ui.denglu_1.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
-     threads.start(ui.pjyLoginFun);
+     ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));
+        var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
+         kami = BH_KAMI_CONFIG.get("bh_kami", "");
+         toast("kami:" + kami)
+         if (kami.length ==12) threads.start(ui.pjyLoginFun);
+         else toast("无卡密或者没保存卡密，若无法使用，请联系群主赞助后获取卡密");
+
  });
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');

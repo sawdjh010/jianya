@@ -1297,12 +1297,13 @@ ui.denglu.on('click', () => {
  });
  ui.denglu_1.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
-     ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));
-        var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
-         kami = BH_KAMI_CONFIG.get("bh_kami", "");
-         toast("kami:" + kami)
-         if (kami.length ==12) threads.start(ui.pjyLoginFun);
-         else toast("无卡密或者没保存卡密，若无法使用，请联系群主赞助后获取卡密");
+    // ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));
+        // var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
+        //  kami = BH_KAMI_CONFIG.get("bh_kami", "");
+        //  toast("kami:" + kami)
+        //  if (kami.length ==12) 
+         threads.start(ui.pjyLoginFun);
+        //  else toast("无卡密或者没保存卡密，若无法使用，请联系群主赞助后获取卡密");
 
  });
 ui.获取剩余时长.click(function(){

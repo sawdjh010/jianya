@@ -3151,10 +3151,14 @@ function xxqg(userinfo) {
   }
   if (zhanghao && (vip ==null || vip.length != 12)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
   if (!zhanghao || (zhanghao && vip.length != 12)) return !0;
+  fInfo("运行多账号");
   sleep(3000);
-  if(!textContains("我的").exists()) back();
-  sleep(3000);
-      if(!textContains("我的").exists()) back();
+  while(!(textContains("我的").exists() && text("我的").exists())) {back();sleep(3000);}
+  // if(!textContains("我的").exists()) back();
+  // sleep(3000);
+  // if(!textContains("我的").exists()) back();
+  //     sleep(3000);
+  // if(!textContains("我的").exists()) back();
   text("我的").findOne().click();
   fInfo("等待设置按钮");
   b = id("my_setting").findOne(4000);

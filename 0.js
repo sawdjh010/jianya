@@ -705,7 +705,7 @@ if(meizhou_dao != null) meizhou_dao.click()
   textMatches(/.*月|发现新版本/).waitFor();
   if (text("发现新版本").exists()) return fError("有弹窗无法每周答题，可使用旧版修改版本号版取消弹窗"), sleep(1000), text("取消").findOne().click(), sleep(1000), back(), text("我要答题").waitFor(),
     sleep(1000), back(), ran_sleep(), !0;
-  let scoll = depth(22).scrollable().findOne();
+  let scoll = depth(21).scrollable().findOne();
   // 下面是倒叙作答
   if (meizhou_dao) {
     fInfo("倒序查找未做题目");

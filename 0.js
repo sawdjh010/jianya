@@ -3,6 +3,7 @@ var delay_time = 3000;
 var myScores = {}; //分数
 device.wakeUpIfNeeded();
 var meizhou_0 = true;
+var meizhou_end = 1;
 // 读取自定义配置
 var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 
@@ -794,6 +795,7 @@ if(meizhou_d != null) meizhou_d.parent().click()
   back();
   text("我的").waitFor();
   ran_sleep();
+  meizhou_end = 0;
   // getScores(3);
   // sleep(800);
   // back();
@@ -2708,7 +2710,7 @@ function exit_app(name) {
 // 登录
 function login(username, pwd) {
   sleep(random(1700, 2500));
-  if(2 != meizhou && false == meizhou_0){
+  if(2 != meizhou && 0 == meizhou_end){
   if (!textMatches("我的").exists() && !text("我的").exists()){
     fInfo("耐心等待……");
     sleep(random(2600, 3500));

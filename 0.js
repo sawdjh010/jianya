@@ -694,7 +694,7 @@ if(meizhou_dao != null) meizhou_dao.parent().click()
       
         textOrder.child(4).click();
     
-      sleep(random(0.7, 1.5)); 
+      sleep(random(700, 1500)); 
        sleep(1000);
     }
   }

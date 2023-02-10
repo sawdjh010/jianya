@@ -2707,6 +2707,7 @@ function exit_app(name) {
 // 登录
 function login(username, pwd) {
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
+  fInfo("准备查找ab");
   if (begin_obj.text() == "登录") {
     log("查找ab");
     let a = className("EditText").id("et_phone_input").findOne();
@@ -2998,10 +2999,12 @@ function xxqg(userinfo) {
   });
   if (userinfo) {
     var [username, pwd, token] = userinfo;
+    fInfo("userinfo");
     login(username, pwd);
   }
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)
+ fInfo("等待首页---我的");
   text("我的").findOne().click();
   fInfo("检测界面……?新?旧 " + "\n   耐心等待……")
   // name = id("my_display_name").findOne().text();
@@ -3151,7 +3154,7 @@ function xxqg(userinfo) {
   }
   if (zhanghao && (vip ==null || vip.length != 12)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
   if (!zhanghao || (zhanghao && vip.length != 12)) return !0;
-  fInfo("运行多账号");
+  fInfo("vip用户，运行多账号中……");
   sleep(3000);
   while(!(textContains("我的").exists() && text("我的").exists())) {back();sleep(3000);}
   // if(!textContains("我的").exists()) back();
@@ -3256,7 +3259,9 @@ if (zhanghao && vip.length == 12) {
   fClear();
   fInfo("登录回账号1");
   console.verbose(zhanghao_list[0][0], zhanghao_list[0][1]);
+  fInfo(zhanghao_list[0][0] +",", + zhanghao_list[0][1]);
   login(zhanghao_list[0][0], zhanghao_list[0][1]);
+  fInfo("输入准备返回");
 } else {
   main();
 }

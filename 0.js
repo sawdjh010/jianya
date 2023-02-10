@@ -2976,9 +2976,10 @@ if (lCount == 0) { meizhou = 0;
     meizhou_0 = true; 
     fTips("勾选的‘每周答题’今日任务已完成");
   }
-  sleep(random(700, 1500));
+  sleep(random(1000, 1500));
   back();
-  sleep(random(700, 1500));
+  fTips("每周答题检测后返回"); 
+  sleep(random(1000, 1500));
 }
 
 

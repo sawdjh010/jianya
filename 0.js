@@ -721,7 +721,7 @@ if(meizhou_dao != null) meizhou_dao.click()
     }
     var clt = text("未作答").find();
     if (clt.empty()) return fInfo("每周答题全部已作答。"), ran_sleep(), back(), 
-      sleep(3000), back(),  sleep(1E3), back(), text("我的").waitFor(), ran_sleep(), !0;
+    sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)); back(), text("我的").waitFor(), ran_sleep(), !0;
     var title = clt[clt.length - 1].parent().child(0).text();
     fInfo(title + "开始作答");
     clt[clt.length - 1].parent().click();
@@ -2706,6 +2706,12 @@ function exit_app(name) {
 
 // 登录
 function login(username, pwd) {
+  sleep(random(1700, 2500));
+  if (!textMatches("我的").exists() && !text("我的").exists()){
+    fInfo("耐心等待……");
+    sleep(random(2600, 3500));
+    if (!textMatches("我的").exists() && !text("我的").exists()) back();
+  };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
   fInfo("准备查找ab");
   if (begin_obj.text() == "登录") {

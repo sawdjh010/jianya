@@ -1312,6 +1312,7 @@ ui.获取剩余时长.click(function(){
     if(pjysdk.GetTimeRemaining() > 100 )  vip = 2;
     toast('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
     ui.Remaining_time.setText(pjysdk.GetTimeRemaining() + '秒');
+    if(pjysdk.GetTimeRemaining() == 0 )  toast('若vip（或首次试用）用户请先登录，否则联系群主去赞助支持');
 })
 ui.pjyLoginFun = function () {
     //登陆线程

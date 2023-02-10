@@ -2,7 +2,7 @@ auto.waitFor(); //mode = "fast"
 var delay_time = 3000;
 var myScores = {}; //分数
 device.wakeUpIfNeeded();
-var meizhou_0 = ture;
+var meizhou_0 = true;
 // 读取自定义配置
 var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 

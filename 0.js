@@ -686,10 +686,8 @@ function do_meiri() {
 
 /********每周答题*********/
 function do_meizhou() {
- let meizhou_d = text("每周答题").findOne(4000);
- fInfo(meizhou_d);
- fInfo(meizhou_d.parent());
-if(meizhou_d != null) meizhou_d.parent().click()
+ let meizhou_d = text("每周答题").findOne(4000).parent();
+if(meizhou_d != null) meizhou_d.click()
   else{var textOrder = text("排行榜").findOnce().parent();
     while (text("排行榜").exists()) {
         console.info("点击每周答题");
@@ -719,7 +717,7 @@ if(meizhou_d != null) meizhou_d.parent().click()
         log("底线：", w.bounds().top, device_h);
         return w.bounds().top <= device_h - 30;
       });
-      if (dixian_slt.exists()) {fInfo("每周答题全部已作答。"); break;}
+      //if (dixian_slt.exists()) {fInfo("每周答题全部已作答。"); break;}
     }
     var clt = text("未作答").find();
     if (clt.empty()) return fInfo("每周答题全部已作答。"), ran_sleep(), back(), 

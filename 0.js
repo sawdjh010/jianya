@@ -687,7 +687,7 @@ function do_meiri() {
 /********每周答题*********/
 function do_meizhou() {
  let meizhou_dao = text("每周答题").findOne(4000);
-if(meizhou_dao != null) meizhou_dao.parent().click()
+if(meizhou_dao != null) meizhou_dao.click()
   else{var textOrder = text("排行榜").findOnce().parent();
     while (text("排行榜").exists()) {
         console.info("点击每周答题");
@@ -2714,7 +2714,7 @@ function login(username, pwd) {
     if (!textMatches("我的").exists() && !text("我的").exists()) back();
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
-  fInfo("准备查找ab");
+  //fInfo("准备查找ab");
   if (begin_obj.text() == "登录") {
     log("查找ab");
     let a = className("EditText").id("et_phone_input").findOne();
@@ -3006,14 +3006,14 @@ function xxqg(userinfo) {
   });
   if (userinfo) {
     var [username, pwd, token] = userinfo;
-    fInfo("userinfo");
+   // fInfo("userinfo");
     login(username, pwd);
   }
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)
- fInfo("等待首页---我的");
+ //fInfo("等待首页---我的");
   text("我的").findOne().click();
-  fInfo("检测界面……?新?旧 " + "\n   耐心等待……")
+  fInfo("检测界面……?新?旧 " + "\n   此处时间可能略长耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版界面");
@@ -3266,9 +3266,9 @@ if (zhanghao && vip.length == 12) {
   fClear();
   fInfo("登录回账号1");
   console.verbose(zhanghao_list[0][0], zhanghao_list[0][1]);
-  fInfo(zhanghao_list[0][0] +",", + zhanghao_list[0][1]);
+  //fInfo(zhanghao_list[0][0] +"," + zhanghao_list[0][1]);
   login(zhanghao_list[0][0], zhanghao_list[0][1]);
-  fInfo("输入准备返回");
+ // fInfo("输入准备返回");
 } else {
   main();
 }

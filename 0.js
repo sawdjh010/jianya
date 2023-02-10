@@ -687,6 +687,8 @@ function do_meiri() {
 /********每周答题*********/
 function do_meizhou() {
  let meizhou_d = text("每周答题").findOne(4000);
+ fInfo(meizhou_d);
+ fInfo(meizhou_d.parent());
 if(meizhou_d != null) meizhou_d.parent().click()
   else{var textOrder = text("排行榜").findOnce().parent();
     while (text("排行榜").exists()) {

@@ -720,8 +720,8 @@ if(meizhou_dao != null) meizhou_dao.click()
       if (dixian_slt.exists()) {fInfo("每周答题全部已作答。"); break;}
     }
     var clt = text("未作答").find();
-    if (clt.empty()) return fInfo("每周答题全部已作答。"), ran_sleep(), back(), text("每周答题").waitFor(),
-      sleep(1000), back(), text("我要答题").waitFor(), sleep(1E3), back(), text("我的").waitFor(), ran_sleep(), !0;
+    if (clt.empty()) return fInfo("每周答题全部已作答。"), ran_sleep(), back(), 
+      sleep(3000), back(),  sleep(1E3), back(), text("我的").waitFor(), ran_sleep(), !0;
     var title = clt[clt.length - 1].parent().child(0).text();
     fInfo(title + "开始作答");
     clt[clt.length - 1].parent().click();

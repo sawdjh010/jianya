@@ -703,7 +703,7 @@ if(meizhou_dao != null) meizhou_dao.click()
   fClear();
   // 等待加载
   textMatches(/.*月|发现新版本/).waitFor();
-  if (text("发现新版本").exists()) return fError("有弹窗无法每周答题，可使用旧版修改版本号版取消弹窗"), sleep(1000), text("取消").findOne().click(), sleep(1000), back(), text("我要答题").waitFor(),
+  if (text("发现新版本").exists()) return fError("有弹窗无法每周答题，可使用旧版修改版本号版取消弹窗或者升级最新版"), sleep(1000), text("取消").findOne().click(), sleep(1000), back(), text("我要答题").waitFor(),
     sleep(1000), back(), ran_sleep(), !0;
   let scoll = depth(21).scrollable().findOne();
   // 下面是倒叙作答
@@ -739,7 +739,8 @@ if(meizhou_dao != null) meizhou_dao.click()
     //while (true) { //测试用
     while (!text("未作答").exists()) {
       if (dixian_slt.exists()) return fInfo("每周答题全部已作答。"),
-        back(), text("每周答题").waitFor(), sleep(1000), back(), text("我要答题").waitFor(), sleep(1000), back(), text("我的").waitFor(), ran_sleep(), !0;
+      ran_sleep(), back(),sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)); back(), text("我的").waitFor(), ran_sleep(), !0;
+        // back(), text("每周答题").waitFor(), sleep(1000), back(), text("我要答题").waitFor(), sleep(1000), back(), text("我的").waitFor(), ran_sleep(), !0;
       // 如果到底则设置倒序为true
       scoll.scrollForward();
       sleep(200);

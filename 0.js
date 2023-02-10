@@ -2708,10 +2708,12 @@ function exit_app(name) {
 // 登录
 function login(username, pwd) {
   sleep(random(1700, 2500));
+  if(2 != meizhou && false == meizhou_0){
   if (!textMatches("我的").exists() && !text("我的").exists()){
     fInfo("耐心等待……");
     sleep(random(2600, 3500));
     if (!textMatches("我的").exists() && !text("我的").exists()) back();
+  };
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
   //fInfo("准备查找ab");

@@ -2711,10 +2711,20 @@ function exit_app(name) {
 function login(username, pwd) {
   sleep(random(1700, 2500));
   if(2 != meizhou && 0 == meizhou_end){
+    sleep(random(1200, 1700));
   if (!textMatches("我的").exists() && !text("我的").exists()){
     fInfo("耐心等待……");
     sleep(random(2600, 3500));
-    if (!textMatches("我的").exists() && !text("我的").exists()) back();
+    if (!textMatches("我的").exists() && !text("我的").exists()) {
+      back();
+    sleep(random(2600, 3500));
+    }
+    if (!textMatches("我的").exists() && !text("我的").exists()) {
+      app.launchApp('学习强国');
+      fInfo("重启‘qg’  耐心等待……");
+      sleep(random(1200, 1700))
+      if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
+    if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
   };
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();

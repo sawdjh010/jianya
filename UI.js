@@ -933,7 +933,7 @@ ui.layout(
                                     <text w="auto" textColor="#222222" textSize="15sp" text="多账号(仅支持VIP卡密用户。选填，不限个数)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="使用前确保所有账号都已完成短信验证" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="账号1:密码1:token1(换行/回车)账号2:密码2:token2(换行/回车)账号3:密码3:token3" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="(例)13xxxxxxxxx:12xxxx(换行/回车后下一组)" />
+                                    <text w="auto" textColor="#999999" textSize="10sp" text="   [例]13xxxxxxxxx:12xxxx(换行/回车后下一组)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="结束后会自动登录回账号1" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="新增多账号1对1微信推送，按格式配置即可" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="没有则根据上面配置的pushplus_token为主" />

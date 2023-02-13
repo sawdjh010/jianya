@@ -722,7 +722,7 @@ if(meizhou_d != null) meizhou_d.parent().click()
     }
     var clt = text("未作答").find();
     if (clt.empty()) return fInfo("每周答题全部已作答。"), ran_sleep(), back(), 
-    sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)), back(), text("我的").waitFor(), ran_sleep(), !0;
+    sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)), back(),  fInfo("已全部作答 返回至‘我的’"), ("我的").waitFor(), ran_sleep(), !0;
     var title = clt[clt.length - 1].parent().child(0).text();
     fInfo(title + "开始作答");
     clt[clt.length - 1].parent().click();
@@ -740,7 +740,7 @@ if(meizhou_d != null) meizhou_d.parent().click()
     //while (true) { //测试用
     while (!text("未作答").exists()) {
       if (dixian_slt.exists()) return fInfo("每周答题全部已作答。"),
-      ran_sleep(), back(),sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)), back(), text("我的").waitFor(), ran_sleep(), !0;
+      ran_sleep(), back(),sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)), back(), fInfo("已全部作答返回至‘我的’"), text("我的").waitFor(), ran_sleep(), !0;
         // back(), text("每周答题").waitFor(), sleep(1000), back(), text("我要答题").waitFor(), sleep(1000), back(), text("我的").waitFor(), ran_sleep(), !0;
       // 如果到底则设置倒序为true
       scoll.scrollForward();
@@ -3023,6 +3023,19 @@ function xxqg(userinfo) {
     var [username, pwd, token] = userinfo;
    // fInfo("userinfo");
     login(username, pwd);
+    sleep(random(1500, 2000));
+    if (!textMatches("我的").exists() && !text("我的").exists()) {
+      sleep(random(3600, 3500));
+      back();
+    sleep(random(2600, 3500));
+    }
+    if (!textMatches("我的").exists() && !text("我的").exists()) {
+      app.launchApp('学习强国');
+      fInfo("重启‘qg’  耐心等待……");
+      sleep(random(1200, 1700))
+      if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
+    if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
+
   }
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)

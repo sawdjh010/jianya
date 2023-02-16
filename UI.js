@@ -1146,6 +1146,7 @@ ui.layout(
                         </vertical>
                     </frame>
                 </ScrollView>
+                <ScrollView>
                   <frame>
                      <vertical>
                                <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
@@ -1186,7 +1187,8 @@ ui.layout(
                          </vertical>
                         </horizontal>                
                </vertical>
-              </frame>, "setTing"        
+              </frame>, "setTing"   
+              </ScrollView>     
             </viewpager>
         </vertical>
     </drawer>

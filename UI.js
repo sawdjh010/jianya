@@ -1335,7 +1335,7 @@ ui.jiebang_ts_kami.on('click', () => {
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
      } else if(tskami == 'djh') {
         vip = 2;
-        toast('进入调试阶段');
+        toast('进入调试模式');
     }else toast('非开发人员忽略此调试');
  });
 ui.获取剩余时长.click(function(){

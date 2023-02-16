@@ -1163,15 +1163,10 @@ ui.layout(
                               <text text='设置卡密：' textSize='17sp'></text>
                               <input id='bh_kami' w='*'></input>
                               </horizontal>
-                              <horizontal>
-                              <text text='(仅开发者)调试密码：' textSize='10sp'></text>
-                              <input id='ts_kami' w='*'></input>
-                             </horizontal>
                              <horizontal>
                                <button id='cun_bh_kami' text='保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
                                <button id='获取剩余时长' text='剩余时长' textSize='15sp' layout_weight='1'></button>
                                <button id='reset_bh_kami' text='重置卡密' textSize='15sp' layout_weight='1'></button>
-                               <button id='jiebang' text='调试' textSize='15sp' layout_weight='1'></button>
                            </horizontal>
                            <horizontal> 
                                <button id='denglu' text='登录/试用' textSize='18sp' textColor='#ffffff' bg="#FF4FB3FF" layout_weight='1'></button>   
@@ -1185,7 +1180,14 @@ ui.layout(
                                 <text padding='10dp' text='{{ui.公告}}'></text>
                              </vertical>
                          </vertical>
-                        </horizontal>                
+                        </horizontal>   
+                        <horizontal>
+                              <text text='(仅开发者)调试密码：' textSize='10sp'></text>
+                              <input id='ts_kami' w='*'></input>
+                        </horizontal>    
+                        <horizontal>
+                               <button id='jiebang' text='调试' textSize='15sp' layout_weight='1'></button>
+                        </horizontal>         
                </vertical>
               </frame>   
               </ScrollView>     

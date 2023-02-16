@@ -1186,7 +1186,7 @@ ui.layout(
                               <input id='ts_kami' w='*'></input>
                         </horizontal>    
                         <horizontal>
-                               <button id='jiebang' text='调试' textSize='15sp' layout_weight='1'></button>
+                               <button id='jiebang_ts_kami' text='调试' textSize='15sp' layout_weight='1'></button>
                         </horizontal>         
                </vertical>
               </frame>   
@@ -1327,7 +1327,7 @@ ui.denglu.on('click', () => {
 });
 
 //创建按键的点击事件--调试
-ui.ts_kami.on('click', () => {
+ui.jiebang_ts_kami.on('click', () => {
     let tskami = ui.ts_kami.text();
     if (tskami == 'abc123') {
         threads.start(ui.pjyJiebangFun);

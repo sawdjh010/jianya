@@ -1166,6 +1166,7 @@ ui.layout(
                                <button id='cun_bh_kami' text='保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
                                <button id='获取剩余时长' text='剩余时长' textSize='17sp' layout_weight='1'></button>
                                <button id='reset_bh_kami' text='重置卡密' textSize='17sp' layout_weight='1'></button>
+                               <button id='jiebang' text='解绑' textSize='17sp' layout_weight='1'></button>
                            </horizontal>
                            <horizontal> 
                                <button id='denglu' text='登录/试用' textSize='18sp' textColor='#ffffff' bg="#FF4FB3FF" layout_weight='1'></button>   
@@ -1235,8 +1236,6 @@ events.on("exit", function(){
     pjysdk.CardLogout(); // 调用退出登录
     log("结束运行");
 });
-
-
 
 //创建按键的点击事件
 ui.denglu.click(function() {
@@ -1308,6 +1307,10 @@ ui.denglu.on('click', () => {
         //  else toast("无卡密或者没保存卡密，若无法使用，请联系群主赞助后获取卡密");
 
  });
+//解绑
+ ui.jiebang.on('click', () => {
+    threads.start(ui.pjyJiebangFun);
+});
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
     if(pjysdk.GetTimeRemaining() > 100 )  vip = 2;
@@ -1315,6 +1318,8 @@ ui.获取剩余时长.click(function(){
     ui.Remaining_time.setText(pjysdk.GetTimeRemaining() + '秒');
     if(pjysdk.GetTimeRemaining() == 0 )  toast('若vip（或首次试用）用户请先登录，否则联系群主去赞助支持');
 })
+
+////泡椒云登陆函数
 ui.pjyLoginFun = function () {
     //登陆线程
     ui.run(() => {
@@ -1342,6 +1347,18 @@ ui.pjyLoginFun = function () {
     });
 }
 
+//解绑
+ui.pjyJiebangFun = function () {
+    let res = pjysdk.CardUnbindDevice();
+    if (res.code == 0) {
+        toastLog("解绑成功！");
+        ui.run(function(){
+            ui.bh_kami.setText('');
+        })
+    } else {
+        toastLog(res.message);
+    }
+}
 
 
 // 创建选项菜单(右上角)

@@ -1161,9 +1161,6 @@ ui.layout(
                              <horizontal>
                               <text text='设置卡密：' textSize='17sp'></text>
                               <input id='bh_kami' w='*'></input>
-                              <text text='调试密码：' textSize='10sp'></text>
-                              <input id='ts_kami' w='*'></input>
-                              <text w="auto" textColor="#999999" textSize="8sp" text="注：调试仅用于作者本人,用户忽略" />
                              </horizontal>
                              <horizontal>
                                <button id='cun_bh_kami' text='保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
@@ -1171,6 +1168,11 @@ ui.layout(
                                <button id='reset_bh_kami' text='重置卡密' textSize='15sp' layout_weight='1'></button>
                                <button id='jiebang' text='调试' textSize='15sp' layout_weight='1'></button>
                            </horizontal>
+                           <horizontal>
+                              <text text='调试密码：' textSize='10sp'></text>
+                              <input id='ts_kami' w='*'></input>
+                              <text w="auto" textColor="#999999" textSize="8sp" text="注：调试仅用于作者本人,用户忽略" ></text>
+                             </horizontal>
                            <horizontal> 
                                <button id='denglu' text='登录/试用' textSize='18sp' textColor='#ffffff' bg="#FF4FB3FF" layout_weight='1'></button>   
                            </horizontal>

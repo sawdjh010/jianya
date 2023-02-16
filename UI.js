@@ -1333,8 +1333,10 @@ ui.jiebang_ts_kami.on('click', () => {
         threads.start(ui.pjyJiebangFun);
         BH_KAMI_CONFIG.put("bh_kami", "");
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-     } else if(tskami == 'djh') vip = 2;
-    else toast('非开发人员忽略此调试');
+     } else if(tskami == 'djh') {
+        vip = 2;
+        toast('进入调试阶段');
+    }else toast('非开发人员忽略此调试');
  });
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');

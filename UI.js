@@ -1171,7 +1171,9 @@ ui.layout(
                            <horizontal>
                               <text text='调试密码：' textSize='10sp'></text>
                               <input id='ts_kami' w='*'></input>
+                              <vertical>
                               <text w="auto" textColor="#999999" textSize="8sp" text="注：调试仅用于作者本人,用户忽略" ></text>
+                              </vertical>
                              </horizontal>
                            <horizontal> 
                                <button id='denglu' text='登录/试用' textSize='18sp' textColor='#ffffff' bg="#FF4FB3FF" layout_weight='1'></button>   

@@ -1314,7 +1314,7 @@ ui.denglu.on('click', () => {
     // if (kami != "" && kami != null) { 
         BH_KAMI_CONFIG.put("bh_kami", "");
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-        toast('卡密已重置为空');
+      //  toast('卡密已重置为空');
     //   }
 });
 ui.获取剩余时长.click(function(){

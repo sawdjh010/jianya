@@ -1316,15 +1316,15 @@ ui.denglu.on('click', () => {
 
  });
 //解绑
- ui.jiebang.on('click', () => {
-    threads.start(ui.pjyJiebangFun);
-    // let kami = ui.bh_kami.text();
-    // if (kami != "" && kami != null) { 
-        BH_KAMI_CONFIG.put("bh_kami", "");
-        ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-      //  toast('卡密已重置为空');
-    //   }
-});
+//  ui.jiebang.on('click', () => {
+//     threads.start(ui.pjyJiebangFun);
+//     // let kami = ui.bh_kami.text();
+//     // if (kami != "" && kami != null) { 
+//         BH_KAMI_CONFIG.put("bh_kami", "");
+//         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
+//       //  toast('卡密已重置为空');
+//     //   }
+// });
 
 //创建按键的点击事件--调试
 ui.jiebang_ts_kami.on('click', () => {

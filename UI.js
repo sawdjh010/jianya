@@ -1161,6 +1161,8 @@ ui.layout(
                              <horizontal>
                               <text text='设置卡密：' textSize='17sp'></text>
                               <input id='bh_kami' w='*'></input>
+                              </horizontal>
+                              <horizontal>
                               <text text='(仅开发者)调试密码：' textSize='10sp'></text>
                               <input id='ts_kami' w='*'></input>
                              </horizontal>

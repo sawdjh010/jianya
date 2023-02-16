@@ -1187,7 +1187,7 @@ ui.layout(
                          </vertical>
                         </horizontal>                
                </vertical>
-              </frame>, "setTing"   
+              </frame>   
               </ScrollView>     
             </viewpager>
         </vertical>

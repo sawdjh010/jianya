@@ -3044,6 +3044,7 @@ function xxqg(userinfo) {
   fInfo("检测界面……?新?旧 " + "\n   此处时间可能略长耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
+  swipe(device_w / 2, device_h * 0.4, device_w / 2, device_h * 0.5, 1000);
   if(a == null){fInfo("检测到新版界面");
     setScreenMetrics(1080, 1920);
     a_a = text("学习积分").findOne(3000);

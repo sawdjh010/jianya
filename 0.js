@@ -722,7 +722,7 @@ if(meizhou_d != null) meizhou_d.parent().click()
     }
     var clt = text("未作答").find();
     if (clt.empty()) return fInfo("每周答题全部已作答。"), ran_sleep(), back(), 
-    sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)), back(),  fInfo("已全部作答 返回至‘我的’"), ("我的").waitFor(), ran_sleep(), !0;
+    sleep(random(2000, 3200)), back(), sleep(random(1600, 3300)), back(),  fInfo("已全部作答 返回至‘我的’"), text("我的").waitFor(), ran_sleep(), !0;
     var title = clt[clt.length - 1].parent().child(0).text();
     fInfo(title + "开始作答");
     clt[clt.length - 1].parent().click();

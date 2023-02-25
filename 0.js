@@ -2826,6 +2826,7 @@ function queryList_2(json,wenben_1,wenben_2,wenben_c) {
          if(b_coin == wenben_1 || b_coin== wenben_2) { 
          fTips(wenben_c);
          toastLog(wenben_c);
+         device.cancelKeepingAwake();
          for (var ii = 0; ii < 3; ii++) {
         device.vibrate(1000);//震动提示手动（滑块）
         toastLog(wenben_c);
@@ -2871,7 +2872,7 @@ function handling_huatu_exceptions() {
   var thread_handling_huatu_exceptions = threads.start(function () {
       while (true) {
           text("当前功能使用人数过多，请稍后重试").waitFor();
-          queryList_1(find(),"确定")//震动提示手动（滑块）
+          queryList_1(find(),"确定")//被防护--重试 登录
           console.info("尝试在登陆……");
           sleep(random_time(800));
           toastLog("尝试再登录……")

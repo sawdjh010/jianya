@@ -2741,6 +2741,9 @@ function login(username, pwd) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
+      queryList_1(find(),"确定")
+      sleep(1250); 
+      queryList_1(find(),"登录");
   };
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
@@ -3141,7 +3144,9 @@ function xxqg(userinfo) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
-
+    queryList_1(find(),"确定")
+    sleep(1250); 
+    queryList_1(find(),"登录");
   }
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)

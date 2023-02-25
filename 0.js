@@ -2796,7 +2796,7 @@ function queryList_0(json) {
       if (sonList.childCount() == 0) {
        //   console.log(json[i])
          var b_coin = json[i].text()
-         log("文本："+b_coin)
+       //  log("文本："+b_coin)
       //  break
       } else {
           queryList_0(sonList);
@@ -2813,9 +2813,9 @@ function queryList_2(json,wenben_1,wenben_2,wenben_c) {
       if (sonList.childCount() == 0) {
        //   console.log(json[i])
          var b_coin = json[i].text()
-         fInfo("文本："+b_coin)
+        // fInfo("文本："+b_coin)
          if(b_coin == wenben_1 || b_coin== wenben_2) { 
-          device.vibrate(1000);//震动提示手动（滑块）
+          device.vibrate(2500);//震动提示手动（滑块）
         fInfo(wenben_c);
         toastLog(wenben_c)
       //  sleep(1500);
@@ -2837,7 +2837,7 @@ function queryList_1(json,wenben_dj) {
       if (sonList.childCount() == 0) {
        //   console.log(json[i])
          var b_coin = json[i].text()
-         log("文本："+b_coin)
+        // log("文本："+b_coin)
         if(b_coin== wenben_dj){
           click(b_coin);
            break;

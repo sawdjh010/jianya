@@ -2857,32 +2857,14 @@ function noverify() {
     while (true) {
       textContains("访问异常").waitFor();
       fInfo("检测到滑动验证");
-      var json_0 = find();
-      //var json_0 = className("android.widget.TextView").find();
-       queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动");
-    //   for (var i = 0; i < json.length; i++) {
-    //     var sonList = json[i];
-    //     if (sonList.childCount() == 0) {
-    //      //   console.log(json[i])
-    //        var b_coin = json[i].text();
-    //        fInfo("文本：" + b_coin);
-    //       if(b_coin == "拖动滑块直到出现" || b_coin== "请按照说明拖动滑块" || b_coin== "后松开") { 
-    //         device.vibrate(1000);//震动提示手动（滑块）
-    //       fInfo("此滑动验证（目前）需要手动");
-    //       toastLog("提醒:此滑动验证（目前）需要手动！")
-    //       sleep(1500);
-    //         break;
-    //        };
-    //     } else {
-    //         queryList_0(sonList);
-    //     }
-    // }
       if (!Number(slide_verify)) {
         fInfo("未开启自动验证");
         break
       } else{
         var delay = Number(slide_verify);
       }
+      var json_0 = find();
+      queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动");
       //var rooot11 = className("android.widget.TextView").find();
       // queryList_0(rooot11);
      //  fInfo("此滑动验证（目前）需要手动");

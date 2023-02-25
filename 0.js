@@ -2815,9 +2815,12 @@ function queryList_2(json,wenben_1,wenben_2,wenben_c) {
          var b_coin = json[i].text()
         // fInfo("文本："+b_coin)
          if(b_coin == wenben_1 || b_coin== wenben_2) { 
-          device.vibrate(2500);//震动提示手动（滑块）
-        fInfo(wenben_c);
-        toastLog(wenben_c)
+         fTips(wenben_c);
+         toastLog(wenben_c);
+         for (var ii = 0; ii < 3; ii++) {
+        device.vibrate(1000);//震动提示手动（滑块）
+        toastLog(wenben_c);
+          }
       //  sleep(1500);
         break;
          };
@@ -2864,7 +2867,7 @@ function noverify() {
         var delay = Number(slide_verify);
       }
       var json_0 = find();
-      queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动");
+      queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
       //var rooot11 = className("android.widget.TextView").find();
       // queryList_0(rooot11);
      //  fInfo("此滑动验证（目前）需要手动");

@@ -2788,6 +2788,7 @@ function noverify() {
       if (textContains("拖动滑块直到出现").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
         device.vibrate(1000);//震动提示手动（滑块）
         fInfo("此滑动验证（目前）需要手动");
+        toastLog("提醒:此滑动验证（目前）需要手动！")
         slee(1500);
         continue;
       }

@@ -2723,14 +2723,14 @@ function login(username, pwd) {
   if (!textMatches("我的").exists() && !text("我的").exists()){
     fInfo("耐心等待……");
     sleep(random(2600, 3500));
-    if(queryList_1(find(),"确定")) {
-      sleep(1250); 
-      queryList_1(find(),"登录");
-      log("再登录……");
-      slee(1000);
-      var json_0 = find();
-        queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
-    };//检测是否‘当前功能使用人数过多……’的防护机制
+    // if(queryList_1(find(),"确定")) {
+    //   sleep(1250); 
+    //   queryList_1(find(),"登录");
+    //   log("再登录……");
+    //   slee(1000);
+    //   var json_0 = find();
+    //     queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
+    // };//检测是否‘当前功能使用人数过多……’的防护机制
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       back();
     sleep(random(2600, 3500));
@@ -2741,9 +2741,9 @@ function login(username, pwd) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
-      queryList_1(find(),"确定")
-      sleep(1250); 
-      queryList_1(find(),"登录");
+      // queryList_1(find(),"确定")
+      // sleep(1250); 
+      // queryList_1(find(),"登录");
   };
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
@@ -2861,6 +2861,26 @@ function queryList_1(json,wenben_dj) {
     //返回结果值
     return b_coin
    
+}
+// 模拟随机时间
+function random_time(time) {
+  return time + random(100, 1000);
+}
+//滑动验证---手动提示
+function handling_huatu_exceptions() {
+  var thread_handling_huatu_exceptions = threads.start(function () {
+      while (true) {
+          text("当前功能使用人数过多，请稍后重试").waitFor();
+          queryList_1(find(),"确定")//震动提示手动（滑块）
+          console.info("尝试在登陆……");
+          sleep(random_time(800));
+          toastLog("尝试再登录……")
+         queryList_1(find(),"登录")
+          // textContains("重试").className("android.widget.Button").findOne(3000).click()
+          sleep(random_time(2000));
+      }
+  });
+  return thread_handling_huatu_exceptions;
 }
 
 function noverify() {
@@ -3130,12 +3150,12 @@ function xxqg(userinfo) {
    // fInfo("userinfo");
     login(username, pwd);
     sleep(random(1500, 2000));
-    queryList_1(find(),"确定");
-    if(queryList_1(find(),"确定")) {
-      sleep(1000); 
-      queryList_0(find(),"登录");
-      log("再次登录");
-         };//检测防护机制后再登录
+    // queryList_1(find(),"确定");
+    // if(queryList_1(find(),"确定")) {
+    //   sleep(1000); 
+    //   queryList_0(find(),"登录");
+    //   log("再次登录");
+    //      };//检测防护机制后再登录
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       sleep(random(3600, 3500));
       back();
@@ -3147,9 +3167,9 @@ function xxqg(userinfo) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
-    queryList_1(find(),"确定")
-    sleep(1250); 
-    queryList_1(find(),"登录");
+    // queryList_1(find(),"确定")
+    // sleep(1250); 
+    // queryList_1(find(),"登录");
   }
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)
@@ -3394,6 +3414,7 @@ var jifen_map = {
   jifen_flag = "old";
 // 分割账号
 var noverify_thread = noverify();
+var thread_handling_huatu_exceptions = handling_huatu_exceptions();
 if (zhanghao && vip.length == 12) {
   var zhanghao_list = [];
   for (let zh of zhanghao.split("\n")) {
@@ -3417,6 +3438,9 @@ if (zhanghao && vip.length == 12) {
 }
 if (noverify_thread.isAlive()) {
   noverify_thread.interrupt();
+}
+if (thread_handling_huatu_exceptions.isAlive()) {
+  thread_handling_huatu_exceptions.interrupt();
 }
 
 /*****************结束后配置*****************/

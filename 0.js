@@ -2821,15 +2821,33 @@ function noverify() {
     while (true) {
       textContains("访问异常").waitFor();
       fInfo("检测到滑动验证");
-      
+      var json = className("android.widget.TextView").find();
+      for (var i = 0; i < json.length; i++) {
+        var sonList = json[i];
+        if (sonList.childCount() == 0) {
+         //   console.log(json[i])
+           var b_coin = json[i].text()
+           fInfo("文本："+b_coin)
+          if(b_coin== "拖动滑块直到出现"||b_coin== "请按照说明拖动滑块"||b_coin== "后松开") { 
+            device.vibrate(1000);//震动提示手动（滑块）
+          fInfo("此滑动验证（目前）需要手动");
+          toastLog("提醒:此滑动验证（目前）需要手动！")
+          sleep(500);
+            break;
+        }
+        
+        } else {
+            queryList_0(sonList);
+        }
+    }
       if (!Number(slide_verify)) {
         fInfo("未开启自动验证");
         break
       } else{
         var delay = Number(slide_verify);
       }
-      var rooot11 = className("android.widget.TextView").find();
-       queryList_0(rooot11);
+      //var rooot11 = className("android.widget.TextView").find();
+      // queryList_0(rooot11);
        fInfo("此滑动验证（目前）需要手动");
       if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||text("拖动滑块直到出现").exists()||text("后松开").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
         device.vibrate(1000);//震动提示手动（滑块）

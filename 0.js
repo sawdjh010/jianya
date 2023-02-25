@@ -2828,8 +2828,8 @@ function noverify() {
       } else{
         var delay = Number(slide_verify);
       }
-      let rooot11 = className("android.widget.TextView").find();
-      var b_coin = queryList_0(rooot11);
+      var rooot11 = className("android.widget.TextView").find();
+       queryList_0(rooot11);
       if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||text("拖动滑块直到出现").exists()||text("后松开").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
         device.vibrate(1000);//震动提示手动（滑块）
         fInfo("此滑动验证（目前）需要手动");

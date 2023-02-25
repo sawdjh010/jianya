@@ -2785,18 +2785,19 @@ function noverify() {
     while (true) {
       textContains("访问异常").waitFor();
       fInfo("检测到滑动验证");
-      if (textContains("拖动滑块直到出现").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
-        device.vibrate(1000);//震动提示手动（滑块）
-        fInfo("此滑动验证（目前）需要手动");
-        toastLog("提醒:此滑动验证（目前）需要手动！")
-        slee(1500);
-        continue;
-      }
+      
       if (!Number(slide_verify)) {
         fInfo("未开启自动验证");
         break
       } else{
         var delay = Number(slide_verify);
+      }
+      if (textContains("拖动滑块直到出现").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
+        device.vibrate(1000);//震动提示手动（滑块）
+        fInfo("此滑动验证（目前）需要手动");
+        toastLog("提醒:此滑动验证（目前）需要手动！")
+        slee(1500);
+      //  continue;
       }
       var bound = idContains("nc_1_n1t").findOne().bounds();
       var hua_bound = text("向右滑动验证").findOne().bounds();

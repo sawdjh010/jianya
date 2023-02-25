@@ -2876,7 +2876,7 @@ function noverify() {
         var delay = Number(slide_verify);
       }
       var json_0 = find();
-      queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
+      queryList_2(json_0,"后松开","请按照说明拖动滑块","此滑动验证（目前）需要手动--震动2s");
       //var rooot11 = className("android.widget.TextView").find();
       // queryList_0(rooot11);
      //  fInfo("此滑动验证（目前）需要手动");

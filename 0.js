@@ -2746,6 +2746,10 @@ function login(username, pwd) {
     sleep(1000);
     begin_obj.click();
     sleep(3000);
+    if(id("buttonPanel").exists()||id("button1").exists()||id("message").exists()||textMatches("当前功能试用人数过多，请稍后重试").exists()){
+      id("button1").click();
+      click("确定");
+    }
     let packageName = getPackageName('学习强国');
     if (currentPackage() != packageName) {
       log("检测到弹窗，尝试返回");
@@ -2792,7 +2796,7 @@ function noverify() {
       } else{
         var delay = Number(slide_verify);
       }
-      if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
+      if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||text("拖动滑块直到出现").exists()||text("后松开").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
         device.vibrate(1000);//震动提示手动（滑块）
         fInfo("此滑动验证（目前）需要手动");
         toastLog("提醒:此滑动验证（目前）需要手动！")
@@ -2817,11 +2821,11 @@ function noverify() {
       gesture(random(delay, delay + 50), [x_start, y_start], [x_mid, y_end], [x_mid - back_x, y_start], [x_end, y_end]);
       //swipe(x_start, y_start, x_end, y_end, random(900,1000));
       sleep(500);
-      if (textContains("刷新").exists()) {
+      if (textContains("刷新").exists()||text("刷新").exists()) {
         click("刷新");
         continue;
       }
-      if (textContains("网络开小差").exists()) {
+      if (textContains("网络开小差").exists()||text("网络开小差").exists()) {
         click("确定");
         continue;
       }

@@ -735,6 +735,7 @@ ui.layout(
                                     <text w="auto" textColor="#222222" textSize="15sp" text="滑动验证的滑动时间(ms)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="空着或0不开启自动滑动验证，滑动分3段" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="中间会折返一下，总时间是填的数值*3" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="新滑块验证--震动提醒，须手动完成" />
                                 </vertical> 
                                 <input id="ttxs_pro_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
                             </horizontal>
@@ -1164,7 +1165,7 @@ ui.layout(
                               <input id='bh_kami' w='*'></input>
                               </horizontal>
                              <horizontal>
-                               <button id='cun_bh_kami' text='保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                               <button id='cun_bh_kami' text='绑定/保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
                                <button id='获取剩余时长' text='剩余时长' textSize='15sp' layout_weight='1'></button>
                                <button id='reset_bh_kami' text='重置卡密' textSize='15sp' layout_weight='1'></button>
                            </horizontal>

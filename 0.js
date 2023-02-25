@@ -2746,7 +2746,11 @@ function login(username, pwd) {
     sleep(1000);
     begin_obj.click();
     sleep(3000);
-    if(queryList_1(find(),"确定")) {sleep(1250); queryList_0(find(),"登录");log("再登录……")};//检测是否‘当前功能使用人数过多……’的防护机制
+    if(queryList_1(find(),"确定")) {
+      sleep(1250); 
+      queryList_0(find(),"登录");
+      log("再登录……");
+    };//检测是否‘当前功能使用人数过多……’的防护机制
     let packageName = getPackageName('学习强国');
     if (currentPackage() != packageName) {
       log("检测到弹窗，尝试返回");

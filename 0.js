@@ -2732,6 +2732,11 @@ function login(username, pwd) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
+    if(queryList_1(find(),"确定")) {
+      sleep(1250); 
+      queryList_0(find(),"登录");
+      log("再登录……");
+    };//检测是否‘当前功能使用人数过多……’的防护机制
   };
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
@@ -2830,16 +2835,15 @@ function noverify() {
         var sonList = json[i];
         if (sonList.childCount() == 0) {
          //   console.log(json[i])
-           var b_coin = json[i].text()
-           fInfo("文本："+b_coin)
-          if(b_coin== "拖动滑块直到出现"||b_coin== "请按照说明拖动滑块"||b_coin== "后松开") { 
+           var b_coin = json[i].text();
+           fInfo("文本：" + b_coin);
+          if(b_coin == "拖动滑块直到出现" || b_coin== "请按照说明拖动滑块" || b_coin== "后松开") { 
             device.vibrate(1000);//震动提示手动（滑块）
           fInfo("此滑动验证（目前）需要手动");
           toastLog("提醒:此滑动验证（目前）需要手动！")
-          sleep(500);
+          sleep(1500);
             break;
-        }
-        
+           };
         } else {
             queryList_0(sonList);
         }
@@ -2852,7 +2856,7 @@ function noverify() {
       }
       //var rooot11 = className("android.widget.TextView").find();
       // queryList_0(rooot11);
-       fInfo("此滑动验证（目前）需要手动");
+     //  fInfo("此滑动验证（目前）需要手动");
       if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||text("拖动滑块直到出现").exists()||text("后松开").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
         device.vibrate(1000);//震动提示手动（滑块）
         fInfo("此滑动验证（目前）需要手动");
@@ -3101,7 +3105,11 @@ function xxqg(userinfo) {
     login(username, pwd);
     sleep(random(1500, 2000));
     queryList_1(find(),"确定");
-    if(queryList_1(find(),"确定")) {sleep(1000); queryList_0(find(),"登录");log("再次登录")};//检测防护机制后再登录
+    if(queryList_1(find(),"确定")) {
+      sleep(1000); 
+      queryList_0(find(),"登录");
+      log("再次登录");
+         };//检测防护机制后再登录
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       sleep(random(3600, 3500));
       back();
@@ -3109,7 +3117,7 @@ function xxqg(userinfo) {
     }
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       app.launchApp('学习强国');
-      fInfo("重启‘qg’  耐心等待……");
+      fInfo("重启‘qg-’  耐心等待……");
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");

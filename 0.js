@@ -2803,7 +2803,7 @@ function queryList_1(json,wenben_dj) {
       if (sonList.childCount() == 0) {
        //   console.log(json[i])
          var b_coin = json[i].text()
-        // log("文本："+b_coin)
+         log("文本："+b_coin)
         if(b_coin== wenben_dj) click(b_coin);
       //  break
       } else {
@@ -3077,6 +3077,7 @@ function xxqg(userinfo) {
    // fInfo("userinfo");
     login(username, pwd);
     sleep(random(1500, 2000));
+    queryList_1(find(),"确定");
     if(queryList_1(find(),"确定")) {sleep(1000); queryList_0(find(),"登录");log("再次登录")};//检测防护机制后再登录
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       sleep(random(3600, 3500));

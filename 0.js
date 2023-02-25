@@ -2859,7 +2859,7 @@ function noverify() {
       fInfo("检测到滑动验证");
       var json_0 = find();
       //var json_0 = className("android.widget.TextView").find();
-      var queryList_2=(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动");
+       queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动");
     //   for (var i = 0; i < json.length; i++) {
     //     var sonList = json[i];
     //     if (sonList.childCount() == 0) {

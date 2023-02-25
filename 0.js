@@ -2734,7 +2734,7 @@ function login(username, pwd) {
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
     if(queryList_1(find(),"确定")) {
       sleep(1250); 
-      queryList_0(find(),"登录");
+      queryList_1(find(),"登录");
       log("再登录……");
     };//检测是否‘当前功能使用人数过多……’的防护机制
   };
@@ -2753,7 +2753,7 @@ function login(username, pwd) {
     sleep(3000);
     if(queryList_1(find(),"确定")) {
       sleep(1250); 
-      queryList_0(find(),"登录");
+      queryList_1(find(),"登录");
       log("再登录……");
     };//检测是否‘当前功能使用人数过多……’的防护机制
     let packageName = getPackageName('学习强国');
@@ -2805,6 +2805,30 @@ function queryList_0(json) {
     return b_coin
    
 }
+//遍历2个目标文本
+function queryList_2(json,wenben_1,wenben_2,wenben_c) {
+  for (var i = 0; i < json.length; i++) {
+      var sonList = json[i];
+      if (sonList.childCount() == 0) {
+       //   console.log(json[i])
+         var b_coin = json[i].text()
+         log("文本："+b_coin)
+         if(b_coin == wenben_1 || b_coin== wenben_2) { 
+          device.vibrate(1000);//震动提示手动（滑块）
+        fInfo(wenben_c);
+        toastLog(wenben_c)
+        sleep(1500);
+          break;
+         };
+      //  break
+      } else {
+          queryList_2(sonList);
+      }
+  }
+    //返回结果值
+    return b_coin
+   
+}
 //遍历文本点击目标文本
 function queryList_1(json,wenben_dj) {
   for (var i = 0; i < json.length; i++) {
@@ -2816,7 +2840,7 @@ function queryList_1(json,wenben_dj) {
         if(b_coin== wenben_dj) click(b_coin);
       //  break
       } else {
-          queryList_0(sonList);
+          queryList_1(sonList);
       }
   }
     //返回结果值
@@ -2830,24 +2854,25 @@ function noverify() {
     while (true) {
       textContains("访问异常").waitFor();
       fInfo("检测到滑动验证");
-      var json = className("android.widget.TextView").find();
-      for (var i = 0; i < json.length; i++) {
-        var sonList = json[i];
-        if (sonList.childCount() == 0) {
-         //   console.log(json[i])
-           var b_coin = json[i].text();
-           fInfo("文本：" + b_coin);
-          if(b_coin == "拖动滑块直到出现" || b_coin== "请按照说明拖动滑块" || b_coin== "后松开") { 
-            device.vibrate(1000);//震动提示手动（滑块）
-          fInfo("此滑动验证（目前）需要手动");
-          toastLog("提醒:此滑动验证（目前）需要手动！")
-          sleep(1500);
-            break;
-           };
-        } else {
-            queryList_0(sonList);
-        }
-    }
+      var json_0 = className("android.widget.TextView").find();
+      var queryList_2=(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动");
+    //   for (var i = 0; i < json.length; i++) {
+    //     var sonList = json[i];
+    //     if (sonList.childCount() == 0) {
+    //      //   console.log(json[i])
+    //        var b_coin = json[i].text();
+    //        fInfo("文本：" + b_coin);
+    //       if(b_coin == "拖动滑块直到出现" || b_coin== "请按照说明拖动滑块" || b_coin== "后松开") { 
+    //         device.vibrate(1000);//震动提示手动（滑块）
+    //       fInfo("此滑动验证（目前）需要手动");
+    //       toastLog("提醒:此滑动验证（目前）需要手动！")
+    //       sleep(1500);
+    //         break;
+    //        };
+    //     } else {
+    //         queryList_0(sonList);
+    //     }
+    // }
       if (!Number(slide_verify)) {
         fInfo("未开启自动验证");
         break

@@ -2746,10 +2746,7 @@ function login(username, pwd) {
     sleep(1000);
     begin_obj.click();
     sleep(3000);
-    if(id("buttonPanel").exists()||id("button1").exists()||id("message").exists()||textMatches("当前功能试用人数过多，请稍后重试").exists()){
-      id("button1").click();
-      click("确定");
-    }
+    if(queryList_1(find(),"确定")) {sleep(1250); queryList_0(find(),"登录");log("再登录……")};//检测是否‘当前功能使用人数过多……’的防护机制
     let packageName = getPackageName('学习强国');
     if (currentPackage() != packageName) {
       log("检测到弹窗，尝试返回");
@@ -2782,6 +2779,41 @@ function winReshow() {
     sleep(1000);
   }
 }
+//遍历文本
+function queryList_0(json) {
+  for (var i = 0; i < json.length; i++) {
+      var sonList = json[i];
+      if (sonList.childCount() == 0) {
+       //   console.log(json[i])
+         var b_coin = json[i].text()
+         log("文本："+b_coin)
+      //  break
+      } else {
+          queryList_0(sonList);
+      }
+  }
+    //返回结果值
+    return b_coin
+   
+}
+//遍历文本点击目标文本
+function queryList_1(json,wenben_dj) {
+  for (var i = 0; i < json.length; i++) {
+      var sonList = json[i];
+      if (sonList.childCount() == 0) {
+       //   console.log(json[i])
+         var b_coin = json[i].text()
+        // log("文本："+b_coin)
+        if(b_coin== wenben_dj) click(b_coin);
+      //  break
+      } else {
+          queryList_0(sonList);
+      }
+  }
+    //返回结果值
+    return b_coin
+   
+}
 
 function noverify() {
   let noverify_thread = threads.start(function () {
@@ -2796,11 +2828,13 @@ function noverify() {
       } else{
         var delay = Number(slide_verify);
       }
+      let rooot11 = className("android.widget.TextView").find();
+      var b_coin = queryList_0(rooot11);
       if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||text("拖动滑块直到出现").exists()||text("后松开").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
         device.vibrate(1000);//震动提示手动（滑块）
         fInfo("此滑动验证（目前）需要手动");
         toastLog("提醒:此滑动验证（目前）需要手动！")
-        slee(1500);
+        sleep(1500);
       //  continue;
       }
       var bound = idContains("nc_1_n1t").findOne().bounds();

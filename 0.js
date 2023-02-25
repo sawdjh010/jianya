@@ -449,6 +449,13 @@ function do_shipin() {
   //log(text("刷新重试").exists());
   textMatches(/刷新重试|继续播放/).exists() && (fInfo("检测到流量提醒"),
     textMatches(/刷新重试|继续播放/).findOne().click());
+    sleep(random(1000, 1500));
+    if(textContains("刷新重试").exists()) {
+      console.error("检测到使用的手机流量，准备点击'刷新重试'");
+       var v = text("刷新重试").findOne().bounds();
+      press(v.centerX(), v.centerY(), 150);;
+      sleep(random(1000, 1500));
+    }
   sleep(random(8000, 9500));
   let re_times = 6;
   if (ddtong) {
@@ -3188,7 +3195,7 @@ function xxqg(userinfo) {
       fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
   }
-  if (zhanghao && (vip ==null || vip.length != 12)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
+  if (zhanghao && (vip == null || vip.length != 12)) fInfo("多账号仅适用于VIP卡用户，请联系群主支持赞助");
   if (!zhanghao || (zhanghao && vip.length != 12)) return !0;
   fInfo("vip用户，运行多账号中……");
   sleep(3000);

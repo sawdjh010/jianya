@@ -2717,11 +2717,20 @@ function exit_app(name) {
 // 登录
 function login(username, pwd) {
   sleep(random(1700, 2500));
+ 
   if(2 != meizhou && 0 == meizhou_end){
     sleep(random(1200, 1700));
   if (!textMatches("我的").exists() && !text("我的").exists()){
     fInfo("耐心等待……");
     sleep(random(2600, 3500));
+    if(queryList_1(find(),"确定")) {
+      sleep(1250); 
+      queryList_1(find(),"登录");
+      log("再登录……");
+      slee(1000);
+      var json_0 = find();
+        queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
+    };//检测是否‘当前功能使用人数过多……’的防护机制
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       back();
     sleep(random(2600, 3500));
@@ -2732,12 +2741,6 @@ function login(username, pwd) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
-    sleep(1000);
-    if(queryList_1(find(),"确定")) {
-      sleep(1250); 
-      queryList_1(find(),"登录");
-      log("再登录……");
-    };//检测是否‘当前功能使用人数过多……’的防护机制
   };
   };
   var begin_obj = idMatches(/.*comm_head_xuexi_mine|.*btn_next/).findOne();
@@ -2751,12 +2754,15 @@ function login(username, pwd) {
     b.setText(pwd);
     sleep(1000);
     begin_obj.click();
-    sleep(3000);
+    sleep(4000);
     if(queryList_1(find(),"确定")) {
       sleep(1250); 
       queryList_1(find(),"登录");
       log("再登录……");
     };//检测是否‘当前功能使用人数过多……’的防护机制
+    sleep(1000);
+    var json_0 = find();
+      queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
     let packageName = getPackageName('学习强国');
     if (currentPackage() != packageName) {
       log("检测到弹窗，尝试返回");

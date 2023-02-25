@@ -3043,6 +3043,10 @@ function xxqg(userinfo) {
    // fInfo("userinfo");
     login(username, pwd);
     sleep(random(1500, 2000));
+    if(id("buttonPanel").exists()||id("button1").exists()||id("message").exists()||textMatches("当前功能试用人数过多，请稍后重试").exists()){
+      id("button1").click();
+      click("确定");
+    }
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       sleep(random(3600, 3500));
       back();

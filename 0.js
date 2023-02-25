@@ -2813,13 +2813,13 @@ function queryList_2(json,wenben_1,wenben_2,wenben_c) {
       if (sonList.childCount() == 0) {
        //   console.log(json[i])
          var b_coin = json[i].text()
-         log("文本："+b_coin)
+         fInfo("文本："+b_coin)
          if(b_coin == wenben_1 || b_coin== wenben_2) { 
           device.vibrate(1000);//震动提示手动（滑块）
         fInfo(wenben_c);
         toastLog(wenben_c)
-        sleep(1500);
-        continue;
+      //  sleep(1500);
+        break;
          };
       //  break
       } else {

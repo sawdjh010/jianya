@@ -2732,6 +2732,7 @@ function login(username, pwd) {
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
+    sleep(1000);
     if(queryList_1(find(),"确定")) {
       sleep(1250); 
       queryList_1(find(),"登录");
@@ -2838,7 +2839,7 @@ function queryList_1(json,wenben_dj) {
          var b_coin = json[i].text()
          log("文本："+b_coin)
         if(b_coin== wenben_dj) click(b_coin);
-      //  break
+        break;
       } else {
           queryList_1(sonList);
       }

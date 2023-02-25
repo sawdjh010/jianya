@@ -2838,8 +2838,10 @@ function queryList_1(json,wenben_dj) {
        //   console.log(json[i])
          var b_coin = json[i].text()
          log("文本："+b_coin)
-        if(b_coin== wenben_dj) click(b_coin);
-        break;
+        if(b_coin== wenben_dj){
+          click(b_coin);
+           break;
+        }  
       } else {
           queryList_1(sonList);
       }

@@ -3077,9 +3077,7 @@ function xxqg(userinfo) {
    // fInfo("userinfo");
     login(username, pwd);
     sleep(random(1500, 2000));
-    if(id("buttonPanel").exists()||id("button1").exists()||id("message").exists()||textMatches("当前功能试用人数过多，请稍后重试").exists()){
-      id("button1").click();
-      click("确定");
+    if(queryList_1(find(),"确定")) {sleep(1250); queryList_0(find(),"登录");log("再登录……")};//检测是否‘当前功能使用人数过多……’的防护机制
     }
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       sleep(random(3600, 3500));

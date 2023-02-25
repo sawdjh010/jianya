@@ -2874,7 +2874,10 @@ function noverify() {
         break
       } else{
         var delay = Number(slide_verify);
+         click(222,375);
+         press(222,375,150);
       }
+      
       var json_0 = find();
       queryList_2(json_0,"后松开","请按照说明拖动滑块","此滑动验证（目前）需要手动--震动2s");
       //var rooot11 = className("android.widget.TextView").find();

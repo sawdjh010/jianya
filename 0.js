@@ -335,6 +335,7 @@ var nolocate_thread = threads.start(function () {
 fInfo("跳转学习APP");
 // launch('cn.xuexi.android');
 app.launchApp('学习强国');
+var qg_guanbi_thread = qg_guanbi();
 sleep(2000);
 // console.hide();
 // 命令行方式启动，似乎需要root
@@ -492,10 +493,13 @@ function do_wenzhang() {
     text("取消").findOne(3000).click();
   }
   log("切换地区");
+  let beijing_1 =className("android.widget.TexitView").depth(17).find();
+  queryList_1(beijing_1,"北京");
+  //className("android.widget.TexitView").depth(17).findOne(2000)
   text("切换地区").findOne().click();
   log("查找北京");
   text("北京").waitFor();
-  sleep(500);
+  sleep(500);exit
   log("切换北京");
   text("北京").findOne().parent().parent().click();
   log("查找banner");
@@ -2883,6 +2887,22 @@ function handling_huatu_exceptions() {
   });
   return thread_handling_huatu_exceptions;
 }
+//检测出现强国关闭应用程序
+function qg_guanbi(){
+let qg_guanbi_thread = threads.start(function () {
+  //在新线程执行的代码
+  //sleep(500);
+  toastLog("检测到‘关闭应用’");
+  var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|START NOW/).findOne(5000);
+  if (btn) {
+    sleep(1000);
+    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 30);
+    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 30,100)
+  }
+  toastLog("关闭应用");
+});
+return qg_guanbi_thread;
+}
 
 function noverify() {
   let noverify_thread = threads.start(function () {
@@ -3252,6 +3272,9 @@ function xxqg(userinfo) {
      }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
+  if (qg_guanbi_thread.isAlive()) {
+    qg_guanbi_thread.interrupt();
+  }
   jifen_list = refind_jifen();
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
@@ -3294,7 +3317,7 @@ function xxqg(userinfo) {
    if(mz_0 == null) back(),sleep(1000),text("我的").findOne().click();
    else mz_0.click();
     sleep(1000);
-    mz_1 = text("我要答题").findOne(3000);
+    mz_1 = text("我要答题").findOne(3500);
     if(mz_1 == null){ click(522,855); press(522,855,150);}
     else mz_1.parent().click();
     sleep(1000);

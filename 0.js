@@ -2892,14 +2892,15 @@ function qg_guanbi(){
 let qg_guanbi_thread = threads.start(function () {
   //在新线程执行的代码
   //sleep(500);
-  toastLog("检测到‘关闭应用’");
+  fInfo("检测兼容性--‘关闭应用’弹窗");
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|START NOW/).findOne(5000);
   if (btn) {
     sleep(1000);
     click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 30);
     press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 30,100)
   }
-  toastLog("关闭应用");
+  fInfo("已关闭应用");
+  toastLog("已关闭应用");
 });
 return qg_guanbi_thread;
 }

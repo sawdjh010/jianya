@@ -488,6 +488,8 @@ function do_wenzhang() {
   }
   fClear();
   fInfo("切换地区为北京");
+  let beijing_1 =className("android.widget.TexitView").depth(17).find();
+  queryList_1(beijing_1,"北京");
   text("切换地区").findOne(3000);
   if (text("立即切换").exists()) {
     text("取消").findOne(3000).click();

@@ -1534,8 +1534,7 @@ ui.start.click(function () {
     toast('耐心等待脚本加载……');
      threads.start(function () {
         run(ui.pjyLoginFun); 
-        sleep(1000);
-    });
+    },1000);
   
     sleep(3000);
     toast('耐心等待脚本加载……');
@@ -1552,7 +1551,7 @@ ui.start.click(function () {
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
             sleep(1000);
-    });
+    },1000);
 });
 
 // // 保存卡密设置

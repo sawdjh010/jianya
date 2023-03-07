@@ -1305,7 +1305,6 @@ ui.cun_bh_kami.on('click', () => {
 ui.denglu.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
      threads.start(ui.pjyLoginFun);
-    
  });
  ui.denglu_1.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
@@ -1532,12 +1531,6 @@ ui.start.click(function () {
         return;
     }
     toast('耐心等待脚本加载……');
-     threads.start(function () {
-        ui.pjyLoginFun; 
-    },1000);
-  
-    sleep(3000);
-    toast('耐心等待脚本加载……');
     threads.start(function () {
         //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
         let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
@@ -1546,12 +1539,10 @@ ui.start.click(function () {
         {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
        if(vip == 1) toast('试用期5天后需要你的赞助') 
        if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-       
         }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
-            sleep(1000);
-    },1000);
+    });
 });
 
 // // 保存卡密设置

@@ -1305,6 +1305,7 @@ ui.cun_bh_kami.on('click', () => {
 ui.denglu.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
      threads.start(ui.pjyLoginFun);
+    
  });
  ui.denglu_1.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
@@ -1533,6 +1534,7 @@ ui.start.click(function () {
     toast('耐心等待脚本加载……');
     threads.start(function () {
         threads.start(ui.pjyLoginFun); 
+        sleep(1000);
     });
   
     sleep(3000);

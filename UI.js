@@ -1305,7 +1305,6 @@ ui.cun_bh_kami.on('click', () => {
 ui.denglu.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
      threads.start(ui.pjyLoginFun);
-    
  });
  ui.denglu_1.on('click', () => {
     // ui.storage.put("bh_kami", ui.bh_kami.text());
@@ -1532,31 +1531,6 @@ ui.start.click(function () {
         return;
     }
     toast('耐心等待脚本加载……');
-    ui.run(() => {
-        ui.endTime.setText("登陆中...");
-       // ui.Remaining_time.setText("登陆中...");
-    });
-    let kami = ui.bh_kami.text();
-    if (kami != "" && kami != null) {
-        console.info("读取到了卡密:%s", kami);
-        //开始判断卡密是否过期
-        pjysdk.SetCard(kami);
-        pjyUser = pjysdk.CardLogin();
-    } else {
-        console.info("未读取到卡密，开始试用登陆");
-        pjyUser = pjysdk.TrialLogin();
-    }
-    ui.run(function(){
-        if (pjyUser.code == 0) {
-            ui.endTime.setText(pjyUser.result.expires);
-        
-        } else {
-            ui.endTime.setText(pjyUser.message);
-
-        }
-    });
-    sleep(3000);
-    toast('耐心等待脚本加载……');
     threads.start(function () {
         //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
         let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
@@ -1565,12 +1539,10 @@ ui.start.click(function () {
         {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
        if(vip == 1) toast('试用期5天后需要你的赞助') 
        if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-       
         }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
-            sleep(1000);
-    },1000);
+    });
 });
 
 // // 保存卡密设置

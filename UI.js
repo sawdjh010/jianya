@@ -1532,7 +1532,7 @@ ui.start.click(function () {
         return;
     }
     toast('耐心等待脚本加载……');
-    var thread = threads.start(function () {
+     threads.start(function () {
         threads.start(ui.pjyLoginFun); 
         sleep(1000);
     });
@@ -1547,9 +1547,11 @@ ui.start.click(function () {
         {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
        if(vip == 1) toast('试用期5天后需要你的赞助') 
        if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
+       
         }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
+            sleep(1000);
     });
 });
 

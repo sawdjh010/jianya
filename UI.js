@@ -1532,7 +1532,7 @@ ui.start.click(function () {
         return;
     }
     toast('耐心等待脚本加载……');
-    threads.start(function () {
+    var thread = threads.start(function () {
         threads.start(ui.pjyLoginFun); 
         sleep(1000);
     });

@@ -11,7 +11,7 @@ ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
 ui.副标题 = "让各位从疫情走出来专心于工作";
 ui.启动赞助公告 = "1.[VIP支持多账号]每次启动先至 'VIP卡密'栏点击'登录/试用'-----'脚本配置'(保存配置)-----再点击'开始学习'按钮;\n2.试用期5天,联系群主(支持)赞助后获得卡密(月/季/年);\n3.感谢您的支持！！！\n'技术人员'每次熬夜+发量减少的修改、调试……，给予点点欣慰！"
-ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线;\n2.新增网络验证系统;\n3.不同情况选择设置和对应脚本运行;\n4.此模板仅供'内部测试交流';\n5.试用期过后，请赞助获取卡密(新Q群?：758116397，加群获得最新apk和资料);\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等;\n7.去除截图权限版适合最新版，支持四人/双人赛(OCR),支持订阅、支持运动步数、支持未作答的每周答题等;\n8.除首页中'(QG最新版)需root、虚拟机……'脚本外其推荐用强国V2.33版.";
+ui.公告 = "1.仅供个人测试(内部测试)使用（四合一）pro全新上线;\n2.新增网络验证系统;\n3.不同情况选择设置和对应脚本运行;\n4.新增新验证震动提醒提示;\n5.试用期过后，请赞助获取卡密(新Q群：758116397，加群获得最新apk和资料);\n6.脚本(QG最新版)去截图权限版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等;\n7.(QG最新版)去截图权限版，支持四人/双人赛(OCR),支持订阅、支持运动步数、支持未作答的每周答题等;\n8.除首页中'(QG最新版)去截图权限版'脚本外,其它脚本则推荐用强国V2.33版.";
 const PJYSDK = (function(){
     function PJYSDK(app_key, app_secret){
         http.__okhttp__.setMaxRetries(0);
@@ -664,10 +664,11 @@ ui.layout(
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="脚本选择" textColor="#222222" textSize="16sp" maxLines="1" />
-                                        <text text="共4脚本可按需选择" textColor="#999999" textSize="14sp" maxLines="1" />
-                                        <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="14sp" maxLines="1" />
+                                        <text text="共4脚本可按需选择" textColor="#999999" textSize="12sp" maxLines="1" />
+                                        <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="12sp" maxLines="1" />
+                                        <text text="(QG最新版)去截图权限版，需配合root或虚拟机等使用" textColor="#999999" textSize="10sp" maxLines="1" />
                                     </vertical>
-                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)需root、虚拟机等去截图权限版|天天向上Pro|天天向上|Study改" />
+                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)去截图权限版|天天向上Pro|天天向上|Study改" />
                                 </horizontal>
                             </card>
                             <card w="*" h="60" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
@@ -735,7 +736,7 @@ ui.layout(
                                     <text w="auto" textColor="#222222" textSize="15sp" text="滑动验证的滑动时间(ms)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="空着或0不开启自动滑动验证，滑动分3段" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="中间会折返一下，总时间是填的数值*3" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="新滑块验证--震动提醒，须手动完成" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="【新滑块验证--震动提醒，须手动完成】" />
                                 </vertical> 
                                 <input id="ttxs_pro_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
                             </horizontal>
@@ -1529,6 +1530,9 @@ ui.start.click(function () {
         alert("注意", "脚本正在运行，请结束之前进程");
         return;
     }
+    toast('耐心等待脚本加载……');
+    threads.start(ui.pjyLoginFun);
+    sleep(3000);
     toast('耐心等待脚本加载……');
     threads.start(function () {
         //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';

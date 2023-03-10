@@ -1210,7 +1210,11 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
-
+slee(3000);
+ui.run(() => {
+    ui.pjyLoginFun;
+   // ui.Remaining_time.setText("登陆中...");
+});
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";
 var latest_version = "2.2.0";

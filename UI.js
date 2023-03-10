@@ -1210,7 +1210,7 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
- sleep(5000);
+ //sleep(5000);
 // threads.start(ui.pjyLoginFun);
 //  threads.start(function(){
 //     pjysdk.SetCard(ui.bh_kami.getText().toString());

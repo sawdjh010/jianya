@@ -1525,7 +1525,7 @@ ui.start.click(function () {
         alert("注意", "脚本正在运行，请结束之前进程");
         return;
     }
-    sleep(1000);
+ //   sleep(1000);
 //     threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));});
 //     var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 //      kami = BH_KAMI_CONFIG.get("bh_kami", "");

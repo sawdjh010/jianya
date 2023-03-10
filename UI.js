@@ -1210,6 +1210,23 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
+ sleep(5000);
+
+ threads.start(function(){
+    pjysdk.SetCard(ui.bh_kami.getText().toString());
+    let login_ret = pjysdk.CardLogin();
+    if (login_ret.code == 0) {
+        // 登录成功，后面写你的业务代码
+        // console.show();
+        console.log('欢迎使用本脚本，继续点击‘开始学习’');
+        toast('欢迎使用本脚本，继续点击‘开始学习’');
+         vip = 2;
+    
+    } else {
+        // 登录失败提示
+        toast(login_ret.message);
+    }
+});
 
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";

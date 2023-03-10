@@ -1210,7 +1210,7 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
-//var handling_access = handling_access();
+var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";
 var latest_version = "2.2.0";
@@ -1499,24 +1499,24 @@ ui.update.click(function () {
         toast("当前已经是最新版本！");
     }
 });
-// function handling_access() {
-//     var thread_handling =  threads.start(function(){
-//         pjysdk.SetCard(ui.bh_kami.getText().toString());
-//         let login_ret = pjysdk.CardLogin();
-//         if (login_ret.code == 0) {
-//             // 登录成功，后面写你的业务代码
-//             // console.show();
-//             console.log('欢迎使用本脚本，继续点击‘开始学习’');
-//             toast('欢迎使用本脚本，继续点击‘开始学习’');
-//              vip = 2;
+function handling_access() {
+    var thread_handling =  threads.start(function(){
+        pjysdk.SetCard(ui.bh_kami.getText().toString());
+        let login_ret = pjysdk.CardLogin();
+        if (login_ret.code == 0) {
+            // 登录成功，后面写你的业务代码
+            // console.show();
+            console.log('欢迎使用本脚本，继续点击‘开始学习’');
+            toast('欢迎使用本脚本，继续点击‘开始学习’');
+             vip = 2;
         
-//         } else {
-//             // 登录失败提示
-//             toast(login_ret.message);
-//         }
-//     });
-//     return thread_handling
-//    }
+        } else {
+            // 登录失败提示
+            toast(login_ret.message);
+        }
+    });
+    return thread_handling
+   }
 // 下载并运行所选脚本
 ui.start.click(function () {
     toast('耐心等待脚本加载 中……');

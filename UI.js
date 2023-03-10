@@ -1210,7 +1210,7 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
-slee(3000);
+sleep(3000);
 ui.run(() => {
     ui.pjyLoginFun;
    // ui.Remaining_time.setText("登陆中...");

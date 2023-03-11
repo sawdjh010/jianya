@@ -2902,8 +2902,8 @@ let qg_guanbi_thread = threads.start(function () {
     click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 30);
     press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 30,100)
   }
-  fInfo("已关闭应用");
-  toastLog("已关闭应用");
+  fInfo("检测到兼容性弹窗--已关闭应用");
+  toastLog("检测到兼容性弹窗--已关闭应用");
 });
 return qg_guanbi_thread;
 }

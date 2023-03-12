@@ -2907,8 +2907,75 @@ let qg_guanbi_thread = threads.start(function () {
 });
 return qg_guanbi_thread;
 }
-
 function noverify() {
+  let noverify_thread = threads.start(function () {
+    //在新线程执行的代码
+    while (true) {
+      textContains("请按照说明拖动滑块").waitFor();
+      fInfo("检测到滑动验证");
+      if (!Number(slide_verify)) {
+        fInfo("未开启自动验证");
+        break
+      } else {
+        var delay = Number(slide_verify);
+        click(222,375);
+        press(222,375,150);
+      }
+      var json_0 = find();
+      queryList_2(json_0,"后松开","请按照说明拖动滑块","尝试滑动验证，若未通过，请需要手动！--震动1s");
+      if (id("navigationBarBackground").exists() || textContains("拖动滑块直到出现").exists()||text("拖动滑块直到出现").exists()||text("后松开").exists()||textContains("后松开").exists()||textContains("请按照说明拖动滑块").exists()) {
+        device.vibrate(1000);//震动提示手动（滑块）
+        fInfo("此滑动验证（目前）需要手动");
+        toastLog("提醒:尝试滑动验证，若未通过，请需要手动！")
+      //  sleep(1000);
+      //  continue;
+      }
+      text("请按照说明拖动滑块").waitFor();
+      let bound = textContains("请按照说明拖动滑块").findOne().parent().child(1).bounds();
+      let hua_bound = text("请按照说明拖动滑块").findOne().bounds();
+      let x_start = bound.centerX();
+      let dx = x_start - hua_bound.left;
+      let x_end = (hua_bound.right - dx) * random(5.1, 6.0) / 10; // “hua_bound.right - dx”表示拖动到最后，为了准确率更高点 拖动到一半左右即可
+      let x_mid = (x_end - x_start) * random(5, 7) / 10 + x_start;
+      let back_x = (x_end - x_start) * random(2, 3) / 10;
+      let y_start = random(bound.top, bound.bottom);
+      let y_end = random(bound.top, bound.bottom);
+      // log("y_start:", y_start, "x_start:", x_start, "x_mid:", x_mid, "x_end:", x_end);
+      x_start = random(x_start - 7, x_start);
+      x_end = random(x_end, x_end + 10);
+      gesture(random(delay, delay + 200), [x_start, y_start], [x_end, y_end]);
+      //swipe(x_start, y_start, x_end, y_end, random(900,1000));
+      sleep(random(1000, 1500));
+      while (textContains("滑动位置不对哦，请再试一次").exists()) {
+        text("请按照说明拖动滑块").waitFor();
+        text("icon/24/icon_Y_shuaxin").findOne().parent().click();
+        sleep(random(1000, 1500));
+        continue;
+      }
+      if (textContains("刷新").exists()) {
+        click("刷新");
+        sleep(random(1000, 1500));
+        continue;
+      }
+      if (textContains("网络开小差").exists()) {
+        click("确定");
+        sleep(random(1000, 1500));
+        continue;
+      }
+      if (text("当前功能使用人数过多，请稍后重试").exists()) {
+        click("确定");
+        id("btn_next").findOne().click();
+        sleep(random(1000, 1500));
+        continue;
+      }
+      fInfo("已完成滑动验证，若滑动失败请在Pro版配置中调整滑动时间");
+      sleep(1000);
+      fClear();
+    }
+  });
+  return noverify_thread;
+}
+function noverify_0() {
   let noverify_thread = threads.start(function () {
     //在新线程执行的代码
     while (true) {

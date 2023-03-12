@@ -1550,18 +1550,29 @@ ui.start.click(function () {
                
    
     toast('耐心等待脚本加载……');
+
     threads.start(function () {
-        //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
-        let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
-       
-        if (vip == 1|| vip == 2)
-        {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
+        if (vip == 1|| vip == 2){
+            execution = engines.execScript("学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));
        if(vip == 1) toast('试用期5天后需要你的赞助') 
        if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
         }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
+        
     });
+    // threads.start(function () {
+    //     //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
+    //     let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
+       
+    //     if (vip == 1|| vip == 2)
+    //     {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
+    //    if(vip == 1) toast('试用期5天后需要你的赞助') 
+    //    if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
+    //     }
+    //     else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
+    //         }
+    // });
 });
 
 // // 保存卡密设置
@@ -1917,5 +1928,29 @@ function startDownload(url) {
         //自动打开进行安装
         app.viewFile(path);
     })
+}
+function getScript(choice) {
+    let url_prefix = [
+        'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+       //"https://ghproxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/",
+        "https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/",
+        'https://cdn.jsdelivr.net/gh/sawdjh010/jianya/blob@main/',
+        'https://raw.githubusercontent.com/sawdjh010/jianya/blob/main/',
+    ];
+    for (var i = 0; i < url_prefix.length; i++) {
+        try {
+            let res = http.get(url_prefix[i] + choice + ".js");
+            console.log(i, ":" + res.statusCode);
+            if (res.statusCode == 200) {
+                var UI = res.body.string();
+                if (UI.indexOf('auto.waitFor();') == 0) break;
+            } else {
+                toastLog('学习脚本:地址' + i + '下载失败');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    return UI;
 }
 require('./去限制.js')

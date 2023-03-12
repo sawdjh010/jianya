@@ -2927,7 +2927,7 @@ function noverify() {
         device.vibrate(1000);//震动提示手动（滑块）
         fInfo("此滑动验证（目前）需要手动");
         toastLog("提醒:尝试滑动验证，若未通过，请需要手动！")
-      //  sleep(1000);
+        sleep(1000);
       //  continue;
       }
       text("请按照说明拖动滑块").waitFor();

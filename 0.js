@@ -10,6 +10,7 @@ var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
 var watchdog = TTXS_PRO_CONFIG.get("watchdog", "1800");
 var slide_verify = TTXS_PRO_CONFIG.get("slide_verify", "300");
+var slide_verify_on = TTXS_PRO_CONFIG.get("slide_verify_on", 0);
 var fast_mode = TTXS_PRO_CONFIG.get("fast_mode", false);
 var ddtong = TTXS_PRO_CONFIG.get("ddtong", false);
 var weixin_kaiguan = TTXS_PRO_CONFIG.get("weixin_kaiguan", true);
@@ -2916,7 +2917,7 @@ function noverify() {
       if (!Number(slide_verify)) {
         fInfo("未开启自动验证");
         break
-      } else {
+      } else{
         var delay = Number(slide_verify);
         click(222,375);
         press(222,375,150);
@@ -2930,6 +2931,7 @@ function noverify() {
         sleep(1000);
       //  continue;
       }
+      if(slide_verify_on = 1){
       text("请按照说明拖动滑块").waitFor();
       let bound = textContains("请按照说明拖动滑块").findOne().parent().child(1).bounds();
       let hua_bound = text("请按照说明拖动滑块").findOne().bounds();
@@ -2952,6 +2954,26 @@ function noverify() {
         sleep(random(1000, 1500));
         continue;
       }
+       }else{
+      var bound = idContains("nc_1_n1t").findOne().bounds();
+      var hua_bound = text("向右滑动验证").findOne().bounds();
+      var x_start = bound.centerX();
+      var dx = x_start - hua_bound.left;
+      var x_end = hua_bound.right - dx;
+      var x_mid = (x_end - x_start) * random(5, 8) / 10 + x_start;
+      var back_x = (x_end - x_start) * random(2, 3) / 10;
+      var y_start = random(bound.top, bound.bottom);
+      var y_end = random(bound.top, bound.bottom);
+      log("y_start:", y_start, "x_start:", x_start, "x_mid:", x_mid, "x_end:", x_end);
+      x_start = random(x_start - 7, x_start);
+      x_end = random(x_end, x_end + 10);
+      //       sleep(600);
+      //       press(x_start, y_start, 200);
+      //       sleep(200);
+      gesture(random(delay, delay + 50), [x_start, y_start], [x_mid, y_end], [x_mid - back_x, y_start], [x_end, y_end]);
+      //swipe(x_start, y_start, x_end, y_end, random(900,1000));
+      sleep(500);
+       }
       if (textContains("刷新").exists()) {
         click("刷新");
         sleep(random(1000, 1500));

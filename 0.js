@@ -2745,7 +2745,7 @@ function login(username, pwd) {
     }
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       app.launchApp('学习强国');
-      fInfo("重启 ‘qg’  耐心等待……");
+      fInfo("重启 ‘q-g’  耐心等待……");
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
     if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能 bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");

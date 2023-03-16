@@ -739,6 +739,11 @@ ui.layout(
                                     <text w="auto" textColor="#999999" textSize="12sp" text="【新滑块验证--震动提醒，须手动完成】" />
                                 </vertical> 
                                 <input id="ttxs_pro_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="12sp" text="纯手动：有震动提醒但需要手动来完成" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="自动+手动：随机自动滑，也可以手动来滑，并伴有震动提醒，" />
+                                    <spinner id="ttxs_pro_slide_verify_on" marginLeft="4" marginRight="6" entries="纯手动|自动+手动" />
+                                </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
@@ -1583,6 +1588,7 @@ ui.start.click(function () {
 ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText() + "");
     TTXS_PRO_CONFIG.put("slide_verify", ui.ttxs_pro_slide_verify.getText() + "");
+    TTXS_PRO_CONFIG.put("slide_verify_on", ui.ttxs_pro_slide_verify_on.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("fast_mode", ui.ttxs_pro_fast_mode.isChecked());
     TTXS_PRO_CONFIG.put("ddtong", ui.ttxs_pro_ddtong.isChecked());
     TTXS_PRO_CONFIG.put("weixin_kaiguan", ui.ttxs_pro_kaiguan.isChecked());
@@ -1618,7 +1624,9 @@ ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", "1800");
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog"));
     TTXS_PRO_CONFIG.put("slide_verify", "300");
-    ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify"));
+    ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify"));  
+    TTXS_PRO_CONFIG.put("slide_verify_on", 0);
+    ui.ttxs_pro_slide_verify_on.setSelection(TTXS_PRO_CONFIG.get("slide_verify_on"));
     TTXS_PRO_CONFIG.put("fast_mode", false);
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode"));
     TTXS_PRO_CONFIG.put("ddtong", false);
@@ -1776,6 +1784,7 @@ function Initialize() {
     ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog", "1800"));
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));
+    ui.ttxs_pro_slide_verify_on.setSelection(TTXS_PRO_CONFIG.get("slide_verify_on", 0));
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode", false));
     ui.ttxs_pro_ddtong.setChecked(TTXS_PRO_CONFIG.get("ddtong", false));
     ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan", true));

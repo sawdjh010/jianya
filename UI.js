@@ -704,7 +704,7 @@ ui.layout(
                              <vertical>
                                 <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                                 <text padding='10dp' text='{{ui.启动赞助公告}}'></text>
-                                <text w="auto" textColor="#999999" textSize="12sp" text=" 卡密用户先至上方'VIP卡密'栏--'绑定/保存卡密',再至'脚本配置'--'保存配置'；---------首次须先点击下方'VIP登录'，再点击<开始学习>-----以后脚本启动后只需直接点击<开始学习>即可" />
+                                <text w="auto" textColor="#999999" textSize="12sp" text=" 卡密用户先至上方'VIP卡密'栏--'绑定/保存卡密',再至'脚本配置'--'保存配置'；---------首次须先点击下方'VIP登录'，再点击'开始学习'-----以后脚本启动后只需直接点击'开始学习'即可" />
                              </vertical>
                            </vertical>
                          </horizontal>

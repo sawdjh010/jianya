@@ -2739,16 +2739,16 @@ function login(username, pwd) {
     //   var json_0 = find();
     //     queryList_2(json_0,"拖动滑块直到出现","后松开","此滑动验证（目前）需要手动--震动2s");
     // };//检测是否‘当前功能使用人数过多……’的防护机制
-    if (!textMatches("我的").exists() && !text("我的").exists()) {
+    if (!(textMatches("我的").exists() || textMatches("登录").exists()) ||!(text("我的").exists() || text("登录").exists())) {
       back();
     sleep(random(2600, 3500));
     }
     if (!textMatches("我的").exists() && !text("我的").exists()) {
       app.launchApp('学习强国');
-      fInfo("重启‘qg’  耐心等待……");
+      fInfo("重启 ‘qg’  耐心等待……");
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
-    if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
+    if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能 bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
       // queryList_1(find(),"确定")
       // sleep(1250); 
       // queryList_1(find(),"登录");

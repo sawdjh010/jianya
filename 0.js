@@ -505,7 +505,8 @@ function do_wenzhang() {
   text("北京").waitFor();
   sleep(500);exit
   log("切换北京");
-  text("北京").findOne().parent().parent().click();
+  if(text("北京").findOne()) text("北京").findOne().parent().parent().click();
+  else queryList_1(find(),"北京");
   log("查找banner");
   //let banner = className("android.support.v7.widget.RecyclerView").findOne();
   let banner = classNameContains("RecyclerView").findOne();

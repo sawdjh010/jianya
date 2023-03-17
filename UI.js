@@ -1360,16 +1360,6 @@ ui.denglu.on('click', () => {
         //  else toast("无卡密或者没保存卡密，若无法使用，请联系群主赞助后获取卡密");
 
  });
-//解绑
-//  ui.jiebang.on('click', () => {
-//     threads.start(ui.pjyJiebangFun);
-//     // let kami = ui.bh_kami.text();
-//     // if (kami != "" && kami != null) { 
-//         BH_KAMI_CONFIG.put("bh_kami", "");
-//         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-//       //  toast('卡密已重置为空');
-//     //   }
-// });
 
 //创建按键的点击事件--调试
 ui.jiebang_ts_kami.on('click', () => {
@@ -1532,8 +1522,6 @@ ui.emitter.on("resume", function () {
 ui.log.click(function () {
     app.startActivity("console");
 });
-
-// APP更新检测
 
 // 下载并运行所选脚本
 ui.start.click(function () {

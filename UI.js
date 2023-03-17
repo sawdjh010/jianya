@@ -1546,27 +1546,8 @@ ui.start.click(function () {
     }
     toast('耐心等待脚本加载……');
     threads.start(function () {
-    //    if (vip == 1|| vip == 2){
-           execution = engines.execScript("学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));
-    //    if(vip == 1) toast('试用期5天后需要你的赞助') 
-    //    if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-    //     }
-    //     else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
-    //         }
-        
+           execution = engines.execScript("学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));      
     });
-    // threads.start(function () {
-    //     //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
-    //     let url = 'https://ghproxy.com/https://github.com/sawdjh010/imo/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
-       
-    //     if (vip == 1|| vip == 2)
-    //     {execution = engines.execScript("imaotai4合1pro", http.get(url).body.string());
-    //    if(vip == 1) toast('试用期5天后需要你的赞助') 
-    //    if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-    //     }
-    //     else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
-    //         }
-    // });
 });
 
 function handling_access() {
@@ -1587,10 +1568,7 @@ function handling_access() {
     });
     return thread_handling
    }
-// // 保存卡密设置
-// ui.cun_bh_kami.click(function () {
-//     TTXS_PRO_CONFIG.put("cun_bh", ui.bh_kami.getText() + "");
-// });
+
 // 保存imaotai四合一pro脚本设置
 ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText() + "");

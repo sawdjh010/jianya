@@ -11,7 +11,7 @@ ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
 ui.副标题 = "让各位从疫情走出来专心于工作";
 ui.启动赞助公告 = "1.[VIP支持多账号]每次启动先至 'VIP卡密'栏点击'登录/试用'-----'脚本配置'(保存配置)-----再点击'开始学习'按钮;\n2.试用期5天,联系群主(支持)赞助后获得卡密(月/季/年);\n3.感谢您的支持！！！\n'技术人员'每次熬夜+发量减少的修改、调试……，给予点点欣慰！"
-ui.公告 = "1.仅供个人测试(内部测试)使用（四合一）pro全新上线;\n2.新增网络验证系统;\n3.不同情况选择设置和对应脚本运行;\n4.新增新验证震动提醒提示;\n5.试用期过后，请赞助获取卡密(新Q群：758116397，加群获得最新apk和资料);\n6.脚本(QG最新版)去截图权限版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等;\n7.(QG最新版)去截图权限版，支持四人/双人赛(OCR),支持订阅、支持运动步数、支持未作答的每周答题等;\n8.除首页中'(QG最新版)去截图权限版'脚本外,其它脚本则推荐用强国V2.33版.";
+ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线;\n2.新增网络验证系统;\n3.不同情况选择设置和对应脚本运行;\n4.此模板仅供'内部测试交流';\n5.试用期过后，请赞助获取卡密(新Q群?：758116397，加群获得最新apk和资料);\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等;\n7.去除截图权限版适合最新版，支持四人/双人赛(OCR),支持订阅、支持运动步数、支持未作答的每周答题等;\n8.除首页中'(QG最新版)需root、虚拟机……'脚本外其推荐用强国V2.33版.";
 const PJYSDK = (function(){
     function PJYSDK(app_key, app_secret){
         http.__okhttp__.setMaxRetries(0);
@@ -643,7 +643,7 @@ const PJYSDK = (function(){
 let pjysdk = new PJYSDK("cfh8he3dqusul232gs60", "vPlS2036kID2IkVDqzFPGiojS6p7WeTD");
 pjysdk.debug = true;
 
-var vip = 0;//VIP权限自由开关
+var vip = 2;//VIP权限自由开关
 var color = "#FF4FB3FF";
 
 ui.statusBarColor("#FF4FB3FF")
@@ -652,7 +652,7 @@ ui.layout(
     <drawer id="drawer">
         <vertical>
             <appbar>
-                <toolbar id="toolbar" bg="#ff4fb3ff" title="学习减压四合一PRO"/>
+                <toolbar id="toolbar" bg="#ff4fb3ff" title="imaotai-PRO"/>
                 <tabs id="tabs" bg="#ff4fb3ff"/>
             </appbar>
             <viewpager id="viewpager">
@@ -664,11 +664,10 @@ ui.layout(
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="脚本选择" textColor="#222222" textSize="16sp" maxLines="1" />
-                                        <text text="共4脚本可按需选择" textColor="#999999" textSize="12sp" maxLines="1" />
-                                        <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="12sp" maxLines="1" />
-                                        <text text="(QG最新版)去截图权限版，需配合root或虚拟机等使用" textColor="#999999" textSize="10sp" maxLines="1" />
+                                        <text text="共4脚本可按需选择" textColor="#999999" textSize="14sp" maxLines="1" />
+                                        <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="14sp" maxLines="1" />
                                     </vertical>
-                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)去截图权限版|天天向上Pro|天天向上|Study改" />
+                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)需root、虚拟机等去截图权限版|天天向上Pro|天天i茅台|i茅台" />
                                 </horizontal>
                             </card>
                             <card w="*" h="60" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
@@ -704,7 +703,7 @@ ui.layout(
                              <vertical>
                                 <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                                 <text padding='10dp' text='{{ui.启动赞助公告}}'></text>
-                                <text w="auto" textColor="#999999" textSize="12sp" text=" 卡密用户先至上方'VIP卡密'栏--'绑定/保存卡密',再至'脚本配置'--'保存配置'；---------首次须先点击下方'VIP登录'，再点击'开始学习'-----以后脚本启动后只需直接点击'开始学习'即可" />
+                                <text w="auto" textColor="#999999" textSize="12sp" text=" 已有卡密,且上方'VIP卡密栏'处已保存卡密,(脚本配置后),---------先点击下方‘VIP登录’，再点击‘开始学习’" />
                              </vertical>
                            </vertical>
                          </horizontal>
@@ -713,8 +712,7 @@ ui.layout(
                            <button id="denglu_1" text="VIP登录" textSize="18sp" color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
                            <button h="50" layout_gravity="center" id="log" textSize="17sp" text="查看日志" ></button>
                         </horizontal>
-                        <button h="60" layout_gravity="center" id="update" textSize="18sp" />
-                        <button id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
+                        <button id="start" text="i茅启动" textSize="25sp" color="#ffffff" bg="#FF4FB3FF" foreground="?selectableItemBackground"/>
                     </vertical>
                 </frame>
                 </ScrollView>
@@ -736,14 +734,8 @@ ui.layout(
                                     <text w="auto" textColor="#222222" textSize="15sp" text="滑动验证的滑动时间(ms)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="空着或0不开启自动滑动验证，滑动分3段" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="中间会折返一下，总时间是填的数值*3" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="【新滑块验证--震动提醒，须手动完成】" />
                                 </vertical> 
                                 <input id="ttxs_pro_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
-                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="12sp" text="纯手动：有震动提醒但需要手动来完成" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="自动+手动：随机自动滑，也可以手动来滑，并伴有震动提醒，" />
-                                    <spinner id="ttxs_pro_slide_verify_on" marginLeft="4" marginRight="6" entries="纯手动|自动+手动" />
-                                </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
@@ -956,13 +948,58 @@ ui.layout(
                             </horizontal>
                         </vertical>
                         <vertical id="ttxs" gravity="center">
+                        <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="默认是申购" />
+                                    <spinner id="ttxs_test_chaxun" marginLeft="4" marginRight="6" entries="申购|申购查询" />
+                                </vertical> 
+                            </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="测试" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="领取小茅运" />
                                 </vertical>
-                                <checkbox id="test_article1" marginLeft="4" marginRight="6" checked="true" />
+                                <checkbox id="ttxs_test_maoyun" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="no-1935" />
+                                </vertical>
+                                <checkbox id="ttxs_test_no" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="no-珍品" />
+                                </vertical>
+                                <checkbox id="ttxs_test_zhenpin" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="pushplus_token(微信推送)开关" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="选推送，需要勾选并填写下方token" />
+                                </vertical>
+                                <checkbox id="ttxs_kaiguan" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="pushplus_token(微信推送)" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="微信关注pushplus推送加，复制token填入" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="注意！搜索结果有两个，一定要关注正确" />
+                                    <input id="ttxs_pushplus" text="" textSize="13sp" />
+                                </vertical> 
+                            </horizontal>
+                            <horizontal>
+                                <button style="Widget.AppCompat.Button.Colored" id="ttxs_save" text="保存配置" padding="12dp" w="*" />
+                            </horizontal>
+                            <horizontal>
+                                <button style="Widget.AppCompat.Button.Colored" id="ttxs_reset" text="恢复默认" padding="12dp" w="*" />
+                            </horizontal>
+
                         </vertical>
                         <vertical id="study" gravity="center">
                             <horizontal  gravity="center_vertical" padding="5 5" >
@@ -1171,7 +1208,7 @@ ui.layout(
                               <input id='bh_kami' w='*'></input>
                               </horizontal>
                              <horizontal>
-                               <button id='cun_bh_kami' text='绑定/保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
+                               <button id='cun_bh_kami' text='保存卡密' textSize='17sp' h='40' color="#ffffff" bg="#FF4FB3FF" layout_weight='1'></button>
                                <button id='获取剩余时长' text='剩余时长' textSize='15sp' layout_weight='1'></button>
                                <button id='reset_bh_kami' text='重置卡密' textSize='15sp' layout_weight='1'></button>
                            </horizontal>
@@ -1203,7 +1240,7 @@ ui.layout(
     </drawer>
 );
 
-ui.update.visibility = 8;
+//ui.update.visibility = 8;
 
 http.__okhttp__.setTimeout(10000);
 var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
@@ -1211,6 +1248,7 @@ var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 var GLOBAL_CONFIG = storages.create("GLOBAL_CONFIG");
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
 var STUDY_CONFIG = storages.create("STUDY_CONFIG");
+var TTXS_CONFIG = storages.create("TTXS_CONFIG");
 var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
@@ -1219,12 +1257,12 @@ var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";
 var latest_version = "2.2.0";
-if (GLOBAL_CONFIG.get("NO_UPDATE", 0) && (app.versionName != latest_version)) {
-    ui.update.visibility = 0;
-    ui.update.setText("点击更新至最新版v" + latest_version);
-} else if (app.versionName != latest_version) {
-    checkversion();
-}
+// if (GLOBAL_CONFIG.get("NO_UPDATE", 0) && (app.versionName != latest_version)) {
+//     ui.update.visibility = 0;
+//     ui.update.setText("点击更新至最新版v" + latest_version);
+// } else if (app.versionName != latest_version) {
+//     checkversion();
+// }
 // 监听心跳失败事件
 pjysdk.event.on("heartbeat_failed", function(hret) {
     toastLog(hret.message);
@@ -1410,7 +1448,7 @@ ui.emitter.on("options_item_selected", (e, item) => {
             app.startActivity("console");
             break;
         case "关于":
-            alert("关于", "学习减压4+1Pro_v" + latest_version + "\n  新Q群：758116397");
+            alert("关于", "imaotai4+1Pro_v" + latest_version + "\n  新Q群：758116397");
             break;
             case "最新版下载(密码:ex28)":
                 app.openUrl("https://wwsc.lanzouo.com/imSwd0mvp0ze");
@@ -1496,14 +1534,49 @@ ui.log.click(function () {
 });
 
 // APP更新检测
-ui.update.click(function () {
-    if (app.versionName != latest_version) {
-        GLOBAL_CONFIG.put("NO_UPDATE", 0);
-        checkversion();
-    } else {
-        toast("当前已经是最新版本！");
+// ui.update.click(function () {
+//     if (app.versionName != latest_version) {
+//         GLOBAL_CONFIG.put("NO_UPDATE", 0);
+//         checkversion();
+//     } else {
+//         toast("当前已经是最新版本！");
+//     }
+// });
+
+// 下载并运行所选脚本
+ui.start.click(function () {
+    toast('耐心等待脚本加载 中……');
+               
+    threads.shutDownAll();
+    if (thread != null && thread.isAlive()) {
+        alert("注意", "脚本正在运行，请结束之前进程");
+        return;
     }
+    toast('耐心等待脚本加载……');
+    threads.start(function () {
+    //    if (vip == 1|| vip == 2){
+           execution = engines.execScript("学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));
+    //    if(vip == 1) toast('试用期5天后需要你的赞助') 
+    //    if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
+    //     }
+    //     else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
+    //         }
+        
+    });
+    // threads.start(function () {
+    //     //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
+    //     let url = 'https://ghproxy.com/https://github.com/sawdjh010/imo/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
+       
+    //     if (vip == 1|| vip == 2)
+    //     {execution = engines.execScript("imaotai4合1pro", http.get(url).body.string());
+    //    if(vip == 1) toast('试用期5天后需要你的赞助') 
+    //    if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
+    //     }
+    //     else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
+    //         }
+    // });
 });
+
 function handling_access() {
     var thread_handling =  threads.start(function(){
         pjysdk.SetCard(ui.bh_kami.getText().toString());
@@ -1522,73 +1595,14 @@ function handling_access() {
     });
     return thread_handling
    }
-// 下载并运行所选脚本
-ui.start.click(function () {
-    toast('耐心等待脚本加载 中……');
-    threads.shutDownAll();
-    if (thread != null && thread.isAlive()) {
-        alert("注意", "脚本正在运行，请结束之前进程");
-        return;
-    }
- //   sleep(1000);
-//     threads.start(function(){ ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));});
-//     var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
-//      kami = BH_KAMI_CONFIG.get("bh_kami", "");
-//    toast("kami:" + kami)
-//      if (kami.length ==12){
-       
-//                 console.info("读取到了卡密:%s", kami);
-//                 //开始判断卡密是否过期
-//                 pjysdk.SetCard(kami);
-//                 pjyUser = pjysdk.CardLogin();
-                
-//             } else {
-//                 console.info("未读取到卡密，开始试用登陆");
-//                 pjyUser = pjysdk.TrialLogin();
-//             }
-//                 if (pjyUser.code == 0) {
-//                     ui.endTime.setText(pjyUser.result.expires);
-//                     vip=2
-//                 } else {
-//                     ui.endTime.setText(pjyUser.message);
-//                 }  
-               
-   
-    toast('耐心等待脚本加载……');
-
-    threads.start(function () {
-        if (vip == 1|| vip == 2){
-            execution = engines.execScript("学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));
-       if(vip == 1) toast('试用期5天后需要你的赞助') 
-       if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-        }
-        else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
-            }
-        
-    });
-    // threads.start(function () {
-    //     //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
-    //     let url = 'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
-       
-    //     if (vip == 1|| vip == 2)
-    //     {execution = engines.execScript("学习减压4合1pro", http.get(url).body.string());
-    //    if(vip == 1) toast('试用期5天后需要你的赞助') 
-    //    if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-    //     }
-    //     else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
-    //         }
-    // });
-});
-
 // // 保存卡密设置
 // ui.cun_bh_kami.click(function () {
 //     TTXS_PRO_CONFIG.put("cun_bh", ui.bh_kami.getText() + "");
 // });
-// 保存学习减压四合一pro脚本设置
+// 保存imaotai四合一pro脚本设置
 ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText() + "");
     TTXS_PRO_CONFIG.put("slide_verify", ui.ttxs_pro_slide_verify.getText() + "");
-    TTXS_PRO_CONFIG.put("slide_verify_on", ui.ttxs_pro_slide_verify_on.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("fast_mode", ui.ttxs_pro_fast_mode.isChecked());
     TTXS_PRO_CONFIG.put("ddtong", ui.ttxs_pro_ddtong.isChecked());
     TTXS_PRO_CONFIG.put("weixin_kaiguan", ui.ttxs_pro_kaiguan.isChecked());
@@ -1616,17 +1630,15 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("yinliang", ui.ttxs_pro_yinliang.getText() + "");
     TTXS_PRO_CONFIG.put("zhanghao", ui.ttxs_pro_zhanghao.getText() + "");
 
-    toastLog("学习减压四合一pro配置保存成功！");
+    toastLog("imaotai四合一pro配置保存成功！");
 });
 
-// 重置学习减压四合一pro脚本设置
+// 重置imaotai四合一pro脚本设置
 ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", "1800");
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog"));
     TTXS_PRO_CONFIG.put("slide_verify", "300");
-    ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify"));  
-    TTXS_PRO_CONFIG.put("slide_verify_on", 0);
-    ui.ttxs_pro_slide_verify_on.setSelection(TTXS_PRO_CONFIG.get("slide_verify_on"));
+    ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify"));
     TTXS_PRO_CONFIG.put("fast_mode", false);
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode"));
     TTXS_PRO_CONFIG.put("ddtong", false);
@@ -1678,11 +1690,39 @@ ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("yinliang", "0");
     ui.ttxs_pro_yinliang.setText(TTXS_PRO_CONFIG.get("yinliang"));
     TTXS_PRO_CONFIG.put("zhanghao", "");
-    ui.ttxs_pro_zhanghao.setText(TTXS_PRO_CONFIG.get("zhanghao"));
+    ui.ttxs_pro_zhanghao.setText(TTXS_PRO_CONFIG.get("zhanghao"));STUDY
 
-    toastLog("学习减压四合一pro配置恢复默认！");
+    toastLog("imaotai四合一pro配置恢复默认！");
 });
 
+// 保存TTXS脚本设置
+ui.ttxs_save.click(function () {
+   // TTXS_CONFIG.put("test_chaxun", ui.test_chaxun.isChecked());
+    TTXS_CONFIG.put("test_maoyun", ui.ttxs_test_maoyun.isChecked());
+    TTXS_CONFIG.put("test_no", ui.ttxs_test_no.isChecked());
+    TTXS_CONFIG.put("test_nozhenpin", ui.ttxs_test_zhenpin.isChecked());
+    TTXS_CONFIG.put("pushplus", ui.ttxs_pushplus.getText() + "");
+    TTXS_CONFIG.put("weixin_kaiguan", ui.ttxs_kaiguan.isChecked());
+    TTXS_CONFIG.put("test_chaxun", ui.ttxs_test_chaxun.getSelectedItemPosition());
+    toastLog("TTXS配置保存成功！");
+});
+
+// 重置TTXS脚本设置
+ui.ttxs_reset.click(function () {
+    //TTXS_CONFIG.put("test_chaxun", true);
+    TTXS_CONFIG.put("test_maoyun", true);
+    ui.ttxs_test_maoyun.setChecked(TTXS_PRO_CONFIG.get("test_maoyun"));
+    TTXS_CONFIG.put("test_no", true);
+    ui.ttxs_test_no.setChecked(TTXS_PRO_CONFIG.get("test_no"));
+    TTXS_CONFIG.put("test_nozhenpin", true);
+    ui.ttxs_test_nozhenpin.setChecked(TTXS_CONFIG.get("test_nozhenpin"));
+
+    ui.ttxs_kaiguan.setChecked(TTXS_CONFIG.get("weixin_kaiguan"));
+    TTXS_CONFIG.put("test_chaxun", 0);
+    ui.ttxs_test_chaxun.setSelection(TTXS_CONFIG.get("test_chaxun"));
+
+    toastLog("TTXS配置恢复默认！");
+});
 // 保存study脚本设置
 ui.study_save.click(function () {
     STUDY_CONFIG.put("article", ui.study_article.isChecked());
@@ -1784,7 +1824,6 @@ function Initialize() {
     ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog", "1800"));
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));
-    ui.ttxs_pro_slide_verify_on.setSelection(TTXS_PRO_CONFIG.get("slide_verify_on", 0));
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode", false));
     ui.ttxs_pro_ddtong.setChecked(TTXS_PRO_CONFIG.get("ddtong", false));
     ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan", true));
@@ -1835,6 +1874,14 @@ function Initialize() {
     ui.study_time1.setText(STUDY_CONFIG.get("time1", "61"));
     ui.study_time2.setText(STUDY_CONFIG.get("time2", "6"));
     ui.study_Token.setText(STUDY_CONFIG.get("Token", ""));
+
+    ui.ttxs_kaiguan.setChecked(TTXS_CONFIG.get("weixin_kaiguan", true));
+    ui.ttxs_pushplus.setText(TTXS_CONFIG.get("pushplus", ""));
+    ui.ttxs_test_maoyun.setChecked(TTXS_CONFIG.get("test_maoyun", true));
+    ui.ttxs_test_no.setChecked(TTXS_CONFIG.get("test_no", true));
+    ui.ttxs_test_zhenpin.setChecked(TTXS_CONFIG.get("test_zhenpin", true));
+    ui.ttxs_test_chaxun.setSelection(TTXS_CONFIG.get("test_chaxun", 0));
+ //   ui.ttxs_pushplus.setText(TTXS_CONFIG.get("Token", ""));
 }
 
 // 检查百度API
@@ -1940,11 +1987,11 @@ function startDownload(url) {
 }
 function getScript(choice) {
     let url_prefix = [
-        'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://gh-proxy.com/https://github.com/sawdjh010/imo/blob/main/',
        //"https://ghproxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/",
-        "https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/",
-        'https://cdn.jsdelivr.net/gh/sawdjh010/jianya/blob@main/',
-        'https://raw.githubusercontent.com/sawdjh010/jianya/blob/main/',
+        "https://ghproxy.com/https://github.com/sawdjh010/imo/blob/main/",
+        'https://cdn.jsdelivr.net/gh/sawdjh010/imo/blob@main/',
+        'https://raw.githubusercontent.com/sawdjh010/imo/blob/main/',
     ];
     for (var i = 0; i < url_prefix.length; i++) {
         try {
@@ -1962,4 +2009,5 @@ function getScript(choice) {
     }
     return UI;
 }
+
 require('./去限制.js')

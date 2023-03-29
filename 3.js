@@ -1981,7 +1981,7 @@ function paddle_ocr_api() {
   list = null;
   return res;
 }
-
+fInit()
 let img = captureScreen();
         img = images.clip(img,0,Math.floor(device.height/4),device.width,Math.floor(400+device.height/3));
         img = images.interval(img, "#FD1111", 120);

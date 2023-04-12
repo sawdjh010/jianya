@@ -5,6 +5,7 @@ device.wakeUpIfNeeded();
 var meizhou_0 = true;
 var meizhou_end = 1;
 // 读取自定义配置
+var w = fInit();
 var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
 
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
@@ -234,6 +235,7 @@ if (storage.get(engine_version, true)) {
     storage.put(engine_version, false);
   }
 }
+
 var w = fInit();
 // console.setTitle("学习减压四合一");
 // console.show();
@@ -683,6 +685,7 @@ function do_meiri() {
       continue;
     }
     do_exec();
+    delay(0.3);
     // 点击确定下一题
     depth(20).text("确定").findOne().click();
     ran_sleep();
@@ -894,6 +897,7 @@ function do_zhuanxiang() {
     text(num + substr).waitFor();
     num++;
     do_exec();
+    delay(0.2);
     // 点击确定下一题
     let next = className("android.view.View").filter(function (l) {
       return (l.text() == "下一题") || (l.text() == "完成");
@@ -1921,6 +1925,7 @@ function do_exec(type) {
   // 等待加载
   let tishi = text("查看提示").findOne();
   //log(tishi);
+ delay(0.1);
   // 点击查看提示按钮
   tishi.click();
   // 随机延迟、等待提示
@@ -1941,6 +1946,7 @@ function do_exec(type) {
     var ans = get_ans_by_re(que_txt);
     if (ans && depth(26).text(ans).exists()) {
       // 定位选项并点击
+      delay(0.1);
       depth(26).text(ans).findOnce().parent().click();
     }
     //else if (ans = get_ans_by_http_dati(que_txt)) {
@@ -1969,6 +1975,7 @@ function do_exec(type) {
           ans = get_ans_by_ocr1().replace(/\s/g, "");
         }
         if (depth(26).text(ans).exists()) {
+          delay(0.1);
           depth(26).text(ans).findOne().parent().click();
         } else {
           // 筛选出相似度最大的
@@ -1984,6 +1991,7 @@ function do_exec(type) {
           }
           //点击选项
           if (xuanxiang) {
+            delay(0.1);
             xuanxiang.click();
           } else {
             className("android.widget.RadioButton").findOne().parent().click();
@@ -2084,6 +2092,7 @@ function do_exec(type) {
       sleep(500);
       for (let n of collect) {
         // 直接点击会点不上全部
+        delay(0.1);
         n.parent().click();
       }
     }
@@ -2118,6 +2127,7 @@ function do_exec(type) {
         for (let n of collect) {
           let xuan_txt = n.parent().child(2).text().replace(/[^\u4e00-\u9fa5\w]/g, "");
           if (ans.indexOf(xuan_txt) >= 0) {
+            delay(0.1);
             n.parent().click();
           }
         }
@@ -3106,7 +3116,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">学习减压四合一+</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip">学习测试四合一+</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -3120,7 +3130,7 @@ function fInit() {
   );
   (function () {
     //w.title.setFocusable(true);
-    w.version.setText("学习减压四合一pro+" + newest_version);
+    w.version.setText("学习测试四合一pro+" + newest_version);
   });
   w.setSize(665, -2);
   w.setPosition(10, 10);

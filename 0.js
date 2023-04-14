@@ -491,6 +491,7 @@ function do_wenzhang() {
   }
   fClear();
   fInfo("切换地区为北京");
+  if(text("思想").findOne(2000)) text("思想").findOne(2000).parent().parent().child(4).click();
   text("切换地区").findOne(3000);
   let beijing_2 =className("android.widget.TexitView").depth(17).find();
   queryList_1(beijing_2,"北京");
@@ -2920,8 +2921,8 @@ let qg_guanbi_thread = threads.start(function () {
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|START NOW/).findOne(5000);
   if (btn) {
     sleep(1000);
-    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 30);
-    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 30,100)
+    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
+    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
   }
   fInfo("检测到兼容性弹窗--已关闭应用");
   toastLog("检测到兼容性弹窗--已关闭应用");

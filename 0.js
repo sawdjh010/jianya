@@ -2764,8 +2764,12 @@ function login(username, pwd) {
       fInfo("重启 ‘q-g’  耐心等待……");
       sleep(random(1200, 1700))
       if (!textMatches("我的").exists() && !text("我的").exists()) sleep(random(3600, 4500));}
-    if (!textMatches("我的").exists() && !text("我的").exists()) fInfo("此处可能 bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
-      // queryList_1(find(),"确定")
+    if (!textMatches("我的").exists() && !text("我的").exists()) {
+      fInfo("此处可能 bug，手动点击到qg首页……或者一直等到第一轮结束自动重启");
+    sleep(3000);
+    if (!textMatches("我的").exists() && !text("我的").exists()) back();
+    }
+    // queryList_1(find(),"确定")
       // sleep(1250); 
       // queryList_1(find(),"登录");
   };

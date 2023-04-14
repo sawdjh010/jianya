@@ -492,6 +492,7 @@ function do_wenzhang() {
   fClear();
   fInfo("切换地区为北京");
   if(text("思想").findOne(2000)) text("思想").findOne(2000).parent().parent().child(4).click();
+  my_click_non_clickable("思想");
   text("切换地区").findOne(3000);
   let beijing_2 =className("android.widget.TexitView").depth(17).find();
   queryList_1(beijing_2,"北京");
@@ -2921,8 +2922,9 @@ let qg_guanbi_thread = threads.start(function () {
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|START NOW/).findOne(5000);
   if (btn) {
     sleep(1000);
-    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
-    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
+    click( btn.bounds().centerX() + 50, btn.bounds().centerY() - 50);
+    press(btn.bounds().centerX() + 50, btn.bounds().centerY() - 50,100)
+   // swipe(btn.bounds().centerX(), btn.bounds().centerY(), x, h2, random(800, 1200)); // 下滑动
   }
   fInfo("检测到兼容性弹窗--已关闭应用");
   toastLog("检测到兼容性弹窗--已关闭应用");
@@ -3605,3 +3607,31 @@ sleep(10000);
 console.hide();
 home();
 exit();
+/**
+ * 模拟点击不可以点击元素
+ * @param {UiObject / string} target 控件或者是控件文本
+ */
+function my_click_non_clickable(target) {
+  if (typeof target == "string") {
+      text(target).waitFor();
+      var tmp = text(target).findOne().bounds();
+  } else {
+      var tmp = target.bounds();
+  }
+  var randomX = random(tmp.left, tmp.right);
+  var randomY = random(tmp.top, tmp.bottom);
+  click(randomX, randomY);
+}
+
+// 模拟点击可点击元素
+function my_click_clickable(target) {
+
+  text(target).waitFor();
+  // 防止点到页面中其他有包含“我的”的控件，比如搜索栏
+  if (target == "我的") {
+      log("点击:" + "comm_head_xuexi_mine");
+      id("comm_head_xuexi_mine").findOne().click();
+  } else {
+      click(target);
+  }
+}

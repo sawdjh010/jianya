@@ -2921,7 +2921,7 @@ let qg_guanbi_thread = threads.start(function () {
   //在新线程执行的代码
   //sleep(500);
   fInfo("检测兼容性--‘关闭应用’弹窗");
-  var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|START NOW/).findOne(5000);
+  var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
   if (btn) {
     sleep(1000);
     click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);

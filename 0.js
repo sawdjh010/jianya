@@ -502,7 +502,11 @@ function do_wenzhang() {
   //let beijing_1 =className("android.widget.TexitView").depth(17).find();
  // queryList_1(find(),"北京");
   //className("android.widget.TexitView").depth(17).findOne(2000)
-  text("切换地区").findOne(3000).click();
+  try {
+    text("切换地区").findOne().click();
+  } catch (e) {
+    fInfo("手动点击切换地区");
+  }
   log("查找北京");
   text("北京").waitFor();
   sleep(500);exit

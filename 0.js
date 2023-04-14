@@ -2926,7 +2926,7 @@ let qg_guanbi_thread = threads.start(function () {
     sleep(1000);
     click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
     press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
-    swipe(btn.bounds().centerX(), btn.bounds().centerY()-70, btn.bounds().centerX() + 80, btn.bounds().centerY()-70, random(800, 1200)); // 下滑动
+    swipe(btn.bounds().centerX()+50, btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
   }
   fInfo("检测到兼容性弹窗--已关闭应用");
   toastLog("检测到兼容性弹窗--已关闭应用");

@@ -541,7 +541,7 @@ function do_wenzhang() {
   }
   fClear();
   fInfo("切换地区为北京");
-  if(text("思想").findOne(2000)) text("思想").findOne(2000).parent().parent().child(5).click();
+  if(text("点亮").findOne(2000)) text("点亮").findOne(2000).parent().parent().child(5).click();
   my_click_non_clickable("思想");
   delay(2);
   my_click_non_clickable("北京");

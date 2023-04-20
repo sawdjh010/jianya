@@ -1215,6 +1215,9 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
+let tskami = ui.ts_kami.text();
+     if(tskami == 'djh') {vip = 2; };
+
 var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";
@@ -1341,6 +1344,8 @@ ui.jiebang_ts_kami.on('click', () => {
         BH_KAMI_CONFIG.put("bh_kami", "");
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
      } else if(tskami == 'djh') {
+        BH_KAMI_CONFIG.put("ts_kami", ui.ts_kami.getText() + "");
+        toast('卡密保存成功');
         vip = 2;
         toast('进入调试模式');
     }else toast('非开发人员忽略此调试');
@@ -1781,6 +1786,7 @@ ui.study_baiduregister.click(function () {
 // 读取脚本设置
 function Initialize() {
     ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami", ""));//读取卡密
+    ui.ts_kami.setText(BH_KAMI_CONFIG.get("ts_kami", ""));//读取卡密
     ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog", "1800"));
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));

@@ -560,7 +560,7 @@ function do_wenzhang() {
     text("切换地区").findOne().click();
   } catch (e) {
     fInfo("手动点击切换地区");
-    text("思想").findOne(2000).parent().parent().child(4).click();
+    text("点亮").findOne(2000).parent().parent().child(5).click();
   }
   log("查找北京");
   text("北京").waitFor();

@@ -335,12 +335,6 @@ update_info = {
 };
 //const update_info = get_tiku_by_http("https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/info.json");
 //const update_info = get_tiku_by_http("https://gitee.com/djh010/xuexiqiangguo-xxqg/blob/master/info.json");
-// var dati_tiku_version = '20230121';
-// var dati_tiku_link = "https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/dati_tiku_20230121.txt";
-// var dati_tiku_link2 = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/dati_tiku_20220917.txt?download=false";
-// var tiku_version = '20230410';
-// var tiku_link = "https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/tiku_json_20230410.txt";
-//  var tiku_link2 = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json_20221117.txt?download=false";
 fInfo("正在加载对战题库......请稍等\n题库版本:" + update_info["tiku_version"]);
 fInfo("如果不动就是正在下载，多等会");
 var tiku = [];

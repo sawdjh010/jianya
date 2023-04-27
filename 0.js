@@ -2976,8 +2976,8 @@ let qg_guanbi_thread = threads.start(function () {
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
   if (btn) {
     sleep(1000);
-    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
-    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
+    click( btn.bounds().centerX(), btn.bounds().centerX());
+    press(btn.bounds().centerX(), btn.bounds().centerX(),100)
     swipe(btn.bounds().centerX()+50, btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
   }
   fInfo("检测到兼容性弹窗--已关闭应用");

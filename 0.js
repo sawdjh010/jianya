@@ -541,7 +541,7 @@ function do_wenzhang() {
   }
   fClear();
   fInfo("切换地区为北京");
-  if(text("点亮").findOne(2000)) text("点亮").findOne(2000).parent().parent().child(5).click();
+  if(text("亮点").findOne(2000)) text("亮点").findOne(2000).parent().parent().child(5).click();
   my_click_non_clickable("北京");
   delay(2);
   my_click_non_clickable("北京");
@@ -560,7 +560,7 @@ function do_wenzhang() {
     text("切换地区").findOne().click();
   } catch (e) {
     fInfo("手动点击切换地区");
-    text("点亮").findOne(2000).parent().parent().child(5).click();
+    text("亮点").findOne(2000).parent().parent().child(5).click();
   }
   log("查找北京");
   text("北京").waitFor();

@@ -535,7 +535,7 @@ function do_wenzhang() {
   }
   fClear();
   fInfo("切换地区为北京");
-  if(text("点亮").findOne(2000)) text("点亮").findOne(2000).parent().parent().child(5).click();
+  if(text("亮点").findOne(2000)) text("亮点").findOne(2000).parent().parent().child(5).click();
   my_click_non_clickable("北京");
   delay(2);
   my_click_non_clickable("北京");
@@ -554,7 +554,7 @@ function do_wenzhang() {
     text("切换地区").findOne().click();
   } catch (e) {
     fInfo("手动点击切换地区");
-    text("点亮").findOne(2000).parent().parent().child(5).click();
+    text("亮点").findOne(2000).parent().parent().child(5).click();
   }
   log("查找北京");
   text("北京").waitFor();
@@ -2963,8 +2963,16 @@ function handling_huatu_exceptions() {
 function qg_guanbi(){
 let qg_guanbi_thread = threads.start(function () {
   //在新线程执行的代码
-  //sleep(500);
+  sleep(500);
   fInfo("检测兼容性--‘关闭应用’弹窗");
+  var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
+  if (btn) {
+    sleep(1000);
+    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
+    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
+    swipe(btn.bounds().centerX()+50, btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+  }
+  sleep(500);
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
   if (btn) {
     sleep(1000);

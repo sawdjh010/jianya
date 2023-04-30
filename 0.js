@@ -2492,7 +2492,7 @@ function get_tiku_by_http(link) {
   log(req.statusCode);
   // 更新题库时若获取不到，则文件名+1
   if (req.statusCode != 200) {
-    throw "网络原因未获取到题库，请尝试切换流量或者更换114DNS，退出脚本";
+   // throw "网络原因未获取到题库，请尝试切换流量或者更换114DNS，退出脚本";
    // return false;
   }
   return req.body.json();

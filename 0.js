@@ -2055,6 +2055,7 @@ function do_exec(type) {
           "F": 5
         };
         className("android.widget.RadioButton").findOnce(idx_dict[ans[0]]).parent().click();
+        delay(0.7);
       }
       // 否则用ocr
       else {
@@ -2062,7 +2063,7 @@ function do_exec(type) {
           ans = get_ans_by_ocr1().replace(/\s/g, "");
         }
         if (depth(26).text(ans).exists()) {
-          delay(0.1);
+          delay(0.3);
           depth(26).text(ans).findOne().parent().click();
         } else {
           // 筛选出相似度最大的
@@ -2078,9 +2079,10 @@ function do_exec(type) {
           }
           //点击选项
           if (xuanxiang) {
-            delay(0.1);
+            delay(0.3);
             xuanxiang.click();
           } else {
+            delay(0.5);
             className("android.widget.RadioButton").findOne().parent().click();
           }
           //log(xuanxiang.find().size());
@@ -2127,12 +2129,14 @@ function do_exec(type) {
       //长度和空格数相等才会填充
       if (ans && word_num == ans.length) {
         // 定位填空并填入
+        delay(0.7);
         depth(25).className("android.widget.EditText").findOne().setText(ans);
       } else {
         ans = get_ans_by_ocr1().replace(/\s/g, "");
         if (!ans) {
           ans = "未识别出文字";
         }
+        delay(0.7);
         depth(25).className("android.widget.EditText").setText(ans);
       }
     }
@@ -2154,6 +2158,7 @@ function do_exec(type) {
       let ans_txt = ans;
       for (let edit of edit_clt) {
         let n = edit.parent().children().find(className("android.view.View")).length;
+        delay(0.7);
         edit.setText(ans_txt.slice(0, n));
         ans_txt = ans_txt.slice(n);
       }
@@ -2179,7 +2184,7 @@ function do_exec(type) {
       sleep(500);
       for (let n of collect) {
         // 直接点击会点不上全部
-        delay(0.3);
+        delay(0.7);
         n.parent().click();
       }
     }
@@ -2203,7 +2208,7 @@ function do_exec(type) {
         };
         for (let n of ans) {
           className("android.widget.CheckBox").findOnce(idx_dict[n]).parent().click();
-          delay(0.3);
+          delay(0.7);
         }
       }
       // 如果不是全选
@@ -2215,7 +2220,7 @@ function do_exec(type) {
         for (let n of collect) {
           let xuan_txt = n.parent().child(2).text().replace(/[^\u4e00-\u9fa5\w]/g, "");
           if (ans.indexOf(xuan_txt) >= 0) {
-            delay(0.2);
+            delay(0.8);
             n.parent().click();
           }
         }

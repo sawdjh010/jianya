@@ -969,11 +969,12 @@ function do_zhuanxiang() {
   }
   // 循环结束完成答题
   text("查看解析").waitFor();
-  sleep(1000);
+  delay(random(0.9, 1.2));
   // 如果题目答错，循环每一题并添加错题
   if (textMatches(/\d+分/).findOne().text() != "100分") {
     fInfo("有错题，尝试上传错题");
     text("查看解析").findOne().click();
+    delay(random(0.5, 1));
     tihao = textMatches(reg).findOne().text();
     num = Number(tihao.match(reg)[1]);
     sum = Number(tihao.match(reg)[2]);
@@ -2012,7 +2013,7 @@ function do_exec(type) {
   // 等待加载
   let tishi = text("查看提示").findOne();
   //log(tishi);
- delay(0.1);
+  delay(random(0.5, 0.8));
   // 点击查看提示按钮
   tishi.click();
   // 随机延迟、等待提示
@@ -2020,6 +2021,7 @@ function do_exec(type) {
   // 等待加载
   let tishi_0 = text("提示").findOne(5000);
   if (!tishi_0) text("查看提示").findOne().click();
+  delay(random(0.5, 1));
    text("提示").waitFor();
 
   // 判断题型
@@ -2184,7 +2186,7 @@ function do_exec(type) {
       sleep(500);
       for (let n of collect) {
         // 直接点击会点不上全部
-        delay(0.7);
+        delay(random(0.5, 1.3)); 
         n.parent().click();
       }
     }
@@ -2208,7 +2210,7 @@ function do_exec(type) {
         };
         for (let n of ans) {
           className("android.widget.CheckBox").findOnce(idx_dict[n]).parent().click();
-          delay(0.7);
+          delay(random(0.5, 1));
         }
       }
       // 如果不是全选
@@ -2220,7 +2222,7 @@ function do_exec(type) {
         for (let n of collect) {
           let xuan_txt = n.parent().child(2).text().replace(/[^\u4e00-\u9fa5\w]/g, "");
           if (ans.indexOf(xuan_txt) >= 0) {
-            delay(0.8);
+            delay(random(0.5, 1.1));
             n.parent().click();
           }
         }
@@ -2230,7 +2232,7 @@ function do_exec(type) {
   fInfo("答案：" + ans);
   // 返回退出查看提示界面
   back();
-  sleep(1000);
+  delay(random(0.9, 1.1));
   return true;
 }
 

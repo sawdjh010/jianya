@@ -2270,6 +2270,7 @@ function get_ans_by_ocr1() {
   fInfo('开始截屏');
   let img = captureScreen();
   // 控制截图范围
+  delay(1.2);
   img = images.clip(img, tishi_box.left - 10, tishi_box.top - 10, tishi_box.width() + 20, tishi_box.height());
   //images.save(img, '/sdcard/1/1.png');
   // 二值化

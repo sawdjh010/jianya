@@ -411,7 +411,7 @@ function do_pinglun() {
   fSet("title", "评论…");
   fClear();
   sleep(1000);
-  swipe(device_w / 2, device_h * 0.7, device_w / 2, device_h * 0.4, 1000);
+  swipe(device_w / 2+random(-5, 6), device_h * 0.7+random(-7, 10), device_w / 2+random(-6, 6), device_h * 0.4+random(-4, 4), random(950, 1100));
   id("general_card_title_id").findOne().parent().parent();
   fInfo("尝试点击title:" + id("general_card_title_id").findOne().text());
   //   //log("文章click:", wen_box.click());
@@ -664,7 +664,7 @@ function do_wenzhang() {
         // 不先点一下划不动
         idContains("xxqg-article-header").findOne().child(0).click();
       }
-      swipe(device_w / 2, device_h * 0.7, device_w / 2, device_h * 0.3, 1000);
+      swipe(device_w / 2+random(-3, 7), device_h * 0.7+random(-3, 8), device_w / 2+random(-7, 10), device_h * 0.3+random(-5, 6), random(950, 1100));
       if (wen_num < re_times - 1) {
         sleep(random(9000, 10500));
       } else {
@@ -1755,7 +1755,7 @@ function do_dingyue() {
             return true;
             } else { 
            //   img.recycle();
-              swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+              swipe(x+random(-5, 5), h1+random(-2, 8), x + random(-4, 6), h2+random(-2, 7), random(800, 1200)); // 下滑动
               toastLog("下滑搜索中……");
               //fInfo("下滑搜索中……");
               asub_1--;
@@ -1822,7 +1822,7 @@ function do_dingyue() {
                   return true;
                   } else { 
                  //   img.recycle();
-                    swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+                    swipe(x+random(-5, 5), h1+random(-3, 3), x+random(-2, 5), h2+random(-3, 7), random(800, 1200)); // 下滑动
                     toastLog("下滑搜索中……");
                     asub_1--;
                 sleep(random(800, 1500)); 
@@ -3018,7 +3018,7 @@ let qg_guanbi_thread = threads.start(function () {
     sleep(1000);
     click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
     press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
-    swipe(btn.bounds().centerX()+50, btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    swipe(btn.bounds().centerX()+50+random(-3, 6), btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
   }
   sleep(500);
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
@@ -3418,7 +3418,7 @@ function xxqg(userinfo) {
   fInfo("检测界面……?新?旧 " + "\n   此处时间可能略长耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
-  swipe(device_w / 2, device_h * 0.4, device_w / 2, device_h * 0.5, 1000);
+  swipe(device_w / 2 + random(-5, 10), device_h * 0.4+random(-3, 3), device_w / 2+random(-5, 7), device_h * 0.5+random(-7, 5), random(950, 1100));
   if(a == null){fInfo("检测到新版界面");
     setScreenMetrics(1080, 1920);
     a_a = text("学习积分").findOne(3000);

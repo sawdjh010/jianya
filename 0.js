@@ -295,7 +295,7 @@ update_info = {
   "dati_tiku_link": "https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/dati_tiku_20230121.txt",
   "dati_tiku_link2": "https://raw.kgithub.com/OuO-dodo/tiku/master/dati_tiku_20230121.txt",
   "tiku_version": 20230424,
-  "tiku_link": "https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/tiku_json_20230424.txt",
+  "tiku_link": "https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/tiku_json_20230428.txt",
   "tiku_link2": "https://raw.kgithub.com/OuO-dodo/tiku/master/tiku_json_20230424.txt",
   "question_reg": "魏晋时期|立春时节|投笔|永乐皇帝|古代建筑|志愿者|预警信号|公狮|七律长征|太阳的大气层|含氧量|国之大事|体育健身|三部著作|泓水之战|本土作物|甲肝|古代皇帝|古代社会|超流体|气囊中|一条鱼|生肖邮票|医学奖|痛风|台风根据|幽禽|以下水域|冷热病|古典文学|龙泉窑址|敌友|唇形科|江苏目前|绵白糖|预备党员",
   "include_reg": "排水口|古代兵器|变脸|培大豆|节能减排|四岳|鸳鸯|子午觉|汉字产生|宇宙中|变声|血型|长征四号|标准文字|力量体制|原始农业",
@@ -671,11 +671,11 @@ function do_wenzhang() {
         let wait_time = 1;
         for (let i = 0; i < shichang; i++) { //*random(55, 60)
           // 每15秒增加一次滑动防息屏
-          if (i % 15 == 0) {
-            swipe(device_w / 2, device_h * 0.6, device_w / 2, device_h * 0.6 - 100, 500);
-            sleep(500);
+          if (i % random(8, 16) == 0) {
+            swipe(device_w / 2 + random(-5, 10), device_h * 0.6 + random(-10, 5), device_w / 2+ random(-5, 10), device_h * 0.6+ random(-15, 10) - 100, 500);
+            sleep(500 + random(-5, 10));
           } else {
-            sleep(1000);
+            sleep(1000 + random(7, 12));
           }
           //w.info.setText("已观看文章" + wait_time + "秒，总共" + shichang + "秒");
           fSet("info", "已观看文章" + wait_time + "秒，总共" + shichang + "秒");
@@ -1056,6 +1056,32 @@ function do_tiaozhan() {
           }
         }
       }
+      if(xuanxiang == null){
+        var question = className("android.view.View").depth(25).enabled(true).drawingOrder(0).indexInParent(0).findOne(30000).text();
+        // 截取到下划线前
+        question = question.slice(0, question.indexOf(" "));
+
+        try {
+          // 此网站只支持十个字符的搜索
+          var r1 = http.get("http://www.syiban.com/search/index/init.html?modelid=1&q=" + encodeURI(question.slice(0, 10)));
+          ans = r1.body.string().match(/答案：.*</);
+      } catch (error) { }
+      let max_simi = 0;
+      let xuanxiang = null;
+      // 循环对比所有选项和答案，选出相似度最大的
+      for (let xuan_box of xuan_list) {
+        let xuan_txt = xuan_box.child(0).child(1).text();
+        //log(xuan_txt);
+        for (let ans of ans_list) {
+          let similar = str_similar(ans.slice(2), xuan_txt);
+          //log(xuan_txt, similar);
+          if (similar > max_simi) {
+            max_simi = similar;
+            xuanxiang = xuan_box.child(0);
+          }
+        }
+      }
+      };
       if (xuanxiang != null) {
         fInfo("最终：" + xuanxiang.child(1).text());
         xuanxiang.click();
@@ -1068,7 +1094,9 @@ function do_tiaozhan() {
     else {
       fInfo("未找到答案");
       // 选第一个选项
-      xuan_list[0].child(0).click();
+      tiaozhan_01();//备选通道
+     // break;
+     // xuan_list[0].child(0).click();
     }
     sleep(2500);
     // 判断题是否答错
@@ -2145,7 +2173,7 @@ function do_exec(type) {
       sleep(500);
       for (let n of collect) {
         // 直接点击会点不上全部
-        delay(0.1);
+        delay(0.3);
         n.parent().click();
       }
     }
@@ -2169,6 +2197,7 @@ function do_exec(type) {
         };
         for (let n of ans) {
           className("android.widget.CheckBox").findOnce(idx_dict[n]).parent().click();
+          delay(0.3);
         }
       }
       // 如果不是全选
@@ -2180,7 +2209,7 @@ function do_exec(type) {
         for (let n of collect) {
           let xuan_txt = n.parent().child(2).text().replace(/[^\u4e00-\u9fa5\w]/g, "");
           if (ans.indexOf(xuan_txt) >= 0) {
-            delay(0.1);
+            delay(0.2);
             n.parent().click();
           }
         }
@@ -3688,4 +3717,113 @@ function my_click_clickable(target) {
   } else {
       click(target);
   }
+}
+/*备用调整答题
+ **********挑战答题*********
+ */
+ function tiaozhan_01() {
+  log("开启‘挑战答题’备用方式");
+  sleep(random_time(delay_time));
+  // 加载页面
+  log("等待:" + "android.view.View");
+  className("android.view.View").clickable(true).depth(22).waitFor();
+ sleep(random_time(delay_time));
+          // 题目
+          log("题目等待:" + "android.view.View");
+          className("android.view.View").depth(24).waitFor();
+        log("题目等待完成1:" );
+          var question = className("android.view.View").depth(25).enabled(true).drawingOrder(0).indexInParent(0).findOne(30000).text();
+          // 截取到下划线前
+          question = question.slice(0, question.indexOf(" "));
+          // 选项文字列表
+          var options_text = [];
+          // 等待选项加载
+          log("等待选项加载:" + "android.widget.RadioButton");
+          className("android.widget.RadioButton").depth(28).clickable(true).waitFor();
+         log("等待选项加载01:")
+          // 获取所有选项控件，以RadioButton对象为基准，根据UI控件树相对位置寻找选项文字内容
+           var options = className("android.view.View").depth(28).enabled(true).drawingOrder(0).indexInParent(1).find();
+         // var options = className("android.widget.RadioButton").depth(28).find();
+         log("等待选项加载:"+options)
+          // 选项文本
+          options.forEach((element, index) => {
+              //挑战答题中，选项文字位于RadioButton对象的兄弟对象中
+              options_text[index] = element.parent().child(1).text();
+          });
+          do_contest_answer_01(28, question, options_text);
+ sleep(random_time(delay_time * 2));
+}
+/**
+ * 答题（挑战答题、四人赛与双人对战）
+ * @param {int} depth_click_option 点击选项控件的深度，用于点击选项
+ * @param {string} question 问题
+ * @param {list[string]} options_text 每个选项文本
+ */
+function do_contest_answer_01(depth_click_option, question, options_text) {
+  if(textContains("继续").exists() && textContains("退出").exists()) click("继续");
+   if (textContains("网络开小差").exists() && textContains("确定").exists()) click("确定");
+    question = question.slice(0, 10);
+    // 如果是特殊问题需要用选项搜索答案，而不是问题
+    if (special_problem.indexOf(question.slice(0, 7)) != -1) {
+        var original_options_text = options_text.concat();
+        var sorted_options_text = original_options_text.sort();
+        question = sorted_options_text.join("|");
+    }
+    // 从哈希表中取出答案
+    var answer = map_get(question);
+log("000"+ answer)
+    // 如果本地题库没搜到，则搜网络题库
+    if (answer == null) {
+        var result;
+        // 发送http请求获取答案 网站搜题速度 r1 > r2
+        try {
+            // 此网站只支持十个字符的搜索
+            var r1 = http.get("http://www.syiban.com/search/index/init.html?modelid=1&q=" + encodeURI(question.slice(0, 10)));
+            result = r1.body.string().match(/答案：.*</);
+        } catch (error) { }
+//         // 如果第一个网站没获取到正确答案，则利用第二个网站
+//         if (!(result && result[0].charCodeAt(3) > 64 && result[0].charCodeAt(3) < 69)) {
+//             try {
+//                 // 此网站只支持六个字符的搜索
+//                 var r2 = http.get("https://www.souwen123.com/search/select.php?age=" + encodeURI(question.slice(0, 6)));
+//                 result = r2.body.string().match(/答案：.*</);
+//             } catch (error) { }
+//         }
+
+        if (result) {
+            // 答案文本
+            var result = result[0].slice(5, result[0].indexOf("<"));
+            log("0答案: " + result);
+            select_option(result, depth_click_option, options_text);
+        } else {
+            // 没找到答案，点击第一个
+            log("点击:" + "android.widget.RadioButton");
+            try {
+                className("android.widget.RadioButton").depth(depth_click_option).clickable(true).findOne(delay_time * 3).click();
+            } catch (error) { }
+        }
+    } else {
+        log("1答案: " + answer);
+        select_option(answer, depth_click_option, options_text);
+    }
+}
+/**
+ * 用于下面选择题
+ * 获取2个字符串的相似度
+ * @param {string} str1 字符串1
+ * @param {string} str2 字符串2
+ * @returns {number} 相似度
+ */
+function getSimilarity(str1, str2) {
+    var sameNum = 0;
+    //寻找相同字符
+    for (var i = 0; i < str1.length; i++) {
+        for (var j = 0; j < str2.length; j++) {
+            if (str1[i] === str2[j]) {
+                sameNum++;
+                break;
+            }
+        }
+    }
+    return sameNum / str2.length;
 }

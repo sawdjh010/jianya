@@ -487,16 +487,16 @@ function do_shipin() {
   textMatches(/\d{2}:\d{2}/).waitFor();
   let video_list = frame_box.findOne(className("android.widget.ListView"));
   var v = className('android.widget.FrameLayout').clickable(true).depth(22).findOne().bounds();
-  press(v.centerX(), v.centerY() - 50, 150);
+  press(v.centerX() + random(-7, 8), v.centerY()+ random(-7, 8) - 50, random(130, 188));
   fInfo('点击视频');
   sleep(2500);
   //video_list.child(1).child(1).child(0).click();
   text("分享").waitFor();
   if (idContains("guide_view").findOne(1500)) {
     fInfo("检测到引导遮罩");
-    sleep(1000);
+    sleep(random(900, 1100));
     click(device_w / 2, device_h / 2);
-    sleep(1000);
+    sleep(random(900, 1200));
     click(device_w / 2, device_h / 4);
   }
   sleep(800);
@@ -507,7 +507,7 @@ function do_shipin() {
     if(textContains("刷新重试").exists()) {
       console.error("检测到使用的手机流量，准备点击'刷新重试'");
        var v = text("刷新重试").findOne().bounds();
-      press(v.centerX(), v.centerY(), 150);;
+      press(v.centerX()+random(-1, 5), v.centerY() + random(-7, 8), random(120, 180));;
       sleep(random(1000, 1500));
     }
   sleep(random(8000, 9500));
@@ -516,9 +516,9 @@ function do_shipin() {
     re_times += 6;
   }
   for (let i = 0; i < re_times; i++) {
-    click(device_w / 2, device_h / 2);
-    sleep(500);
-    swipe(device_w / 2, device_h * 0.8, device_w / 2, device_h * 0.1, 1000);
+    click(device_w / 2 +random(-7, 8), device_h / 2 + random(-5, 6));
+    sleep(random(490, 560));
+    swipe(device_w / 2 + random(-7, 4), device_h * 0.8 + random(-4, 8), device_w / 2 + random(-5, 5), device_h * 0.1+random(-3, 5), random(900, 1100));
     sleep(random(8000, 9500));
   }
   back();
@@ -3311,6 +3311,7 @@ function getScores(i) {
       if (id("comm_head_xuexi_score").exists()) {
           id("comm_head_xuexi_score").findOnce().click();
       } else if (text("积分").exists()) {
+        delay(1);
           text("积分").findOnce().parent().child(1).click();
       }
       sleep(3000);

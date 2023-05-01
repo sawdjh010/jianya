@@ -289,7 +289,7 @@ if (!requestScreenCapture(false)) { // false为竖屏方向
 fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
-fInfo("检测题库更新");
+fInfo("检测题库更新");//https://fastly.jsdelivr.net/gh/OuO-dodo/tiku@master/info.json
 const update_info = get_tiku_by_http("https://ghproxy.com/https://github.com/OuO-dodo/tiku/blob/master/info.json");
 if (!(update_info.statusCode >= 200 && update_info.statusCode < 300)){update_info = {
   "dati_tiku_version" : 20230121,
@@ -434,7 +434,7 @@ function do_pinglun() {
     fRefocus();
   }
   fInfo("评论框click: true");
-  let content_list = ["全心全意为人民服务", "不忘初心，牢记使命", "不忘初心，方得始终", "永远坚持党的领导", "富强、民主、文明、和谐", "自由，平等，公正，法治"];
+  let content_list = ["全心全意为人民服务", "坚持学习","思想受礼，点赞","实事求是","不忘初心，牢记使命", "不忘初心，方得始终", "永远坚持党的领导","坚守一线，筑梦未来", "富强、民主、文明、和谐", "追梦，筑梦","自由，平等，公正，法治"];
   classNameEndsWith("EditText").findOne().setText(content_list[random(0, content_list.length - 1)]);
   sleep(1000);
   text("发布").findOne().click();
@@ -673,7 +673,7 @@ function do_wenzhang() {
         // 第6次停顿刷时间
         //console.show();   
         toastLog("正在刷时长程序未停止");
-        let shichang = 6 * random(55, 60);
+        let shichang = 6 * random(55, 66);
         fClear();
         fInfo("开始刷时长，总共" + shichang + "秒");
         let wait_time = 1;
@@ -1055,7 +1055,7 @@ function do_tiaozhan() {
       // 循环对比所有选项和答案，选出相似度最大的
       for (let xuan_box of xuan_list) {
         let xuan_txt = xuan_box.child(0).child(1).text();
-        //log(xuan_txt);
+        log(xuan_txt);
         for (let ans of ans_list) {
           let similar = str_similar(ans.slice(2), xuan_txt);
           //log(xuan_txt, similar);

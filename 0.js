@@ -2688,7 +2688,7 @@ function ocr_test() {
     while(jietu_01){
       let img_test = captureScreen();
     delay(1);
-    if(img_test) jietu_01 = false;
+    if(img_test) {jietu_01 = false;return img_test;}
     else fInfo("测试ocr功能，开始截图");
     }
     try {

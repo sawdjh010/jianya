@@ -2691,12 +2691,13 @@ function ocr_test() {
     if(img_test) jietu_01 = false;
     else fInfo("测试ocr功能，开始截图");
     }
-    while(jietu_02){
-    let img_test = images.clip(img_test, 0, 100, device_w, 250);
-    if(img_test) jietu_02 = false;
-    else fInfo("测试ocr功能，截图");
-    }
-    
+    try {
+       img_test = images.clip(img_test, 0, 100, device_w, 250);
+       delay(1);
+    } catch (e) {
+      img_test = images.clip(img_test, 0, 100, device_w, 250);
+      delay(1);
+    }   
     log("开始识别");
     //console.time("OCR识别结束");
     let begin = new Date();

@@ -274,7 +274,7 @@ threads.start(function () {
   toastLog("开始自动获取截图权限");
   var btn = className("android.widget.Button").textMatches(/允许|立即开始|START NOW/).findOne(5000);
   if (btn) {
-    sleep(2000);
+    sleep(random(2500, 3500));
     btn.click();
   }
   toastLog("结束获取截图权限");

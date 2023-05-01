@@ -1034,6 +1034,7 @@ function do_tiaozhan() {
   while (true) {
     fClear();
     fInfo("第" + (total + 1) + "题");
+    delay(1.5);
     // 等待选项列表
     let xuan_list = className("android.widget.ListView").findOne().children();
     // 获取题目

@@ -2683,9 +2683,15 @@ function ocr_test() {
   }
   try {
     fInfo("测试ocr功能，开始截图");
-    let img_test = captureScreen();
+    var jietu_01 = true;
+    while(jietu_01){
+      let img_test = captureScreen();
     delay(1);
+    if(img_test) jietu_01 = false;
     img_test = images.clip(img_test, 0, 100, device_w, 250);
+
+    }
+    
     log("开始识别");
     //console.time("OCR识别结束");
     let begin = new Date();

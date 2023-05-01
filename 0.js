@@ -274,7 +274,7 @@ threads.start(function () {
   toastLog("开始自动获取截图权限");
   var btn = className("android.widget.Button").textMatches(/允许|立即开始|START NOW/).findOne(5000);
   if (btn) {
-    sleep(1000);
+    sleep(2000);
     btn.click();
   }
   toastLog("结束获取截图权限");
@@ -2689,7 +2689,7 @@ function ocr_test() {
       let img_test = captureScreen();
     delay(1);
     if(img_test) {jietu_01 = false;return img_test;}
-    else fInfo("测试ocr功能，开始截图");
+    else fInfo("测试ocr功能，开始截图1");
     }
     try {
        img_test = images.clip(img_test, 0, 100, device_w, 250);

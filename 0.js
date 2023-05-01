@@ -2684,12 +2684,17 @@ function ocr_test() {
   try {
     fInfo("测试ocr功能，开始截图");
     var jietu_01 = true;
+    var jietu_02 = true;
     while(jietu_01){
       let img_test = captureScreen();
     delay(1);
     if(img_test) jietu_01 = false;
-    img_test = images.clip(img_test, 0, 100, device_w, 250);
-
+    else fInfo("测试ocr功能，开始截图");
+    }
+    while(jietu_02){
+    let img_test = images.clip(img_test, 0, 100, device_w, 250);
+    if(img_test) jietu_01 = false;
+    else fInfo("测试ocr功能，截图");
     }
     
     log("开始识别");

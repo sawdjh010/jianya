@@ -290,7 +290,8 @@ fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
 fInfo("检测题库更新");
-update_info = {
+const update_info = get_tiku_by_http("https://ghproxy.com/https://github.com/OuO-dodo/tiku/blob/master/info.json");
+if (!(update_info.statusCode >= 200 && update_info.statusCode < 300)){update_info = {
   "dati_tiku_version" : 20230121,
   "dati_tiku_link": "https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/dati_tiku_20230121.txt",
   "dati_tiku_link2": "https://raw.kgithub.com/OuO-dodo/tiku/master/dati_tiku_20230121.txt",
@@ -332,6 +333,7 @@ update_info = {
       "长征四号":[["甲","丙"],"Z","乙"],"标准文字":[["隶书","金文"],"小[豪拿蒙]","小篆"],"力量体制":[["工","士"],"衣","农"],
       "原始农业":[["豆","麦"],"[栗菜]","粟"]
   }
+}
 };
 //const update_info = get_tiku_by_http("https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/info.json");
 //const update_info = get_tiku_by_http("https://gitee.com/djh010/xuexiqiangguo-xxqg/blob/master/info.json");

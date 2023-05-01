@@ -2188,7 +2188,7 @@ function do_exec(type) {
       sleep(500);
       for (let n of collect) {
         // 直接点击会点不上全部
-        delay(random(0.5, 1.3)); 
+        delay(random(1.1, 1.8)); 
         n.parent().click();
       }
     }
@@ -2212,7 +2212,7 @@ function do_exec(type) {
         };
         for (let n of ans) {
           className("android.widget.CheckBox").findOnce(idx_dict[n]).parent().click();
-          delay(random(0.5, 1));
+          delay(random(0.9, 1.7));
         }
       }
       // 如果不是全选
@@ -2224,7 +2224,7 @@ function do_exec(type) {
         for (let n of collect) {
           let xuan_txt = n.parent().child(2).text().replace(/[^\u4e00-\u9fa5\w]/g, "");
           if (ans.indexOf(xuan_txt) >= 0) {
-            delay(random(0.5, 1.1));
+            delay(random(0.8, 1.8));
             n.parent().click();
           }
         }

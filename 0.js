@@ -655,7 +655,7 @@ function do_wenzhang() {
     classNameContains("com.uc.webview.export").waitFor();
     fInfo("查找webview");
     let father_view = className("android.webkit.WebView").findOne(9000);
-    sleep(1000);
+    sleep(random(1000, 1500));
     //     let father_view = className("android.view.View").depth(16).findOne();
     // 判断是否为专题而不是文章
     if (father_view && father_view.find(idContains("__next")).empty()) {
@@ -700,7 +700,7 @@ function do_wenzhang() {
     back();
     //id("general_card_image_id").waitFor();
     className("android.widget.ListView").scrollable().depth(17).waitFor();
-    sleep(1000);
+    sleep(random(900, 1200));
     while (!wen_box_slt.exists()) {
       listview.scrollForward();
       sleep(200);
@@ -710,11 +710,11 @@ function do_wenzhang() {
   }
   // 更新已读文章库
   storage_user.put("old_wen_list", old_wen);
-  sleep(3000);
+  sleep(random(3000, 4000));
   // 关闭音乐
   close_video();
   back();
-  sleep(3000);
+  sleep(random(3000, 4000));
   // 返回积分页
   jifen_init();
   ran_sleep();
@@ -3556,6 +3556,8 @@ function xxqg(userinfo) {
     else mz_1.parent().click();
     sleep(1000);
     for (b = do_meizhou(); !b;) b = do_meizhou();
+   if(!text("我的").findOne(4500)) {
+    if(!(textContains("我的").exists()||text("我的").exists())) back();}
     text("我的").waitFor();
     getScores(3);
     sleep(random(900, 1500));

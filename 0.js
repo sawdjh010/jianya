@@ -2502,7 +2502,8 @@ function get_ans_by_tiku(que_txt) {
 function get_tiku_by_http(link) {
   // 通过gitee的原始数据保存题库
   if (!link) {
-    link = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json.txt"
+   // link = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json.txt"
+   link ="https://gh.api.99988866.xyz/https://github.com/OuO-dodo/tiku/blob/master/info.json"
   }
   let req = http.get(link, {
     headers: {

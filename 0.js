@@ -2240,7 +2240,7 @@ function do_exec(type) {
   fInfo("答案：" + ans);
   // 返回退出查看提示界面
   back();
-  delay(random(0.9, 1.1));
+  delay(random(0.3, 0.7));
   return true;
 }
 

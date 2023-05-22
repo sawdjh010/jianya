@@ -2029,7 +2029,7 @@ function do_exec(type) {
   // 等待加载
   let tishi_0 = text("提示").findOne(3000);
   if (!tishi_0) text("查看提示").findOne().click();
-  delay(random(0.5, 1));
+  delay(random(0.2,0.8));
    text("提示").waitFor();
 
   // 判断题型

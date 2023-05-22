@@ -520,7 +520,7 @@ function do_shipin() {
   for (let i = 0; i < re_times; i++) {
     click(device_w / 2 +random(-7, 8), device_h / 2 + random(-5, 6));
     sleep(random(490, 560));
-    swipe(device_w / 2 + random(-7, 4), device_h * 0.8 + random(-4, 8), device_w / 2 + random(-5, 5), device_h * 0.1+random(-3, 5), random(900, 1100));
+    swipe(device_w / 2 + random(-7, 9), device_h * 0.8 + random(-4, 8), device_w / 2 + random(-5, 5), device_h * 0.1+random(-3, 5), random(900, 1100));
     sleep(random(8300, 12500));
   }
   back();
@@ -760,8 +760,6 @@ function do_meiri() {
   }
   // 循环结束完成答题
   text("返回").findOne().click();
-  sleep(2500);
-  if (!text("登录").exists()) back();
   text("登录").waitFor();
   ran_sleep();
   return true;
@@ -875,8 +873,11 @@ if(meizhou_d != null) meizhou_d.parent().click()
   //text("我要答题").waitFor();
   sleep(1000);
   back();
-  sleep(2500);
-  if (!text("登录").exists()) back();
+  sleep(1500);
+  if (!text("我的").exists()) {sleep(3500);
+    if (!text("我的").exists()) back();
+    sleep(1000);
+    }
   text("我的").waitFor();
   ran_sleep();
   meizhou_end = 0;
@@ -1007,8 +1008,6 @@ function do_zhuanxiang() {
     ran_sleep();
   }
   back();
-  sleep(2500);
-  if (!text("登录").exists()) back();
   text("登录").waitFor();
   ran_sleep();
   return true;
@@ -2028,7 +2027,7 @@ function do_exec(type) {
   // 随机延迟、等待提示
   ran_sleep();
   // 等待加载
-  let tishi_0 = text("提示").findOne(5000);
+  let tishi_0 = text("提示").findOne(3000);
   if (!tishi_0) text("查看提示").findOne().click();
   delay(random(0.5, 1));
    text("提示").waitFor();

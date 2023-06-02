@@ -3928,4 +3928,5 @@ try {
         if(myScores['双人对战']!= null){myScores['四人对战'] = 1; myScores['挑战答题'] = 1 ;}
         if(myScores['四人对战']!= null){myScores['双人对战'] = 1; myScores['挑战答题'] = 1 ;}
         if(myScores['挑战答题']!= null){myScores['四人对战'] = 1; myScores['双人对战'] = 1 ;}
-}
+fInfo(myScores_1);
+      }

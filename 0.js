@@ -1028,8 +1028,14 @@ function do_zhuanxiang() {
     ran_sleep();
   }
   back();
-  sleep(1200);
+  sleep(random(700, 1200));
         back();
+        if (!(textMatches("我的").exists() || textMatches("登录").exists()) ||!(text("我的").exists() || text("登录").exists())) {
+      back();
+      sleep(random(700, 1200));
+      if (!id("comm_head_xuexi_score").exists())back();
+    sleep(random(600, 1000));
+    }
  // text("登录").waitFor();
   ran_sleep();
   return true;

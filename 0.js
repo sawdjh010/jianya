@@ -949,7 +949,9 @@ function do_zhuanxiang() {
         //storage_user.put('zhuanxiang_dao', true); 自定义不用读取
         fInfo("专项答题全部已作答。");
         back();
-        text("登录").waitFor();
+        sleep(1200);
+        back();
+       // text("登录").waitFor();
         ran_sleep();
         return true;
       }
@@ -1026,7 +1028,9 @@ function do_zhuanxiang() {
     ran_sleep();
   }
   back();
-  text("登录").waitFor();
+  sleep(1200);
+        back();
+ // text("登录").waitFor();
   ran_sleep();
   return true;
 }

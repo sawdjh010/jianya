@@ -1,6 +1,8 @@
 auto.waitFor(); //mode = "fast"
 var delay_time = 3000;
 var myScores = {}; //分数
+var myScores_2 = {}; //分数
+var myScores_1 = {}; //分数
 device.wakeUpIfNeeded();
 var meizhou_0 = true;
 var meizhou_end = 1;
@@ -3534,15 +3536,15 @@ function xxqg(userinfo) {
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
-  true == pinglun && ("0" == myScores["发表观点"]) && (toastLog("开始评论"), do_pinglun(), jifen_list_1 = jifen_list_1());
+  true == pinglun && ("0" == myScores_2["发表观点"]) && (toastLog("开始评论"), do_pinglun(), jifen_list_1 = jifen_list_1());
   true == shipin && "已完成" == myScores_1["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin(), jifen_list_1 = jifen_list_1());
   true == wenzhang && "已完成" == myScores_1["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list_1 = jifen_list_1());
-  true == meiri && "已完成" == myScores_1["每日答题"] && (toastLog("每日答题开始"), do_meiri(), jifen_list_1 = jifen_list_1());
+  true == meiri && "0" == myScores_1["每日答题"] && (toastLog("每日答题开始"), do_meiri(), jifen_list_1 = jifen_list_1());
   c = 1;
   //2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
-  true == tiaozhan && "已完成" == myScores_1["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list_1 = jifen_list_1());
+  true == tiaozhan && "0" == myScores_1["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list_1 = jifen_list_1());
   if (ocr_test()) {
-    if (true == siren && "0" == myScores["四人对战"]) {
+    if (true == siren && "0" == myScores_2["四人赛"]) {
       toastLog("四人赛开始");
       guaji && do_duizhan1(0);
       do_duizhan1(4);
@@ -3551,13 +3553,13 @@ function xxqg(userinfo) {
         for (fSet("title", "平衡胜率…"), fClear(), console.info("开始平衡胜率，答错次数：" + d), i = 0; i < d; i++) fInfo("答错第" + (i + 1) + "轮"), dacuo(4), fClear();
       jifen_list_1 = jifen_list_1()
     }
-    true == shuangren && "0" == myScores["双人对战"] && (toastLog("双人对战开始"), do_duizhan1(2), jifen_list_1 = jifen_list_1())
+    true == shuangren && "0" == myScores_2["双人对战"] && (toastLog("双人对战开始"), do_duizhan1(2), jifen_list_1 = jifen_list_1())
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && "已完成" != myScores_1["本地频道"] && (toastLog("本地开始"), do_bendi(), jifen_list_1 = jifen_list_1());
   true == yundong && "已完成" != myScores_1["强国运动"] && (toastLog("强国运动"), do_yundong(), jifen_list_1 = jifen_list_1());
   d = 1;
   //1 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list_1 = jifen_list_1());
-  0 != dingyue && "0" == myScores["订阅"] && (toastLog("订阅开始--"), d = do_dingyue(), jifen_list_1 = jifen_list_1());
+  0 != dingyue && "0" == myScores_2["订阅"] && (toastLog("订阅开始--"), d = do_dingyue(), jifen_list_1 = jifen_list_1());
   // // 1 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list_1 = jifen_list_1());
   // // 2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list_1 = jifen_list_1());
   // if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
@@ -3896,8 +3898,7 @@ function entry_model(number) {
   while (!model.click());
 }
 //6-登录  我要读文章10  15 21 26 31  36  41 45
-var myScores = {}; //分数
-var myScores_1 = {}; //分数
+
 function jifen_list_1() {
 try {
             className("android.widget.ListView").findOnce().children().forEach(item => {
@@ -3914,20 +3915,20 @@ try {
                     name_2 = item.child(4).text();
                 }
                 let str = item.child(3).child(0).text().substring(0,5).split("/");
-               let str_1 = item.child(3).child(0).text().substring(0,5).split("/");
+               //let str_1 = item.child(3).child(0).text().substring(0,5).split("/");
                //let score = str[0].match(/[0-9][0-9]*/g);
                 let score = str[0].match(/[0-9][0-9]*/g);
            //   log("分值"+score)
-                myScores[name] = score;
+                myScores_2[name] = score;
                 myScores_1[name] = name_2;
             });
            
         } catch (e) {
             console.log(e);
         }
-        if(myScores['双人对战']!= null){myScores['四人对战'] = 1; myScores['挑战答题'] = 1 ;}
-        if(myScores['四人对战']!= null){myScores['双人对战'] = 1; myScores['挑战答题'] = 1 ;}
-        if(myScores['挑战答题']!= null){myScores['四人对战'] = 1; myScores['双人对战'] = 1 ;}
-       var w =fInit();
-        fInfo(myScores_1);
+        if(myScores['双人对战']!= null){myScores['四人赛'] = 1; myScores['挑战答题'] = 1 ;}
+        if(myScores['四人赛']!= null){myScores['双人对战'] = 1; myScores['挑战答题'] = 1 ;}
+        if(myScores['挑战答题']!= null){myScores['四人赛'] = 1; myScores['双人对战'] = 1 ;}
+       //var w = fInit();
+        log(myScores_1);
       }

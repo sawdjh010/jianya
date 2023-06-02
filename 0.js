@@ -3532,17 +3532,19 @@ function xxqg(userinfo) {
   if (qg_guanbi_thread.isAlive()) {
     qg_guanbi_thread.interrupt();
   }
-  jifen_list_1 = jifen_list_1();
+   jifen_list_1();
+   log(myScores_1);
+   log(myScores_2);
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
   true == pinglun && ("0" == myScores_2["发表观点"]) && (toastLog("开始评论"), do_pinglun());
   true == shipin && "已完成" == myScores_1["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin());
   true == wenzhang && "已完成" == myScores_1["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang());
-  true == meiri && "0" == myScores_1["每日答题"] && (toastLog("每日答题开始"), do_meiri());
+  true == meiri && "0" == myScores_2["每日答题"] && (toastLog("每日答题开始"), do_meiri());
   c = 1;
   //2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
-  true == tiaozhan && "0" == myScores_1["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan());
+  true == tiaozhan && "0" == myScores_2["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan());
   if (ocr_test()) {
     if (true == siren && "0" == myScores_2["四人赛"]) {
       toastLog("四人赛开始");
@@ -3899,6 +3901,7 @@ function entry_model(number) {
 //6-登录  我要读文章10  15 21 26 31  36  41 45
 
 function jifen_list_1() {
+  sleep(2000);
 try {
             className("android.widget.ListView").findOnce().children().forEach(item => {
                 var name;
@@ -3925,9 +3928,8 @@ try {
         } catch (e) {
             console.log(e);
         }
-        if(myScores['双人对战']!= null){myScores['四人赛'] = 1; myScores['挑战答题'] = 1 ;}
-        if(myScores['四人赛']!= null){myScores['双人对战'] = 1; myScores['挑战答题'] = 1 ;}
-        if(myScores['挑战答题']!= null){myScores['四人赛'] = 1; myScores['双人对战'] = 1 ;}
+        if(myScores_2['双人对战']!= null){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
+        if(myScores_2['四人赛']!= null){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
+        if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
        //var w = fInit();
-        log(myScores_1);
       }

@@ -3535,12 +3535,12 @@ function xxqg(userinfo) {
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
   true == pinglun && ("0" == myScores["发表观点"]) && (toastLog("开始评论"), do_pinglun(), jifen_list_1 = jifen_list_1());
-  true == shipin && "已完成" == myScores["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin(), jifen_list_1 = jifen_list_1());
-  true == wenzhang && "已完成" == myScores["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list_1 = jifen_list_1());
-  true == meiri && "已完成" == myScores["每日答题"] && (toastLog("每日答题开始"), do_meiri(), jifen_list_1 = jifen_list_1());
+  true == shipin && "已完成" == myScores_1["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin(), jifen_list_1 = jifen_list_1());
+  true == wenzhang && "已完成" == myScores_1["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list_1 = jifen_list_1());
+  true == meiri && "已完成" == myScores_1["每日答题"] && (toastLog("每日答题开始"), do_meiri(), jifen_list_1 = jifen_list_1());
   c = 1;
   //2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
-  true == tiaozhan && "已完成" == myScores["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list_1 = jifen_list_1());
+  true == tiaozhan && "已完成" == myScores_1["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list_1 = jifen_list_1());
   if (ocr_test()) {
     if (true == siren && "0" == myScores["四人对战"]) {
       toastLog("四人赛开始");
@@ -3902,16 +3902,16 @@ function jifen_list_1() {
 try {
             className("android.widget.ListView").findOnce().children().forEach(item => {
                 var name;
-              var name_1;
-              var name_2;
+                var name_1;
+                var name_2;
                 try {
                     name = item.child(0).child(0).text();
                     name_1 = item.child(3).child(2).text();
-                  name_2 = item.child(4).text();
+                    name_2 = item.child(4).text();
                 } catch (e) {
                     name = item.child(0).text();
                     name_1 = item.child(3).child(2).text();
-                  name_2 = item.child(4).text();
+                    name_2 = item.child(4).text();
                 }
                 let str = item.child(3).child(0).text().substring(0,5).split("/");
                let str_1 = item.child(3).child(0).text().substring(0,5).split("/");
@@ -3928,5 +3928,6 @@ try {
         if(myScores['双人对战']!= null){myScores['四人对战'] = 1; myScores['挑战答题'] = 1 ;}
         if(myScores['四人对战']!= null){myScores['双人对战'] = 1; myScores['挑战答题'] = 1 ;}
         if(myScores['挑战答题']!= null){myScores['四人对战'] = 1; myScores['双人对战'] = 1 ;}
-fInfo(myScores_1);
+       var w =fInit();
+        fInfo(myScores_1);
       }

@@ -1,8 +1,8 @@
 auto.waitFor(); //mode = "fast"
 var delay_time = 3000;
 var myScores = {}; //分数
-var myScores_2 = {}; //分数
 var myScores_1 = {}; //分数
+var myScores_2 = {}; //分数
 device.wakeUpIfNeeded();
 var meizhou_0 = true;
 var meizhou_end = 1;
@@ -897,7 +897,19 @@ if(meizhou_d != null) meizhou_d.parent().click()
 /*专项答题中提示的层次与每日每周的不一样
  * 专项答题出现的倒计时会影响22,23层的结构*/
 function do_zhuanxiang() {
-  entry_jifen_project("专项答题");
+  let zhuanxiang_d = text("专项答题").findOne(4000);
+  if(zhuanxiang_d != null) zhuanxiang_d.parent().click()
+    else{var textOrder = text("排行榜").findOnce().parent();
+      while (text("排行榜").exists()) {
+          console.info("点击专项答题");
+        
+          textOrder.child(4).click();
+      
+        sleep(random(700, 1500)); 
+         sleep(1000);
+      }
+    }
+  //entry_jifen_project("专项答题");
   fSet("title", "专项答题…");
   fClear();
   // 等待加载
@@ -3364,10 +3376,10 @@ function getScores(i) {
   }
   text("积分明细").findOnce().click();
   textContains('+').findOne(5000);
-   var meizhousores = {
-    '每周答题':0
+   var zhuanxiangs = {
+    '专项答题':0
      };
-    meizhousores['每周答题'] = 0; 
+     zhuanxiangs['专项答题'] = 0; 
     try{
         textContains('+').findOne(5000).parent().parent().children().forEach(item => {
             try{
@@ -3375,26 +3387,26 @@ function getScores(i) {
                let score = item.child(4).text().substring(0,5).match(/[0-9][0-9]*/g);
             //  log(score);
              // if(score == null || score == undefined){ let score = item.child(3).text().substring(0,5).match(/[0-9][0-9]*/g);}
-                meizhousores[name] = score;
+             zhuanxiangs[name] = score;
                // log(name + ' ' +score);
             }catch(e){}
         });
     }catch(e){};
    //  log(meizhousores);
-      lCount = Number(meizhousores['每周答题']);
+      lCount = Number(zhuanxiangs['专项答题']);
    // 点点通['挑战答题'] = Math.max(0,3-Math.floor((点点通['挑战答题']*1)/3));
    //fInfo(lCount);
-if (lCount == 0) { meizhou = 0;
-  fTips("每周答题将放最后部分完成"); 
-  meizhou_0 = false;}
+if (lCount == 0) { zhuanxiang = 0;
+  fTips("专项答题将放最后部分完成"); 
+  zhuanxiang_0 = false;}
   else{ 
-    meizhou_score = lCount;
-    meizhou_0 = true; 
-    fTips("勾选的‘每周答题’今日任务已完成");
+    zhuanxiang_score = lCount;
+    zhuanxiang_0 = true; 
+    fTips("勾选的‘专项答题’今日任务已完成");
   }
   sleep(random(1000, 1500));
   back();
-  fTips("每周答题检测后返回"); 
+  fTips("专项答题检测后返回"); 
   sleep(random(1000, 1500));
 }
 
@@ -3524,8 +3536,11 @@ function xxqg(userinfo) {
    if(2 != meizhou) {
     fTips("脚本已勾选'每周答题'，正在查询答题情况...");
     getScores(3); 
-    //  back();
-    // sleep(random(700, 1500));
+     }
+     //每周答题勾选后检测是否已完成
+   if(2 != zhuanxiang) {
+    fTips("脚本已勾选'专项答题'，正在查询答题情况...");
+    getScores(4); 
      }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
@@ -3539,8 +3554,8 @@ function xxqg(userinfo) {
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
   true == pinglun && ("0" == myScores_2["发表观点"]) && (toastLog("开始评论"), do_pinglun());
-  true == shipin && "已完成" == myScores_1["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin());
-  true == wenzhang && "已完成" == myScores_1["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang());
+  true == shipin && "已完成" != myScores_1["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin());
+  true == wenzhang && "已完成" != myScores_1["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang());
   true == meiri && "0" == myScores_2["每日答题"] && (toastLog("每日答题开始"), do_meiri());
   c = 1;
   //2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
@@ -3565,7 +3580,30 @@ function xxqg(userinfo) {
   // // 2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list_1 = jifen_list_1());
   // if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
-
+  if (2 != zhuanxiang && false == zhuanxiang_0) {
+    back();
+    fClear();
+    toastLog("专项答题开始");
+    mz_0 = text("我的").findOne(2000);
+   if(mz_0 == null) back(),sleep(1000),text("我的").findOne().click();
+   else mz_0.click();
+    sleep(1000);
+    mz_1 = text("我要答题").findOne(3500);
+    if(mz_1 == null){ click(522,855); press(522,855,150);}
+    else mz_1.parent().click();
+    sleep(1000);
+    for (c = do_zhuanxiang(); !c;) c = do_zhuanxiang();
+   if(!text("我的").findOne(4500)) {
+    if(!(textContains("我的").exists()||text("我的").exists())) back();}
+    text("我的").waitFor();
+    getScores(4);
+    sleep(random(900, 1500));
+     if((textContains("积分规则").exists()||textContains("登录").exists())) return;
+      else back();
+     sleep(random(900, 1700));
+     if(textContains("我的").exists()||textContains("积分").exists()) {text("积分").findOnce().parent().child(1).click(); text("积分规则").waitFor();}
+     c || fError("专项答题可能已经放弃或其它原因无法继续，请手动作答")
+    }
   b = 1;
   if (2 != meizhou && false == meizhou_0) {
     back();
@@ -3929,7 +3967,7 @@ try {
             console.log(e);
         }
         if(myScores_2['双人对战']!= null){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
-        if(myScores_2['四人赛']!= null){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
-        if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
+        else if(myScores_2['四人赛']!= null){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
+        else if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
        //var w = fInit();
       }

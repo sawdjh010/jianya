@@ -3539,8 +3539,8 @@ function xxqg(userinfo) {
   true == wenzhang && "已完成" == myScores["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list_1 = jifen_list_1());
   true == meiri && "已完成" == myScores["每日答题"] && (toastLog("每日答题开始"), do_meiri(), jifen_list_1 = jifen_list_1());
   c = 1;
-  2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
-  true == tiaozhan && "已完成" == myScores["挑战"] && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list_1 = jifen_list_1());
+  //2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
+  true == tiaozhan && "已完成" == myScores["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list_1 = jifen_list_1());
   if (ocr_test()) {
     if (true == siren && "0" == myScores["四人对战"]) {
       toastLog("四人赛开始");
@@ -3896,9 +3896,9 @@ function entry_model(number) {
   while (!model.click());
 }
 //6-登录  我要读文章10  15 21 26 31  36  41 45
-function jifen_list_1() {
-  var myScores = {}; //分数
+var myScores = {}; //分数
 var myScores_1 = {}; //分数
+function jifen_list_1() {
 try {
             className("android.widget.ListView").findOnce().children().forEach(item => {
                 var name;

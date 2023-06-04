@@ -1044,7 +1044,7 @@ function do_zhuanxiang() {
 /********挑战答题*********/
 function do_tiaozhan() {
  // entry_jifen_project("挑战答题");
- entry_model(jifen_map["挑战"]);
+ entry_model(jifen_map["趣味答题"]);
   if (ddtong) {
     fSet("title", "挑战(dd通)…");d
   } else {
@@ -3735,6 +3735,7 @@ var jifen_map = {
     "视频": 15,
     "文章": 10,
     "每日": 20,
+    "趣味答题": 25,
     "挑战": 25,
     "四人": 25,
     "双人": 25,
@@ -3976,8 +3977,39 @@ try {
         } catch (e) {
             console.log(e);
         }
-        if(myScores_2['双人对战']!= null){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
-        else if(myScores_2['四人赛']!= null){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
-        else if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
-       //var w = fInit();
+        if(myScores_2['趣味答题']!= null && myScores_2['趣味答题']== 0){
+          entry_model(jifen_map["趣味答题"]);
+          sleep(2000);
+          while (!(text("开始比赛").exists()||text("挑战答题").exists()||text("开始对战").exists()||text("时事政治").exists()||text("随机匹配").exists()||text("规则说明").exists()||textStartsWith("total").exists())) {
+          //  scoll.scrollForward();
+            // 不加延迟会很卡
+            sleep(500);
+          }
+        //  className("android.widget.FrameLayout").textMatches(/total.*|chanllenge.*/).findOne().waitFor();
+      if(text("随机匹配").exists()||textStartsWith("随机匹配").exists()||text("开始对战").exists()){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
+        else if(text("开始比赛").exists()||textStartsWith("开始比赛").exists()){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
+        else if(textStartsWith("total").exists()||text("时事政治").exists()||text("挑战答题").exists()){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
+          // 等待加载、积分页面也有Image和List，需要用depth筛选
+  // var tz = className("android.widget.Image").textMatches(/total.*|chanllenge.*/).findOne(2000);
+  // var sr = text("开始比赛").findOne(2000);
+  // var s_r = text("随机匹配").findOne(2000);
+  // if (tz && textStartsWith("total").exists()) {
+  //     b = className("android.widget.Image").textStartsWith("total").findOne().parent();
+     ran_sleep();
+     back();
+     ran_sleep();
+  //   text("开始比赛").waitFor();//四人赛
+  //   sleep(1000);
+  //   let start_click = text("开始比赛").findOne().click();
+
+  //   text("随机匹配").waitFor();
+  //   sleep(1000);
+  //   text("随机匹配").findOne().parent().child(0).click();
+
+
+        // if(myScores_2['双人对战']!= null){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
+        // else if(myScores_2['四人赛']!= null){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
+        // else if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
+       }
+        //var w = fInit();
       }

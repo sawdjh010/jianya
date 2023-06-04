@@ -1044,7 +1044,7 @@ function do_zhuanxiang() {
 /********挑战答题*********/
 function do_tiaozhan() {
  // entry_jifen_project("挑战答题");
- entry_model(jifen_map["趣味答题"]);
+ entry_model(jifen_map["挑战"]);
   if (ddtong) {
     fSet("title", "挑战(dd通)…");d
   } else {
@@ -3983,12 +3983,12 @@ try {
           while (!(text("开始比赛").exists()||text("挑战答题").exists()||text("开始对战").exists()||text("时事政治").exists()||text("随机匹配").exists()||text("规则说明").exists()||textStartsWith("total").exists())) {
           //  scoll.scrollForward();
             // 不加延迟会很卡
-            sleep(500);
+            sleep(700);
           }
         //  className("android.widget.FrameLayout").textMatches(/total.*|chanllenge.*/).findOne().waitFor();
-      if(text("随机匹配").exists()||textStartsWith("随机匹配").exists()||text("开始对战").exists()){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
-        else if(text("开始比赛").exists()||textStartsWith("开始比赛").exists()){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
-        else if(textStartsWith("total").exists()||text("时事政治").exists()||text("挑战答题").exists()){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
+      if(text("随机匹配").exists()||textStartsWith("随机匹配").exists()||text("开始对战").exists()){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;myScores_2["双人对战"]='0';}
+        else if(text("开始比赛").exists()||textStartsWith("开始比赛").exists()){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;myScores_2["四人赛"]='0';}
+        else if(textStartsWith("total").exists()||text("时事政治").exists()||text("挑战答题").exists()){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ; myScores_2["挑战答题"]='0';}
           // 等待加载、积分页面也有Image和List，需要用depth筛选
   // var tz = className("android.widget.Image").textMatches(/total.*|chanllenge.*/).findOne(2000);
   // var sr = text("开始比赛").findOne(2000);
@@ -4010,6 +4010,6 @@ try {
         // if(myScores_2['双人对战']!= null){myScores_2['四人赛'] = 1; myScores_2['挑战答题'] = 1 ;}
         // else if(myScores_2['四人赛']!= null){myScores_2['双人对战'] = 1; myScores_2['挑战答题'] = 1 ;}
         // else if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
-       }
+       }else{myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ; myScores_2["挑战答题"]= 1;}
         //var w = fInit();
       }

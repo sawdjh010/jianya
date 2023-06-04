@@ -22,16 +22,16 @@ var pinglun = TTXS_PRO_CONFIG.get("pinglun", true);
 var shipin = TTXS_PRO_CONFIG.get("shipin", true);
 var wenzhang = TTXS_PRO_CONFIG.get("wenzhang", true);
 var meiri = TTXS_PRO_CONFIG.get("meiri", true);
-var meizhou = TTXS_PRO_CONFIG.get("meizhou", 0);
+var meizhou = TTXS_PRO_CONFIG.get("meizhou", 2);
 var zhuanxiang = TTXS_PRO_CONFIG.get("zhuanxiang", 0);
 var tiaozhan = TTXS_PRO_CONFIG.get("tiaozhan", true);
 var ocr_choice = TTXS_PRO_CONFIG.get("ocr_choice", 0);
 var ocr_maxtime = TTXS_PRO_CONFIG.get("ocr_maxtime", "5000");
 var duizhan_mode = TTXS_PRO_CONFIG.get("duizhan_mode", 0);
 var jisu = TTXS_PRO_CONFIG.get("jisu", "0");
-var guaji = TTXS_PRO_CONFIG.get("guaji", true);
+var guaji = TTXS_PRO_CONFIG.get("guaji", false);
 var siren = TTXS_PRO_CONFIG.get("siren", true);
-var dacuo_num = TTXS_PRO_CONFIG.get("dacuo_num", "2");
+var dacuo_num = TTXS_PRO_CONFIG.get("dacuo_num", "0");
 var shuangren = TTXS_PRO_CONFIG.get("shuangren", true);
 var bendi = TTXS_PRO_CONFIG.get("bendi", true);
 var yundong = TTXS_PRO_CONFIG.get("yundong", true);
@@ -4014,5 +4014,14 @@ try {
         //var w = fInit();
       }
       function do_quweidati() {
-
-      }
+        entry_model(jifen_map["趣味答题"]);
+          sleep(2000);
+          while (!(text("开始比赛").exists()||text("挑战答题").exists()||text("开始对战").exists()||text("时事政治").exists()||text("随机匹配").exists()||text("规则说明").exists()||textStartsWith("total").exists())) {
+            sleep(700);
+          }
+        //  className("android.widget.FrameLayout").textMatches(/total.*|chanllenge.*/).findOne().waitFor();
+      if(text("随机匹配").exists()||textStartsWith("随机匹配").exists()||text("开始对战").exists()){do_duizhan1(2);}
+        else if(text("开始比赛").exists()||textStartsWith("开始比赛").exists()){do_duizhan1(4);}
+        else if(textStartsWith("total").exists()||text("时事政治").exists()||text("挑战答题").exists()){do_tiaozhan()}
+     ran_sleep();
+       }

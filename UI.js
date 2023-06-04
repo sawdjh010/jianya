@@ -799,15 +799,15 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题(新版已弃，若已做完选不做)" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="若有每周题目未做，可选" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题(新版已弃，选不做)" />
                                     <spinner id="ttxs_pro_meizhou" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
                                 </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="专项答题" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="专项答题(新规则已弃，若已做完选不做)" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="若有题目未做，可选" />
                                     <spinner id="ttxs_pro_zhuanxiang" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
                                 </vertical> 
                             </horizontal>
@@ -852,10 +852,10 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="是否挂机跳过四人赛首局" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="是否挂机跳过四人赛首局(新版已弃)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="首局匹配对手较强，挂机不会扣积分局数" />
                                 </vertical>
-                                <checkbox id="ttxs_pro_guaji" marginLeft="4" marginRight="6" checked="true" />
+                                <checkbox id="ttxs_pro_guaji" marginLeft="4" marginRight="6" checked="false" />
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
@@ -867,7 +867,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="平衡胜率(答错)次数" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="平衡胜率(答错)次数(新版已弃，输0)" />
                                 </vertical> 
                                 <input id="ttxs_pro_dacuo_num" marginLeft="4" marginRight="6" text="2" textSize="13sp"  inputType="number" />
                             </horizontal>
@@ -938,7 +938,7 @@ ui.layout(
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="多账号(仅支持VIP卡密用户。选填，不限个数)" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="使用前确保所有账号都已完成短信验证" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="使用前确保所有账号都已完成短信验证，新版建议‘1机1号’防封" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="账号1:密码1:token1(换行/回车)账号2:密码2:token2(换行/回车)账号3:密码3:token3" />
                                     <text w="auto" textColor="#999999" textSize="10sp" text="   [例]13xxxxxxxxx:12xxxx(换行/回车后下一组)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="结束后会自动登录回账号1" />
@@ -1666,7 +1666,7 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_guaji.setChecked(TTXS_PRO_CONFIG.get("guaji"));
     TTXS_PRO_CONFIG.put("siren", true);
     ui.ttxs_pro_siren.setChecked(TTXS_PRO_CONFIG.get("siren"));
-    TTXS_PRO_CONFIG.put("dacuo_num", "2");
+    TTXS_PRO_CONFIG.put("dacuo_num", "0");
     ui.ttxs_pro_dacuo_num.setText(TTXS_PRO_CONFIG.get("dacuo_num"));
     TTXS_PRO_CONFIG.put("shuangren", true);
     ui.ttxs_pro_shuangren.setChecked(TTXS_PRO_CONFIG.get("shuangren"));
@@ -1799,14 +1799,14 @@ function Initialize() {
     ui.ttxs_pro_shipin.setChecked(TTXS_PRO_CONFIG.get("shipin", true));
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang", true));
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri", true));
-    ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou", 0));
+    ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou", 2));
     ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang", 0));
     ui.ttxs_pro_tiaozhan.setChecked(TTXS_PRO_CONFIG.get("tiaozhan", true));
     ui.ttxs_pro_ocr_choice.setSelection(TTXS_PRO_CONFIG.get("ocr_choice", 0));
     ui.ttxs_pro_ocr_maxtime.setText(TTXS_PRO_CONFIG.get("ocr_maxtime", "5000"));
     ui.ttxs_pro_duizhan_mode.setSelection(TTXS_PRO_CONFIG.get("duizhan_mode", 0));
     ui.ttxs_pro_jisu.setText(TTXS_PRO_CONFIG.get("jisu", "0"));
-    ui.ttxs_pro_guaji.setChecked(TTXS_PRO_CONFIG.get("guaji", true));
+    ui.ttxs_pro_guaji.setChecked(TTXS_PRO_CONFIG.get("guaji", false));
     ui.ttxs_pro_siren.setChecked(TTXS_PRO_CONFIG.get("siren", true));
     ui.ttxs_pro_dacuo_num.setText(TTXS_PRO_CONFIG.get("dacuo_num", "2"));
     ui.ttxs_pro_shuangren.setChecked(TTXS_PRO_CONFIG.get("shuangren", true));

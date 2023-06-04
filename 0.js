@@ -1148,7 +1148,7 @@ function do_tiaozhan() {
       sleep(5000);
       click("结束本局");
       text("再来一局").waitFor();
-      if (total < 5) {
+      if (total < 3) {
         fInfo("答错重试");
         console.warn("warn:", que_txt);
         text("再来一局").findOne().click();
@@ -4012,4 +4012,7 @@ try {
         // else if(myScores_2['挑战答题']!= null){myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ;}
        }else{myScores_2['四人赛'] = 1; myScores_2['双人对战'] = 1 ; myScores_2["挑战答题"]= 1;}
         //var w = fInit();
+      }
+      function do_quweidati() {
+
       }

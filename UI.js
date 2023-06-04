@@ -1648,9 +1648,9 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang"));
     TTXS_PRO_CONFIG.put("meiri", true);
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri"));
-    TTXS_PRO_CONFIG.put("meizhou", 0);
+    TTXS_PRO_CONFIG.put("meizhou", 2);
     ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou"));
-    TTXS_PRO_CONFIG.put("zhuanxiang", 0);
+    TTXS_PRO_CONFIG.put("zhuanxiang", 1);
     ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang"));
     TTXS_PRO_CONFIG.put("tiaozhan", true);
     ui.ttxs_pro_tiaozhan.setChecked(TTXS_PRO_CONFIG.get("tiaozhan"));
@@ -1662,7 +1662,7 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_duizhan_mode.setSelection(TTXS_PRO_CONFIG.get("duizhan_mode"));
     TTXS_PRO_CONFIG.put("jisu", "0");
     ui.ttxs_pro_jisu.setText(TTXS_PRO_CONFIG.get("jisu"));
-    TTXS_PRO_CONFIG.put("guaji", true);
+    TTXS_PRO_CONFIG.put("guaji", false);
     ui.ttxs_pro_guaji.setChecked(TTXS_PRO_CONFIG.get("guaji"));
     TTXS_PRO_CONFIG.put("siren", true);
     ui.ttxs_pro_siren.setChecked(TTXS_PRO_CONFIG.get("siren"));
@@ -1800,7 +1800,7 @@ function Initialize() {
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang", true));
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri", true));
     ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou", 2));
-    ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang", 0));
+    ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang", 1));
     ui.ttxs_pro_tiaozhan.setChecked(TTXS_PRO_CONFIG.get("tiaozhan", true));
     ui.ttxs_pro_ocr_choice.setSelection(TTXS_PRO_CONFIG.get("ocr_choice", 0));
     ui.ttxs_pro_ocr_maxtime.setText(TTXS_PRO_CONFIG.get("ocr_maxtime", "5000"));

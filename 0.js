@@ -3997,7 +3997,7 @@ try {
   //     b = className("android.widget.Image").textStartsWith("total").findOne().parent();
      ran_sleep();
      back();
-            if（text("退出").exists()||textStartsWith("退出").exists()）text("退出").findOne().click();
+            if(text("退出").exists()||textStartsWith("退出").exists()) text("退出").findOne(3000).click();
      ran_sleep();
   //   text("开始比赛").waitFor();//四人赛
   //   sleep(1000);

@@ -4000,7 +4000,8 @@ try {
             ran_sleep();
             sleep(1000);
             if(text("退出").exists()||textStartsWith("退出").exists()) text("退出").findOne(3000).click();
-     ran_sleep();
+            sleep(1500);
+            ran_sleep();
   //   text("开始比赛").waitFor();//四人赛
   //   sleep(1000);
   //   let start_click = text("开始比赛").findOne().click();

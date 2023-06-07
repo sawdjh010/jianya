@@ -412,6 +412,7 @@ sleep(2000);
 
 function do_pinglun() {
  // entry_jifen_project("发表观点");
+    sleep(1000);
   entry_model(jifen_map["评论"]);
   fSet("title", "评论…");
   fClear();

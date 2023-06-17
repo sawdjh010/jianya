@@ -1233,6 +1233,7 @@ let tskami = ui.ts_kami.text();
 if(tskami){let targetDate = shijian_yanzheng[tskami];
 let diff = parseInt((targetDate - Date.now()) / 1000);
 log(diff);}
+else diff = -1;
 //  let hour = parseInt(diff / 3600);
 //  let min = parseInt((diff / 60) % 60);
 //  let sec = parseInt(diff % 60);

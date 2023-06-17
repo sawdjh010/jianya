@@ -1216,7 +1216,7 @@ var execution = "";
 var thread = null;
 Initialize();
 var shijian_yanzheng = {
-    "djh":20230618014300,// Date(2023, 6, 18, 1, 30, 0)
+    "djh":20230618014500,// Date(2023, 6, 18, 1, 30, 0)
     "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
     "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
     "运动": 45
@@ -1230,7 +1230,7 @@ function add0(m){
 function get_today(){
 	var myDate = new Date();
 	// return `${myDate.getFullYear()}-${myDate.getMonth()+1}-${myDate.getDate()}`
-  return myDate.getFullYear()+add0(myDate.getMonth()+1)+add0(myDate.getDate())+add0(myDate.getHours())+add0(myDate.getSeconds())
+  return myDate.getFullYear()+add0(myDate.getMonth()+1)+add0(myDate.getDate())+add0(myDate.getHours())+add0(myDate.getMinutes())+add0(myDate.getSeconds())
 }
 let tskami = ui.ts_kami.text();
 toast(tskami);

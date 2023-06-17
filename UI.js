@@ -1374,7 +1374,7 @@ ui.jiebang_ts_kami.on('click', () => {
      } else if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {
         BH_KAMI_CONFIG.put("ts_kami", ui.ts_kami.getText() + "");
         toast('卡密保存成功');
-     //   vip = 2;
+        vip = 2;
         toast('进入调试模式');
     }else toast('非开发人员忽略此调试');
  });

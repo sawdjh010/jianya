@@ -1237,7 +1237,7 @@ let tskami = ui.ts_kami.text();
 // 获取当前时间与目标时间的相差的秒数
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt(targetDate - get_today());
- toast(diff);
+ toastLog(diff);
  //toast(Date.now());
  //toast(targetDate);
  //(get_today() + '// '+ targetDate);

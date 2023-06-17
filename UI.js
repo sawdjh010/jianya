@@ -1237,6 +1237,7 @@ let tskami = ui.ts_kami.text();
 // 获取当前时间与目标时间的相差的秒数
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt(targetDate - get_today());
+ toastLog('将于'+ targetDate + '到期');
  toastLog(diff);
  //toast(Date.now());
  //toast(targetDate);
@@ -1253,7 +1254,7 @@ let tskami = ui.ts_kami.text();
 // //  }
 
 //  if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
-   if(diff > 0) {vip = 2; };
+   if(diff > 0) {vip = 2; }else toastLog('已于'+ targetDate + '到期');;
 var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";
@@ -1382,7 +1383,7 @@ ui.jiebang_ts_kami.on('click', () => {
      } else if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {
         BH_KAMI_CONFIG.put("ts_kami", ui.ts_kami.getText() + "");
         toast('卡密保存成功');
-        vip = 2;
+       // vip = 2;
         toast('进入调试模式');
     }else toast('非开发人员忽略此调试');
  });

@@ -1217,8 +1217,9 @@ var thread = null;
 Initialize();
 let tskami = ui.ts_kami.text();
 // 获取当前时间与目标时间的相差的秒数
-let targetDate = shijian_yanzheng[tskami]
+let targetDate = shijian_yanzheng[tskami];
 let diff = parseInt((targetDate - Date.now()) / 1000);
+log(diff);
 //  let hour = parseInt(diff / 3600);
 //  let min = parseInt((diff / 60) % 60);
 //  let sec = parseInt(diff % 60);
@@ -1228,7 +1229,7 @@ let diff = parseInt((targetDate - Date.now()) / 1000);
 //      min = min % 60;
 //  }
 var shijian_yanzheng = {
-"djh": Date(2025, 6, 14, 8, 0, 0),
+"djh": 20250614080000,//Date(2025, 6, 14, 8, 0, 0),
 "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
 "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
 "每日": 20,

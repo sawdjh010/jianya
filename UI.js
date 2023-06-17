@@ -1216,7 +1216,7 @@ var execution = "";
 var thread = null;
 Initialize();
 var shijian_yanzheng = {
-    "djh": 20250614080000,//Date(2025, 6, 14, 8, 0, 0),
+    "djh": Date(2025, 6, 14, 8, 0, 0),//20250614080000,
     "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
     "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
     "运动": 45
@@ -1227,7 +1227,7 @@ toast(tskami);
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt((targetDate - Date.now()) / 1000);
  //toast(diff);
- toast((Date.now()).getTime() + ' '+ targetDate);
+ toast(Date.now() + ' '+ targetDate);
  //console.log(diff);
  }else var diff = -1;
 // //  let hour = parseInt(diff / 3600);

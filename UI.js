@@ -1231,10 +1231,10 @@ var shijian_yanzheng = {
 let tskami = ui.ts_kami.text();
 toast(tskami);
 // 获取当前时间与目标时间的相差的秒数
- if(tskami!=null||tskami!='') var targetDate = shijian_yanzheng[tskami];
-// let diff = parseInt((targetDate - Date.now()) / 1000);
- toast(targetDate);
-// }else var diff = -1;
+ if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
+ var diff = parseInt((targetDate - Date.now()) / 1000);
+ toast(diff);
+ }else var diff = -1;
 // //  let hour = parseInt(diff / 3600);
 // //  let min = parseInt((diff / 60) % 60);
 // //  let sec = parseInt(diff % 60);
@@ -1244,8 +1244,8 @@ toast(tskami);
 // //      min = min % 60;
 // //  }
 
-  if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
-//   if(diff > 0) {vip = 2; };
+//  if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
+   if(diff > 0) {vip = 2; };
 var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";

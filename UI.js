@@ -1216,20 +1216,31 @@ var execution = "";
 var thread = null;
 Initialize();
 var shijian_yanzheng = {
-    "djh":20230618013300,// Date(2023, 6, 18, 1, 30, 0)
+    "djh":20230618014300,// Date(2023, 6, 18, 1, 30, 0)
     "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
     "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
     "运动": 45
     }
+    //补充为2位数
+function add0(m){
+	return m<10?'0'+m:m
+}
+
+//获取当天日期
+function get_today(){
+	var myDate = new Date();
+	// return `${myDate.getFullYear()}-${myDate.getMonth()+1}-${myDate.getDate()}`
+  return myDate.getFullYear()+add0(myDate.getMonth()+1)+add0(myDate.getDate())+add0(myDate.getHours())+add0(myDate.getSeconds())
+}
 let tskami = ui.ts_kami.text();
 toast(tskami);
 // 获取当前时间与目标时间的相差的秒数
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
- var diff = parseInt((targetDate - Date.now()) / 1000);
+ var diff = parseInt(targetDate - get_today());
  toast(diff);
  //toast(Date.now());
  toast(targetDate);
- toast(Date.now() + '// '+ targetDate);
+ toast(get_today() + '// '+ targetDate);
  //console.log(diff);
  }else var diff = -1;
 // //  let hour = parseInt(diff / 3600);

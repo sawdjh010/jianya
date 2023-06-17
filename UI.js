@@ -1233,14 +1233,14 @@ function get_today(){
   return myDate.getFullYear()+add0(myDate.getMonth()+1)+add0(myDate.getDate())+add0(myDate.getHours())+add0(myDate.getMinutes())+add0(myDate.getSeconds())
 }
 let tskami = ui.ts_kami.text();
-toast(tskami);
+//toast(tskami);
 // 获取当前时间与目标时间的相差的秒数
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt(targetDate - get_today());
  toast(diff);
  //toast(Date.now());
- toast(targetDate);
- toast(get_today() + '// '+ targetDate);
+ //toast(targetDate);
+ //(get_today() + '// '+ targetDate);
  //console.log(diff);
  }else var diff = -1;
 // //  let hour = parseInt(diff / 3600);

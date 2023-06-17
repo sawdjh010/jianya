@@ -1229,6 +1229,7 @@ var shijian_yanzheng = {
     "运动": 45
     }
 let tskami = ui.ts_kami.text();
+log(tskami);
 // 获取当前时间与目标时间的相差的秒数
 if(tskami){let targetDate = shijian_yanzheng[tskami];
 let diff = parseInt((targetDate - Date.now()) / 1000);

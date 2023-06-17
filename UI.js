@@ -1216,7 +1216,7 @@ var execution = "";
 var thread = null;
 Initialize();
 let tskami = ui.ts_kami.text();
-     if(tskami == 'djh') {vip = 2; };
+     if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
 
 var handling_access = handling_access();
 // 版本更新检查
@@ -1343,7 +1343,7 @@ ui.jiebang_ts_kami.on('click', () => {
         threads.start(ui.pjyJiebangFun);
         BH_KAMI_CONFIG.put("bh_kami", "");
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-     } else if(tskami == 'djh') {
+     } else if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {
         BH_KAMI_CONFIG.put("ts_kami", ui.ts_kami.getText() + "");
         toast('卡密保存成功');
         vip = 2;

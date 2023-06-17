@@ -1238,7 +1238,7 @@ let tskami = ui.ts_kami.text();
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt(targetDate - get_today());
  toastLog('将于'+ targetDate + '到期');
- toastLog(diff);
+// toastLog(diff);
  //toast(Date.now());
  //toast(targetDate);
  //(get_today() + '// '+ targetDate);

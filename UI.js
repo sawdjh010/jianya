@@ -1216,9 +1216,9 @@ var execution = "";
 var thread = null;
 Initialize();
 var shijian_yanzheng = {
-    "djh":20230618014800,// Date(2023, 6, 18, 1, 30, 0)
-    "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
-    "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
+    "djh":20250618014800,// Date(2023, 6, 18, 1, 30, 0)
+    "64fUu8SjWWJd": 20230808000000,//Date(2023, 8, 8, 0, 0, 0),
+    "u826pM5FarW4": 20240303000000,//Date(2024, 3, 3, 0, 0, 0),
     "运动": 45
     }
     //补充为2位数

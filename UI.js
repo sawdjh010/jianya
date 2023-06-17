@@ -1227,11 +1227,11 @@ toast(tskami);
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt((targetDate - Date.now()) / 1000);
  toast(diff);
- sleep(1000);
+ 
  toast(Date.now());
- sleep(1000);
+
  toast(targetDate);
- sleep(1000);
+
  toast(Date.now() + '// '+ targetDate);
  //console.log(diff);
  }else var diff = -1;

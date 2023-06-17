@@ -1215,37 +1215,37 @@ var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
 Initialize();
-var shijian_yanzheng = {
-    "djh": 20250614080000,//Date(2025, 6, 14, 8, 0, 0),
-    "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
-    "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
-    "每日": 20,
-    "趣味答题": 25,
-    "挑战": 25,
-    "四人": 25,
-    "双人": 25,
-    "订阅": 30,
-    "本地": 40,
-    "运动": 45
-    }
+// var shijian_yanzheng = {
+//     "djh": 20250614080000,//Date(2025, 6, 14, 8, 0, 0),
+//     "64fUu8SjWWJd": Date(2023, 8, 8, 0, 0, 0),
+//     "u826pM5FarW4": Date(2024, 3, 3, 0, 0, 0),
+//     "每日": 20,
+//     "趣味答题": 25,
+//     "挑战": 25,
+//     "四人": 25,
+//     "双人": 25,
+//     "订阅": 30,
+//     "本地": 40,
+//     "运动": 45
+//     }
 let tskami = ui.ts_kami.text();
-log(tskami);
+//log(tskami);
 // 获取当前时间与目标时间的相差的秒数
-if(tskami){let targetDate = shijian_yanzheng[tskami];
-let diff = parseInt((targetDate - Date.now()) / 1000);
-log(diff);
-}else var diff = -1;
-//  let hour = parseInt(diff / 3600);
-//  let min = parseInt((diff / 60) % 60);
-//  let sec = parseInt(diff % 60);
-//  let day = 0;
-//   if (min > 2) {
-//      day = parseInt(min / 60);
-//      min = min % 60;
-//  }
+// if(tskami){let targetDate = shijian_yanzheng[tskami];
+// let diff = parseInt((targetDate - Date.now()) / 1000);
+// log(diff);
+// }else var diff = -1;
+// //  let hour = parseInt(diff / 3600);
+// //  let min = parseInt((diff / 60) % 60);
+// //  let sec = parseInt(diff % 60);
+// //  let day = 0;
+// //   if (min > 2) {
+// //      day = parseInt(min / 60);
+// //      min = min % 60;
+// //  }
 
-  //   if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
-  if(diff > 0) {vip = 2; };
+  if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
+//   if(diff > 0) {vip = 2; };
 var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";

@@ -1234,6 +1234,7 @@ toast(tskami);
  if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt((targetDate - Date.now()) / 1000);
  toast(diff);
+ console.log(diff);
  }else var diff = -1;
 // //  let hour = parseInt(diff / 3600);
 // //  let min = parseInt((diff / 60) % 60);

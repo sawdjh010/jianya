@@ -1220,6 +1220,7 @@ var shijian_yanzheng = {
     "64fUu8SjWWJd": 20230808000000,//Date(2023, 8, 8, 0, 0, 0),
     "u826pM5FarW4": 20240303000000,//Date(2024, 3, 3, 0, 0, 0),年
     "ymALDfACNxGt": 20230811000000,//Date(2024, 3, 3, 0, 0, 0),
+    "BLRqZBqxRGDk": 20240318000000,//Date(2024, 3, 3, 0, 0, 0),
     "vFat4mnC6stC": 20230613000000,//Date(2024, 3, 3, 0, 0, 0),
     "9b3VbpW2JDzT": 20240303000000
     }
@@ -1382,7 +1383,7 @@ ui.jiebang_ts_kami.on('click', () => {
         threads.start(ui.pjyJiebangFun);
         BH_KAMI_CONFIG.put("bh_kami", "");
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-     } else if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {
+     } else if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd'||tskami == 'BLRqZBqxRGDk') {
         BH_KAMI_CONFIG.put("ts_kami", ui.ts_kami.getText() + "");
         toast('卡密保存成功');
        // vip = 2;

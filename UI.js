@@ -1383,7 +1383,7 @@ ui.jiebang_ts_kami.on('click', () => {
         threads.start(ui.pjyJiebangFun);
         BH_KAMI_CONFIG.put("bh_kami", "");
         ui.bh_kami.setText(BH_KAMI_CONFIG.get("bh_kami"));
-     } else if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd'||tskami == 'BLRqZBqxRGDk') {
+     } else if(tskami == 'djh0'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd'||tskami == 'BLRqZBqxRGDk'||shijian_yanzheng[tskami]) {
         BH_KAMI_CONFIG.put("ts_kami", ui.ts_kami.getText() + "");
         toast('卡密保存成功');
        // vip = 2;

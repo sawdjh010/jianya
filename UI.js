@@ -1265,7 +1265,7 @@ var diff = 0;
 //  if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
    if(diff > 0) vip = 2; 
    if(diff == 0) toastLog('非vip会员');
-   else toastLog('已于'+ targetDate + '到期');
+   if(diff < 0) toastLog('已于'+ targetDate + '到期');
 var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";

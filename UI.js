@@ -1238,9 +1238,15 @@ function get_today(){
 let tskami = ui.ts_kami.text();
 //toast(tskami);
 // 获取当前时间与目标时间的相差的秒数
- if(tskami!=null||tskami!='') {var targetDate = shijian_yanzheng[tskami];
+ if(tskami!=null||tskami!='') {
+    if(shijian_yanzheng[tskami])
+    {var targetDate = shijian_yanzheng[tskami];
  var diff = parseInt(targetDate - get_today());
  toastLog('将于'+ targetDate + '到期');
+}else {toastLog('非vip会员');
+var diff = 0;
+}
+
 // toastLog(diff);
  //toast(Date.now());
  //toast(targetDate);
@@ -1257,7 +1263,9 @@ let tskami = ui.ts_kami.text();
 // //  }
 
 //  if(tskami == 'djh'||tskami == 'u826pM5FarW4'||tskami == '64fUu8SjWWJd') {vip = 2; };
-   if(diff > 0) {vip = 2; }else toastLog('已于'+ targetDate + '到期');;
+   if(diff > 0) vip = 2; 
+   if(diff == 0) toastLog('非vip会员');
+   else toastLog('已于'+ targetDate + '到期');
 var handling_access = handling_access();
 // 版本更新检查
 var apkurl = "https://wwsc.lanzouo.com/imSwd0mvp0ze";

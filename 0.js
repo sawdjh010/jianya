@@ -1742,7 +1742,7 @@ function do_dingyue() {
          fInfo("上新/2023年上线--搜索中……");
          var t_1 = 468;
          var t_2 = 1199;
-         var arr = [1, 2];
+         var arr = [1, 6];
        }else{
         w = fInit();
       // fSet("title", "搜索‘强国号’订阅…");
@@ -1750,7 +1750,7 @@ function do_dingyue() {
        fInfo("强国号’-- 遍历搜索中………");
        var t_1 = 318;
        var t_2 = 150;
-     var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
+     var arr = [4, 3, 10, 35, 38, 4, 45, 44, 4, 1];
         }
   for (let i = 0; i < arr.length + 1; i++) {
     var asub_1 = parseInt(arr[i]);

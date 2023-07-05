@@ -1742,7 +1742,7 @@ function do_dingyue() {
          fInfo("上新/2023年上线--搜索中……");
          var t_1 = 468;
          var t_2 = 1199;
-         var arr = [1, 6];
+         var arr = [2, 6];
        }else{
         w = fInit();
       // fSet("title", "搜索‘强国号’订阅…");

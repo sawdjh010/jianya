@@ -430,6 +430,7 @@ function do_pinglun() {
   log("查找评论框");
   text_edit.waitFor();
   sleep(random(1400, 1600));
+  swipe(device_w / 2 + random(-7, 9), device_h * 0.8 + random(-4, 8), device_w / 2 + random(-5, 5), device_h * 0.5+random(-10, 15), random(900, 1100));
   while (text_edit.exists()) {
     let pinglun_edit = text_edit.findOne(500);
     fInfo("尝试点击评论框中");
@@ -438,13 +439,13 @@ function do_pinglun() {
     fRefocus();
   }
   fInfo("评论框click: true");
-  let content_list = ["全心全意为人民服务", "坚持学习","思想受礼，点赞","实事求是","不忘初心，牢记使命", "不忘初心，方得始终", "永远坚持党的领导","坚守一线，筑梦未来", "富强、民主、文明、和谐", "追梦，筑梦","自由，平等，公正，法治"];
+  let content_list = ["全心全意为人民服务", "坚持学习,全心全意为人民服务","思想受礼，点赞","实事求是,不忘初心","不忘初心，牢记使命", "不忘初心，方得始终", "永远坚持党的领导","坚守一线，筑梦未来", "富强、民主、文明、和谐", "不忘初心，追梦，筑梦","自由，平等，公正，法治"];
   classNameEndsWith("EditText").findOne().setText(content_list[random(0, content_list.length - 1)]);
-  sleep(random(800, 1200));
+  sleep(random(1070, 1400));
   text("发布").findOne().click();
-  sleep(random(800, 1200));
+  sleep(random(1030, 1560));
   text("删除").findOne().click();
-  sleep(random(800, 1200));
+  sleep(random(700, 1100));
   text("确认").findOne().click();
   sleep(random(800, 1200));
   //   // 下面是分享
@@ -1045,7 +1046,7 @@ function do_zhuanxiang() {
 /********挑战答题*********/
 function do_tiaozhan() {
  // entry_jifen_project("挑战答题");
- entry_model(jifen_map["挑战"]);
+ //entry_model(jifen_map["挑战"]);
   if (ddtong) {
     fSet("title", "挑战(dd通)…");d
   } else {
@@ -1176,7 +1177,7 @@ function do_duizhan1(renshu) {
   if (renshu == 2) {
     // 点击进入双人对战
     //entry_jifen_project("双人对战");
-    entry_model(jifen_map["双人"]);
+   // entry_model(jifen_map["双人"]);
     fSet("title", "双人对战");
     fInfo("等待随机匹配");
     text("随机匹配").waitFor();
@@ -1189,7 +1190,7 @@ function do_duizhan1(renshu) {
   } else if (4 == renshu || 0 == renshu) {
     // 点击进入四人赛
     //entry_jifen_project("四人赛");
-    entry_model(jifen_map["四人"]);
+   // entry_model(jifen_map["四人"]);
     fSet("title", "四人赛");
     // 等待开始比赛并点击
     fInfo("等待开始比赛");
@@ -1588,14 +1589,14 @@ function dacuo(renshu) {
   if (renshu == 2) {
     // 点击进入双人对战
    // entry_jifen_project("双人对战");
-   entry_model(jifen_map["双人"]);
+   //entry_model(jifen_map["双人"]);
     text("随机匹配").waitFor();
     sleep(1000);
     text("随机匹配").findOne().parent().child(0).click();
   } else if (renshu == 4) {
     // 点击进入四人赛
    // entry_jifen_project("四人赛");
-    entry_model(jifen_map["四人"]);
+   // entry_model(jifen_map["四人"]);
     // 等待开始比赛并点击
     fInfo("等待开始比赛");
     sleep(1000);

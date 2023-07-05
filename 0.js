@@ -3559,7 +3559,7 @@ function xxqg(userinfo) {
     qg_guanbi_thread.interrupt();
   }
    //检测趣味答题---当日答题类型
-   jifen_list_1();
+   jifen_list_2();
    log(myScores_1);
    log(myScores_2);
 

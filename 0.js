@@ -6,6 +6,7 @@ var myScores_2 = {}; //分数
 device.wakeUpIfNeeded();
 var meizhou_0 = true;
 var meizhou_end = 1;
+var quweidati = false;
 // 读取自定义配置
 var w = fInit();
 var BH_KAMI_CONFIG = storages.create("BH_KAMI_CONFIG");
@@ -412,7 +413,6 @@ sleep(2000);
 
 function do_pinglun() {
  // entry_jifen_project("发表观点");
-    sleep(1000);
   entry_model(jifen_map["评论"]);
   fSet("title", "评论…");
   fClear();
@@ -429,24 +429,24 @@ function do_pinglun() {
   let text_edit = text("欢迎发表你的观点");
   log("查找评论框");
   text_edit.waitFor();
-  sleep(1500);
+  sleep(random(1400, 1600));
   while (text_edit.exists()) {
     let pinglun_edit = text_edit.findOne(500);
     fInfo("尝试点击评论框中");
     log(pinglun_edit.click());
-    sleep(1500);
+    sleep(random(1400, 1600));
     fRefocus();
   }
   fInfo("评论框click: true");
   let content_list = ["全心全意为人民服务", "坚持学习","思想受礼，点赞","实事求是","不忘初心，牢记使命", "不忘初心，方得始终", "永远坚持党的领导","坚守一线，筑梦未来", "富强、民主、文明、和谐", "追梦，筑梦","自由，平等，公正，法治"];
   classNameEndsWith("EditText").findOne().setText(content_list[random(0, content_list.length - 1)]);
-  sleep(1000);
+  sleep(random(800, 1200));
   text("发布").findOne().click();
-  sleep(1000);
+  sleep(random(800, 1200));
   text("删除").findOne().click();
-  sleep(1000);
+  sleep(random(800, 1200));
   text("确认").findOne().click();
-  sleep(1000);
+  sleep(random(800, 1200));
   //   // 下面是分享
   //   for (let i=0; i<2; i++) {
   //     text_edit.findOne().parent().child(3).click();
@@ -3558,9 +3558,11 @@ function xxqg(userinfo) {
   if (qg_guanbi_thread.isAlive()) {
     qg_guanbi_thread.interrupt();
   }
+   //检测趣味答题---当日答题类型
    jifen_list_1();
    log(myScores_1);
    log(myScores_2);
+
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
@@ -3570,18 +3572,21 @@ function xxqg(userinfo) {
   true == meiri && "0" == myScores_2["每日答题"] && (toastLog("每日答题开始"), do_meiri());
   c = 1;
   //2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).text().match(/\d+/)[0]) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list_1 = jifen_list_1());
-  true == tiaozhan && "0" == myScores_2["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan());
-  if (ocr_test()) {
-    if (true == siren && "0" == myScores_2["四人赛"]) {
-      toastLog("四人赛开始");
-      guaji && do_duizhan1(0);
-      do_duizhan1(4);
-      do_duizhan1(4);
-      if (d = Number(dacuo_num))
-        for (fSet("title", "平衡胜率…"), fClear(), console.info("开始平衡胜率，答错次数：" + d), i = 0; i < d; i++) fInfo("答错第" + (i + 1) + "轮"), dacuo(4), fClear()
-    }
-    true == shuangren && "0" == myScores_2["双人对战"] && (toastLog("双人对战开始"), do_duizhan1(2))
-  } else true == siren && true == shuangren && sign_list.push("ocr_false");
+  //趣味答题
+  true == quweidati && (toastLog("趣味答题开始"),do_quweidati())
+  // true == tiaozhan && "0" == myScores_2["挑战答题"] && (toastLog("挑战答题开始"), do_tiaozhan());
+  // if (ocr_test()) {
+  //   if (true == siren && "0" == myScores_2["四人赛"]) {
+  //     toastLog("四人赛开始");
+  //     guaji && do_duizhan1(0);
+  //     do_duizhan1(4);
+  //     do_duizhan1(4);
+  //     if (d = Number(dacuo_num))
+  //       for (fSet("title", "平衡胜率…"), fClear(), console.info("开始平衡胜率，答错次数：" + d), i = 0; i < d; i++) fInfo("答错第" + (i + 1) + "轮"), dacuo(4), fClear()
+  //   }
+  //   true == shuangren && "0" == myScores_2["双人对战"] && (toastLog("双人对战开始"), do_duizhan1(2))
+  // } else true == siren && true == shuangren && sign_list.push("ocr_false");
+ 
   true == bendi && "已完成" != myScores_1["本地频道"] && (toastLog("本地开始"), do_bendi());
   true == yundong && "已完成" != myScores_1["强国运动"] && (toastLog("强国运动"), do_yundong());
   d = 1;
@@ -3998,11 +4003,7 @@ try {
   //     b = className("android.widget.Image").textStartsWith("total").findOne().parent();
      ran_sleep();
      back();
-            ran_sleep();
-            sleep(1000);
-            if(text("退出").exists()||textStartsWith("退出").exists()) text("退出").findOne(3000).click();
-            sleep(1500);
-            ran_sleep();
+     ran_sleep();
   //   text("开始比赛").waitFor();//四人赛
   //   sleep(1000);
   //   let start_click = text("开始比赛").findOne().click();
@@ -4020,7 +4021,7 @@ try {
       }
       function do_quweidati() {
         entry_model(jifen_map["趣味答题"]);
-          sleep(2000);
+          sleep(2500);
           while (!(text("开始比赛").exists()||text("挑战答题").exists()||text("开始对战").exists()||text("时事政治").exists()||text("随机匹配").exists()||text("规则说明").exists()||textStartsWith("total").exists())) {
             sleep(700);
           }
@@ -4030,3 +4031,34 @@ try {
         else if(textStartsWith("total").exists()||text("时事政治").exists()||text("挑战答题").exists()){do_tiaozhan()}
      ran_sleep();
        }
+       function jifen_list_2() {
+        sleep(2000);
+      try {
+                  className("android.widget.ListView").findOnce().children().forEach(item => {
+                      var name;
+                      var name_1;
+                      var name_2;
+                      try {
+                          name = item.child(0).child(0).text();
+                          name_1 = item.child(3).child(2).text();
+                          name_2 = item.child(4).text();
+                      } catch (e) {
+                          name = item.child(0).text();
+                          name_1 = item.child(3).child(2).text();
+                          name_2 = item.child(4).text();
+                      }
+                      let str = item.child(3).child(0).text().substring(0,5).split("/");
+                     //let str_1 = item.child(3).child(0).text().substring(0,5).split("/");
+                     //let score = str[0].match(/[0-9][0-9]*/g);
+                      let score = str[0].match(/[0-9][0-9]*/g);
+                 //   log("分值"+score)
+                      myScores_2[name] = score;
+                      myScores_1[name] = name_2;
+                  });
+                 
+              } catch (e) {
+                  console.log(e);
+              }
+              if(myScores_2['趣味答题']!= null && myScores_2['趣味答题']== 0) quweidati = true;
+               
+            }

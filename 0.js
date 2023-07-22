@@ -3089,9 +3089,13 @@ let qg_guanbi_thread = threads.start(function () {
     click( btn.bounds().centerX(), btn.bounds().centerX());
     press(btn.bounds().centerX(), btn.bounds().centerX(),100)
     swipe(btn.bounds().centerX()+50, btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    swipe(btn.bounds().centerX()+100, btn.bounds().centerY()-80, btn.bounds().centerX() + 100, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    
+    fInfo("检测到兼容性弹窗--已关闭应用");
+    toastLog("检测到兼容性弹窗--已关闭应用");
   }
-  fInfo("检测到兼容性弹窗--已关闭应用");
-  toastLog("检测到兼容性弹窗--已关闭应用");
+  // fInfo("检测到兼容性弹窗--已关闭应用");
+  // toastLog("检测到兼容性弹窗--已关闭应用");
 });
 return qg_guanbi_thread;
 }

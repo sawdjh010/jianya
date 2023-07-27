@@ -3481,13 +3481,16 @@ function xxqg(userinfo) {
     // sleep(1250); 
     // queryList_1(find(),"登录");
   }
-  var qg_guanbi_thread = qg_guanbi();
+  
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)
  //fInfo("等待首页---我的");
- if(text("我的").findOne(5000).click()){
+ if(text("我的").findOne(7000)) text("我的").findOne(5000).click();
+ else{
+  var qg_guanbi_thread = qg_guanbi();
  swipe(device_w / 2 + random(-5, 10), device_h * 0.3+random(-3, 3), device_w / 2+random(-5, 7), device_h * 0.4+random(-7, 5), random(950, 1100));
-  text("我的").findOne().click();}
+ text("我的").findOne().click();
+     } 
   fInfo("检测界面……?新?旧 " + "\n   此处时间可能略长耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);

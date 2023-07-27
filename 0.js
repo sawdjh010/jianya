@@ -3481,6 +3481,7 @@ function xxqg(userinfo) {
     // sleep(1250); 
     // queryList_1(find(),"登录");
   }
+  var qg_guanbi_thread = qg_guanbi();
   /********获取用户姓名并读取本地数据*********/
  // fInfo("vip:" + vip)
  //fInfo("等待首页---我的");

@@ -3581,8 +3581,11 @@ function xxqg(userinfo) {
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
-  qg_guanbi_thread.isAlive() && (qg_guanbi_thread.interrupt(),fInfo("终止兼容检测"));
-
+ //qg_guanbi_thread.isAlive() && (qg_guanbi_thread.interrupt(),fInfo("终止兼容检测"));
+if (qg_guanbi_thread.isAlive()) {
+    qg_guanbi_thread.interrupt();
+    fInfo("终止兼容检测");
+  }
   true == pinglun && ("0" == myScores_2["发表观点"]) && (toastLog("开始评论"), do_pinglun());
   true == shipin && "已完成" != myScores_1["我要视听学习"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin());
   true == wenzhang && "已完成" != myScores_1["我要选读文章"] && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang());

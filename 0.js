@@ -3433,6 +3433,37 @@ if (lCount == 0) { zhuanxiang = 0;
 
 function xxqg(userinfo) {
   var sign_list = [];
+  fInfo("开始'qg兼容性'弹窗检测");
+  var qg_guanbi_thread = threads.start(function () {
+    //在新线程执行的代码
+    sleep(500);
+    fInfo("检测qg兼容性--‘关闭应用’弹窗");
+    var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
+    if (btn) {
+      sleep(1000);
+      click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
+      press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
+      swipe(btn.bounds().centerX()+50+random(-3, 6), btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+      swipe(btn.bounds().centerX()+100, btn.bounds().centerY()-80, btn.bounds().centerX() + 100, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+      
+      fInfo("检测到兼容性弹窗---已关闭应用");
+      toastLog("检测到兼容性弹窗---已关闭应用");
+    }
+    sleep(500);
+    var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
+    if (btn) {
+      sleep(1000);
+      click( btn.bounds().centerX(), btn.bounds().centerX());
+      press(btn.bounds().centerX(), btn.bounds().centerX(),100)
+      swipe(btn.bounds().centerX()+50, btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+      swipe(btn.bounds().centerX()+100, btn.bounds().centerY()-80, btn.bounds().centerX() + 100, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+      
+      fInfo("检测到兼容性弹窗--已关闭应用");
+      toastLog("检测到兼容性弹窗--已关闭应用");
+    }
+    // fInfo("检测到兼容性弹窗--已关闭应用");
+    // toastLog("检测到兼容性弹窗--已关闭应用");
+  });
   fInfo("开始更新弹窗检测");
   // console.show()
   // console.info("开始更新弹窗检测")
@@ -3570,9 +3601,9 @@ function xxqg(userinfo) {
      }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
-  if (qg_guanbi_thread.isAlive()) {
-    qg_guanbi_thread.interrupt();
-  }
+  // if (qg_guanbi_thread.isAlive()) {
+  //   qg_guanbi_thread.interrupt();
+  // }
    //检测趣味答题---当日答题类型
    jifen_list_2();
    log(myScores_1);
@@ -3581,7 +3612,7 @@ function xxqg(userinfo) {
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
- //qg_guanbi_thread.isAlive() && (qg_guanbi_thread.interrupt(),fInfo("终止兼容检测"));
+  qg_guanbi_thread.isAlive() && (qg_guanbi_thread.interrupt(),fInfo("终止兼容检测"));
 // if (qg_guanbi_thread.isAlive()) {
 //     qg_guanbi_thread.interrupt();
 //     fInfo("终止兼容检测");

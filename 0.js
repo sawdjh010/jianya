@@ -293,8 +293,9 @@ fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
 fInfo("检测题库更新");//https://fastly.jsdelivr.net/gh/OuO-dodo/tiku@master/info.json
-const update_info = get_tiku_by_http("https://gh.api.99988866.xyz/https://github.com/OuO-dodo/tiku/blob/master/info.json");
-fInfo("稍等");
+const update_info = get_tiku_by_http("https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/info.json");
+//const update_info = get_tiku_by_http("https://gh.api.99988866.xyz/https://github.com/OuO-dodo/tiku/blob/master/info.json");
+fInfo("稍等……");
 //const update_info = get_tiku_by_http("https://ghproxy.com/https://github.com/OuO-dodo/tiku/blob/master/info.json");
 if (!(update_info.statusCode >= 200 && update_info.statusCode < 300)){update_info = {
   "dati_tiku_version" : 20230121,

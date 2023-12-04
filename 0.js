@@ -419,6 +419,11 @@ function do_pinglun() {
   entry_model(jifen_map["评论"]);
   fSet("title", "评论…");
   fClear();
+  if(text("亮点").findOne(2000)) text("亮点").findOne(2000).parent().parent().child(3).click();
+  my_click_non_clickable("主题教育");
+  if(text("主题教育").findOne()) text("主题教育").findOne().parent().parent().click();
+  else queryList_1(find(),"主题教育");
+  delay(2);
   sleep(1000);
   swipe(device_w / 2+random(-5, 6), device_h * 0.7+random(-7, 10), device_w / 2+random(-6, 6), device_h * 0.4+random(-4, 4), random(950, 1100));
   id("general_card_title_id").findOne().parent().parent();
@@ -552,14 +557,14 @@ function do_wenzhang() {
     fSet("title", "选读文章…");
   }
   fClear();
-  fInfo("切换地区为北京");
+  fInfo("切换地区为上海");
   if(text("亮点").findOne(2000)) text("亮点").findOne(2000).parent().parent().child(5).click();
-  my_click_non_clickable("北京");
+  my_click_non_clickable("上海");
   delay(2);
-  my_click_non_clickable("北京");
+  my_click_non_clickable("上海");
   text("切换地区").findOne(3000);
   let beijing_2 =className("android.widget.TexitView").depth(17).find();
-  queryList_1(beijing_2,"北京");
+  queryList_1(beijing_2,"上海");
   
   if (text("立即切换").exists()) {
     text("取消").findOne(3000).click();
@@ -574,24 +579,24 @@ function do_wenzhang() {
     fInfo("手动点击切换地区");
     text("亮点").findOne(2000).parent().parent().child(5).click();
   }
-  log("查找北京");
-  text("北京").waitFor();
+  log("查找上海");
+  text("上海").waitFor();
   sleep(500);exit
-  log("切换北京");
-  if(text("北京").findOne()) text("北京").findOne().parent().parent().click();
-  else queryList_1(find(),"北京");
+  log("切换上海");
+  if(text("上海").findOne()) text("上海").findOne().parent().parent().click();
+  else queryList_1(find(),"上海");
   log("查找banner");
   //let banner = className("android.support.v7.widget.RecyclerView").findOne();
   let banner = classNameContains("RecyclerView").findOne();
-  fInfo("查找北京新闻广播");
+  fInfo("查找上海新闻广播");
   //fRefocus();
-  while (banner.findOne(text("北京新闻广播").boundsInside(0, 0, device_w, device_h)) == null) {
+  while (banner.findOne(text("上海新闻广播").boundsInside(0, 0, device_w, device_h)) == null) {
     banner.scrollForward();
     sleep(500);
   }
-  last_obj = banner.findOne(text("北京新闻广播"));
+  last_obj = banner.findOne(text("上海新闻广播"));
   //   fInfo("点击北京新闻广播", text("北京新闻广播").findOne().parent().click());
-  fInfo("点击北京新闻广播：" + last_obj.parent().click());
+  fInfo("点击上海新闻广播：" + last_obj.parent().click());
   fInfo("视听广播时长");
   sleep(11500);
   back();
@@ -601,13 +606,13 @@ function do_wenzhang() {
   sleep(1500);
   banner = classNameContains("RecyclerView").findOne();
   //log(banner);
-  while (banner.findOne(text("北京学习平台").boundsInside(0, 0, device_w, device_h)) == null) {
+  while (banner.findOne(text("上海学习平台").boundsInside(0, 0, device_w, device_h)) == null) {
     banner.scrollBackward();
     sleep(500);
   }
   sleep(1000);
-  fInfo("查找北京学习平台，尝试点击");
-  first_obj = banner.findOne(text("北京学习平台"));
+  fInfo("查找上海学习平台，尝试点击");
+  first_obj = banner.findOne(text("上海学习平台"));
   //   while (!text("北京学习平台").findOne().parent().click()) {log("click: false");}
   //   log("click: true");
   //   real_click(text("北京学习平台").findOne().parent());
@@ -616,7 +621,7 @@ function do_wenzhang() {
   sleep(1000);
   text("新思想扎根京华").waitFor();
   sleep(1000);
-  let swipe_y = text("新思想扎根京华").findOne().parent().parent().bounds().bottom;
+  let swipe_y = text("学用新思想").findOne().parent().parent().bounds().bottom;
   log("识别出顶部：", swipe_y);
   fRefocus();
   let listview = className("android.widget.ListView").depth(17).findOne();
@@ -2552,6 +2557,10 @@ function get_tiku_by_http(link) {
   if (!link) {
    // link = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json.txt"
    link ="https://gh.api.99988866.xyz/https://github.com/OuO-dodo/tiku/blob/master/info.json"
+   if (!link) {
+    // link = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json.txt"
+    link ="https://ghproxy.com/https://github.com/OuO-dodo/tiku/blob/master/info.json"
+   }
   }
   let req = http.get(link, {
     headers: {

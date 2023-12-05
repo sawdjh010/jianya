@@ -1995,7 +1995,8 @@ function startDownload(url) {
 }
 function getScript(choice) {
     let url_prefix = [
-        'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+        //'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://githubfast.com/sawdjh010/jianya/blob/main/',
         'https://521github.com/sawdjh010/jianya/blob/main/',
        'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/',
        'https://gh.api.99988866.xyz/https://github.com/sawdjh010/jianya/blob/main/',

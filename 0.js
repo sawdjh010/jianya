@@ -619,7 +619,7 @@ function do_wenzhang() {
   real_click(first_obj.parent());
   log("等待加载");
   sleep(1000);
-  text("新思想扎根京华").waitFor();
+  text("学用新思想").waitFor();
   sleep(1000);
   let swipe_y = text("学用新思想").findOne().parent().parent().bounds().bottom;
   log("识别出顶部：", swipe_y);

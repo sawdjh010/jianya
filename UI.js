@@ -668,7 +668,7 @@ ui.layout(
                                         <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="12sp" maxLines="1" />
                                         <text text="(QG最新版)去截图权限版，需配合root或虚拟机等使用" textColor="#999999" textSize="10sp" maxLines="1" />
                                     </vertical>
-                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)去截图权限版|天天向上Pro|天天向上|Study改" />
+                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)去截图权限版|天天向上Pro|天天向上|Study改|本地脚本" />
                                 </horizontal>
                             </card>
                             <card w="*" h="60" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
@@ -1508,6 +1508,12 @@ var script_chosen_Listener = new android.widget.AdapterView.OnItemSelectedListen
             ui.ttxs.visibility = 8;
             ui.study.visibility = 0;
         }
+        else if (ui.script_chosen.getSelectedItemPosition() == 4) {
+            ui.ttxs.visibility = 8;
+            ui.study.visibility = 8;
+            ui.ttxs_pro.visibility = 0;
+           
+        }
         GLOBAL_CONFIG.put("script_chosen", ui.script_chosen.getSelectedItemPosition());
     }
 })
@@ -1612,10 +1618,13 @@ ui.start.click(function () {
 
     threads.start(function () {
         if (vip == 1|| vip == 2){
-            execution = engines.execScript("学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));
+            if(ui.script_chosen.getSelectedItemPosition() == 4 && files.exists("/sdcard/xxqg/0.js")) {engines.execScriptFile("/sdcard/xxqg/0.js");log('运行本地脚本:/sdcard/xxqg/0.js');}
+           else{ execution = engines.execScript("热更--学习减压", getScript(ui.script_chosen.getSelectedItemPosition()));
        if(vip == 1) toast('试用期5天后需要你的赞助') 
        if(vip == 2) toast('感谢赞助与支持，欢迎登录使用') 
-        }
+       log(execution);
+       
+        }}
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
         
@@ -1996,7 +2005,11 @@ function startDownload(url) {
 function getScript(choice) {
     let url_prefix = [
         //'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://gh.ddlc.top/https://github.com/sawdjh010/jianya/blob/main/',
         'https://githubfast.com/sawdjh010/jianya/blob/main/',
+        'https://cdn.jsdelivr.net/gh/sawdjh010/jianya@main/',
+        'https://mirror.ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://ghps.cc/https://github.com/sawdjh010/jianya/blob/main/',
         'https://521github.com/sawdjh010/jianya/blob/main/',
        'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/',
        'https://gh.api.99988866.xyz/https://github.com/sawdjh010/jianya/blob/main/',

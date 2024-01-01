@@ -557,6 +557,8 @@ function do_wenzhang() {
     fSet("title", "选读文章…");
   }
   fClear();
+  sleep(2000);
+  if(!text("上海").findOne(3000)){
   fInfo("切换地区为上海");
   if(text("亮点").findOne(2000)) text("亮点").findOne(2000).parent().parent().child(5).click();
   my_click_non_clickable("上海");
@@ -585,6 +587,7 @@ function do_wenzhang() {
   log("切换上海");
   if(text("上海").findOne()) text("上海").findOne().parent().parent().click();
   else queryList_1(find(),"上海");
+  }
   log("查找banner");
   //let banner = className("android.support.v7.widget.RecyclerView").findOne();
   let banner = classNameContains("RecyclerView").findOne();
@@ -3087,16 +3090,27 @@ let qg_guanbi_thread = threads.start(function () {
   //在新线程执行的代码
   sleep(500);
   fInfo("检测qg兼容性--‘关闭应用’弹窗");
-  var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);
+  var btn = className("android.widget.Button").textMatches(/关闭应用/).findOne(5000);
   if (btn) {
     sleep(1000);
-    click( btn.bounds().centerX() + 50, btn.bounds().centerX() - 50);
-    press(btn.bounds().centerX() + 50, btn.bounds().centerX() - 50,100)
-    swipe(btn.bounds().centerX()+50+random(-3, 6), btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
-    swipe(btn.bounds().centerX()+100, btn.bounds().centerY()-80, btn.bounds().centerX() + 100, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    click( btn.bounds().centerX(), btn.bounds().centerY());
+    press(btn.bounds().centerX() , btn.bounds().centerY(),100)
+    // swipe(btn.bounds().centerX()+random(-3, 6), btn.bounds().centerY(), btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    // swipe(btn.bounds().centerX()+100, btn.bounds().centerY(), btn.bounds().centerX() + 100, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
     
     fInfo("检测到兼容性弹窗---已关闭应用");
     toastLog("检测到兼容性弹窗---已关闭应用");
+  }else {var btn = className("android.widget.Button").textMatches(/应用信息/).findOne(5000);
+  if (btn) {
+    sleep(1000);
+    click( btn.bounds().centerX(), btn.bounds().centerY()+50);
+    press(btn.bounds().centerX() , btn.bounds().centerY()+50,100)
+    // swipe(btn.bounds().centerX()+random(-3, 6), btn.bounds().centerY()-70, btn.bounds().centerX() + 50, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    // swipe(btn.bounds().centerX()+100, btn.bounds().centerY()-80, btn.bounds().centerX() + 100, btn.bounds().centerY()-100, random(800, 1200)); // 下滑动
+    
+    fInfo("检测到兼容性弹窗---已关闭应用");
+    toastLog("检测到兼容性弹窗---已关闭应用");
+  }
   }
   sleep(500);
   var btn = className("android.widget.Button").textMatches(/关闭应用|应用信息|“学习强国”屡次停止运行|"学习强国"屡次停止运行/).findOne(5000);

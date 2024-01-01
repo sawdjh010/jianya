@@ -2006,23 +2006,21 @@ function getScript(choice) {
     let url_prefix = [
         //'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
         'https://gh.ddlc.top/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://ghps.cc/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://mirror.ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/',
+        'https://ghps.cc/https://raw.githubusercontent.com/sawdjh010/jianya/main/',
+        'https://mirror.ghproxy.com/https://raw.githubusercontent.com/sawdjh010/jianya/main/',
         'https://githubfast.com/sawdjh010/jianya/blob/main/',
         'https://cdn.jsdelivr.net/gh/sawdjh010/jianya@main/',
-        'https://mirror.ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/',
-        'https://ghps.cc/https://github.com/sawdjh010/jianya/blob/main/',
         'https://521github.com/sawdjh010/jianya/blob/main/',
        'https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/',
        'https://gh.api.99988866.xyz/https://github.com/sawdjh010/jianya/blob/main/',
        'https://gh-proxy.com/https://github.com/sawdjh010/jianya/blob/main/',
        'https://gh-proxy.com/https://raw.githubusercontent.com/sawdjh010/jianya/blob/main/',
-       'https://githubfast.com/sawdjh010/jianya/blob/main/',
-       'https://521github.com/sawdjh010/jianya/blob/main/',
        'https://github.com/sawdjh010/jianya/blob/main/',
        'https://raw.githubusercontent.com/sawdjh010/jianya/blob/main/',
        'https://gitee.com/zuguo01/xiangdao/blob/master/',
-        "https://ghproxy.com/https://github.com/sawdjh010/jianya/blob/main/",
         'https://cdn.jsdelivr.net/gh/sawdjh010/jianya/blob@main/',
-        'https://raw.githubusercontent.com/sawdjh010/jianya/blob/main/',
     ];
     for (var i = 0; i < url_prefix.length; i++) {
         try {
